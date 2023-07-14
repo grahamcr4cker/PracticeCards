@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://3io0i02rwvm2"]
+
+[ext_resource type="Script" path="res://card_stacker component.gd" id="1_nakrr"]
+
+[node name="two_of_maces" type="Sprite2D"]
+
+[node name="CARD_STACKER" type="Node" parent="."]
+script = ExtResource("1_nakrr")
+card_rank = "Two"
+card_suit = "Weapon"
+stack_effect = "Stack: Concuss
+
+When you build a stack of clubs while wielding a mace, you wallop a target, dealing 5 damage and inflicting them with the Dazed status effect for a number of rounds equal to your Level bonus. If you use Concuss on a target  that is already Dazed, they become stunned for the remaining duration. "
+damage = 5
+phys_damage_types = 2
+neg_status_effects = 32
+rounds_active = 1

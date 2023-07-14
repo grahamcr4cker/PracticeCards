@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://bca13qt5j0fxh"]
+
+[ext_resource type="Script" path="res://card_stacker component.gd" id="1_ujt67"]
+
+[node name="seven_of_light_armor" type="Sprite2D"]
+
+[node name="CARD_STACKER" type="Node" parent="."]
+script = ExtResource("1_ujt67")
+card_rank = "Seven"
+card_value = 7
+card_suit = "Armor"
+stack_effect = "Stacks: Quick Strike
+
+When you build a stack of diamonds, you immediately make a weapon attack. If the weapon attack hits, you deal additional damage equal to the number of cards in the stack."
+phys_damage_types = 0
+neg_status_effects = 0
+rounds_active = 1

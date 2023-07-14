@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://bem2vvioxftro"]
+
+[ext_resource type="Script" path="res://card_face component.gd" id="1_tu0w0"]
+
+[node name="jack_of_cures" type="Sprite2D"]
+
+[node name="CARD_FACE" type="Node" parent="."]
+script = ExtResource("1_tu0w0")
+card_rank = "Jack"
+card_suit = "Class 1"
+Description = "Jack: Warding Light
+
+As an action, you play this Jack, which stays in play until your next shuffle. When you build a Cures or Suns stack while this card is in play, you heal yourself or an ally for 1d10 hit points. When you shuffle, you become Warded until the end of your next turn. "
+healing = 1
+phys_damage_types = 0
+pos_status_effects = 32
+neg_status_effects = 0

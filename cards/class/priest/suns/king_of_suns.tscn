@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://b58ll0tnyptnh"]
+
+[ext_resource type="Script" path="res://card_face component.gd" id="1_4njlv"]
+
+[node name="king_of_suns" type="Sprite2D"]
+
+[node name="CARD_FACE" type="Node" parent="."]
+script = ExtResource("1_4njlv")
+card_rank = "King"
+card_suit = "Class 2"
+Description = "King: Star's Wrath
+
+As an action, you play this King, which stays in play for a number of rounds equal to your level bonus. While this card is in play, building a stack of Suns causes every target of your choice to be damaged by your Solar Flare."
+phys_damage_types = 0
+arc_damage_types = 0
+pos_status_effects = 0
+neg_status_effects = 0

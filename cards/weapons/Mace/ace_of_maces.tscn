@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnaty10copd23"]
+
+[ext_resource type="Script" path="res://card_face component.gd" id="1_xdbqy"]
+
+[node name="ace_of_maces" type="Sprite2D"]
+
+[node name="CARD_FACE" type="Node" parent="."]
+script = ExtResource("1_xdbqy")
+card_rank = "Ace"
+card_suit = "Weapon"
+Description = "Ace: Flanged Whirlwind
+
+As an action, you play this Ace. Every Dazed or Stunned target of your choice takes 5 damage, and you gain the Enraged status effect until the end of your next turn."
+damage = 5
+phys_damage_types = 2
+pos_status_effects = 1
+neg_status_effects = 0

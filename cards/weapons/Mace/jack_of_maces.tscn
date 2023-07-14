@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0e0hi66qx4c4"]
+
+[ext_resource type="Script" path="res://card_face component.gd" id="1_ak16r"]
+
+[node name="jack_of_maces" type="Sprite2D"]
+
+[node name="CARD_FACE" type="Node" parent="."]
+script = ExtResource("1_ak16r")
+card_rank = "Jack"
+card_suit = "Weapon"
+Description = "Jack: Follow up
+
+As an action, you can play this Jack to immediately make a weapon attack against a target that is Dazed. "

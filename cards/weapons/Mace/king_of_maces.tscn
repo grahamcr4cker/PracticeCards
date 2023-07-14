@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cocv5embifqb"]
+
+[ext_resource type="Script" path="res://card_face component.gd" id="1_6h4rt"]
+
+[node name="king_of_maces" type="Sprite2D"]
+
+[node name="CARD_FACE" type="Node" parent="."]
+script = ExtResource("1_6h4rt")
+card_rank = "King"
+card_suit = "Weapon"
+Description = "King: Blackout
+
+As a reaction to hitting with a weapon attack, you play this King and inflict the target with the Dazed status effect for a number of rounds equal to your Level bonus. If the target is already Dazed, you instead stun them until the end of their next turn."
+neg_status_effects = 1056

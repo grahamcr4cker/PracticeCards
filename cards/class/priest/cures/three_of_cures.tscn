@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxl8r0s406gue"]
+
+[ext_resource type="Script" path="res://card_stacker component.gd" id="1_74qxm"]
+
+[node name="three_of_cures" type="Sprite2D"]
+
+[node name="CARD_STACKER" type="Node" parent="."]
+script = ExtResource("1_74qxm")
+card_rank = "Three"
+card_value = 3
+card_suit = "Class 1"
+stack_effect = "Stacks: Curative Touch
+
+When you build a stack of cures, you heal yourself or an ally for an amount of hit points equal to your level bonus + the number of cards in the stack. "
+healing = 1
+phys_damage_types = 0
+neg_status_effects = 0

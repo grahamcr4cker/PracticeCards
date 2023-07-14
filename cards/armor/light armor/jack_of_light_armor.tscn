@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://c35l54j5yeph1"]
+
+[ext_resource type="Script" path="res://card_face component.gd" id="1_jc33w"]
+
+[node name="jack_of_heavy_armor" type="Sprite2D"]
+
+[node name="CARD_FACE" type="Node" parent="."]
+script = ExtResource("1_jc33w")
+card_rank = "Jack"
+card_suit = "Armor"
+Description = "Jack: Shining Armor
+
+You use your armor to reflect an attack back to its source. As a reaction to taking damage, you play this Jack. You take no damage, and the enemy that dealt the damage to you takes the damage instead."
+phys_damage_types = 0
+pos_status_effects = 0
+neg_status_effects = 0

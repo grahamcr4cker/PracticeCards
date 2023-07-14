@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://db8xpw73hlya2"]
+
+[ext_resource type="Script" path="res://card_face component.gd" id="1_o17xm"]
+
+[node name="king_of_heavy_armor" type="Sprite2D"]
+
+[node name="CARD_FACE" type="Node" parent="."]
+script = ExtResource("1_o17xm")
+card_rank = "King"
+card_suit = "Armor"
+Description = "King: Exhausting Defense
+
+As an action, you play this King, which stays in play until your next shuffle. While this King is in play, every target Taunted by you is also inflicted with the Weakened status effect."
+phys_damage_types = 0
+pos_status_effects = 0
+neg_status_effects = 0

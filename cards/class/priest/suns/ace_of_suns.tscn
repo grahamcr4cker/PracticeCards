@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://e5vgibivwdy6"]
+
+[ext_resource type="Script" path="res://card_face component.gd" id="1_wq2l0"]
+
+[node name="ace_of_suns" type="Sprite2D"]
+
+[node name="CARD_FACE" type="Node" parent="."]
+script = ExtResource("1_wq2l0")
+card_rank = "Ace"
+card_suit = "Class 2"
+Description = "Ace: Divine Retribution
+
+As an action, you play this Ace, which remains in play until your next shuffle. While this Ace is in play, any time you remove a status effect from an enemy or an ally, you can deal Sun damage equal to your Level Bonus to all targets of your choice."
+damage = 1
+phys_damage_types = 0
+arc_damage_types = 8
+pos_status_effects = 0
+neg_status_effects = 0

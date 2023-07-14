@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqgygukya6t11"]
+
+[ext_resource type="Script" path="res://card_face component.gd" id="1_1awtv"]
+
+[node name="queen_of_maces" type="Sprite2D"]
+
+[node name="CARD_FACE" type="Node" parent="."]
+script = ExtResource("1_1awtv")
+card_rank = "Queen"
+card_suit = "Weapon"
+Description = "Queen: Crushing Offense
+
+As an action, you play this Queen and exploit your Dazed foes. The Queen is in play for a number of rounds equal to your Level Bonus, and while it is in play, your weapon attacks have advantage on Dazed targets."
