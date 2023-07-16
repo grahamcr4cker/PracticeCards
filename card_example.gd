@@ -10,9 +10,18 @@ var id
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	var card_front = get_node("CardFront")
+	card_front.texture = card_texture
+	var card_back = get_node("CardBack")
+	if front_face:
+		card_front.visible = true
+		card_back.visible = false
+	else:
+		card_front.visible = false
+		card_back.visible = true
 	CardActions.connect("card_played", was_i_played)
 	id = randi() % 999999
-	get_node("CardFront").texture = card_texture
+	
 
 func _gui_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
@@ -30,6 +39,7 @@ func _get_drag_data(_at_position):
 	var data = {}
 	data["id"] = id
 	data["texture"] = card_texture
+	data["front_face"] = front_face
 	
 	var drag_preview = duplicate()
 	drag_preview.modulate.a = .5
