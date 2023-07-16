@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://ceoxtrcd75ry0"]
+
+[ext_resource type="Texture2D" uid="uid://cfowf8rewgvln" path="res://assets/card_back.png" id="1_4hnxt"]
+[ext_resource type="Script" path="res://TextureButton.gd" id="2_m2uq6"]
+
+[node name="Deck" type="TextureButton"]
+offset_top = 72.0
+offset_right = 64.0
+offset_bottom = 136.0
+texture_normal = ExtResource("1_4hnxt")
+script = ExtResource("2_m2uq6")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_top = -2.0
+offset_right = 64.0
+offset_bottom = 62.0
+texture = ExtResource("1_4hnxt")
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect"]
+layout_mode = 0
+offset_top = -2.0
+offset_right = 64.0
+offset_bottom = 62.0
+texture = ExtResource("1_4hnxt")

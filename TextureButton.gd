@@ -19,15 +19,15 @@ func _ready():
 					card_img = card_img.replace("13", "K")
 				_:
 					pass
-			print("card res: %s" % card_img)
 			var card = preload("res://card_example.tscn").instantiate()
 			card.card_texture = load(card_img)
 			deck.append(card)
 	deck.shuffle()
 	
 func _on_button_pressed():
-	CardActions.emit_signal("draw_card", deck.pop_back())
-	print("deck size: %d", deck.size())
+	print("draw card")
+	var drawn_card = deck.pop_back()
+	CardActions.emit_signal("draw_card", drawn_card)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

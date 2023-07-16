@@ -1,12 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://b6bgeawj2bra4"]
+[gd_scene load_steps=7 format=3 uid="uid://b6bgeawj2bra4"]
 
 [ext_resource type="Script" path="res://new-scene-kid.gd" id="1_tijsr"]
 [ext_resource type="Script" path="res://CenterContainer.gd" id="2_kw3fa"]
 [ext_resource type="PackedScene" uid="uid://djtmvqeys8ndx" path="res://card_example.tscn" id="3_8x0ra"]
 [ext_resource type="Script" path="res://Hand.gd" id="4_4ulkb"]
+[ext_resource type="PackedScene" uid="uid://ceoxtrcd75ry0" path="res://deck.tscn" id="6_m270l"]
 [ext_resource type="Script" path="res://Button.gd" id="9_fhn8r"]
-[ext_resource type="Texture2D" uid="uid://cfowf8rewgvln" path="res://assets/card_back.png" id="11_krwuf"]
-[ext_resource type="Script" path="res://TextureButton.gd" id="13_21tak"]
 
 [node name="new-scene-kid" type="Control"]
 layout_mode = 3
@@ -18,17 +17,19 @@ grow_vertical = 2
 script = ExtResource("1_tijsr")
 
 [node name="BackgroundDropZone" type="ColorRect" parent="."]
-layout_mode = 0
-offset_top = 186.0
-offset_right = 479.0
-offset_bottom = 270.0
-color = Color(0.278431, 0.670588, 0.678431, 1)
+layout_mode = 1
+anchors_preset = -1
+offset_right = 480.0
+offset_bottom = 84.0
+color = Color(0.792157, 0.427451, 0.87451, 1)
 
 [node name="DropZone" type="HBoxContainer" parent="BackgroundDropZone"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 64
@@ -36,7 +37,14 @@ alignment = 1
 script = ExtResource("2_kw3fa")
 card = ExtResource("3_8x0ra")
 
-[node name="Hand" type="HBoxContainer" parent="."]
+[node name="BackgroundDropZone2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_top = 186.0
+offset_right = 481.0
+offset_bottom = 270.0
+color = Color(0.360784, 0.686275, 0.392157, 1)
+
+[node name="Hand" type="HBoxContainer" parent="BackgroundDropZone2"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -61,10 +69,7 @@ text = "Exit"
 script = ExtResource("9_fhn8r")
 metadata/_edit_use_anchors_ = true
 
-[node name="Deck" type="TextureButton" parent="."]
+[node name="Deck" parent="." instance=ExtResource("6_m270l")]
 layout_mode = 0
-offset_top = 72.0
-offset_right = 64.0
-offset_bottom = 136.0
-texture_normal = ExtResource("11_krwuf")
-script = ExtResource("13_21tak")
+offset_top = 104.0
+offset_bottom = 168.0
