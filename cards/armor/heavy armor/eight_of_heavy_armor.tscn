@@ -15,3 +15,8 @@ When you build a stack of diamonds, you taunt one enemy of your choice for a num
 phys_damage_types = 0
 neg_status_effects = 2048
 rounds_active = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 72.0
+offset_bottom = 128.0
+color = Color(0.811765, 0.27451, 0.52549, 1)

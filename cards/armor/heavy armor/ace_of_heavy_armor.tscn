@@ -14,3 +14,8 @@ As an action, you play this Ace, which remains in play for a number of rounds eq
 phys_damage_types = 0
 pos_status_effects = 0
 neg_status_effects = 0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 72.0
+offset_bottom = 128.0
+color = Color(0.215686, 0.592157, 0.294118, 1)
