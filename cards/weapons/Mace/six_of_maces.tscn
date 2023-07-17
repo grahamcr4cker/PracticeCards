@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://djkxswjlqylkc"]
+[gd_scene load_steps=3 format=3 uid="uid://djkxswjlqylkc"]
 
+[ext_resource type="Texture2D" uid="uid://dulpy3o5pj4cm" path="res://assets/Card Art/mace/6_mace.png" id="1_2tc2m"]
 [ext_resource type="Script" path="res://card_stacker component.gd" id="1_pvvo8"]
 
 [node name="six_of_maces" type="Sprite2D"]
+texture = ExtResource("1_2tc2m")
 
 [node name="CARD_STACKER" type="Node" parent="."]
 script = ExtResource("1_pvvo8")

@@ -1,0 +1,243 @@
+[gd_scene load_steps=45 format=3 uid="uid://cuu27t7jtq3hd"]
+
+[ext_resource type="Texture2D" uid="uid://bhwmi0xufos0m" path="res://assets/Card Art/card_back.png" id="1_3bc23"]
+[ext_resource type="Texture2D" uid="uid://reb6k0ij3sns" path="res://assets/Card Art/Heavyarmor/2_heavyarmor.png" id="2_3ttd1"]
+[ext_resource type="Texture2D" uid="uid://dm5xw4bkep1ob" path="res://assets/Card Art/Heavyarmor/3_heavyarmor.png" id="3_gvjkw"]
+[ext_resource type="Texture2D" uid="uid://bmwmc3xgswkhc" path="res://assets/Card Art/Heavyarmor/4_heavyarmor.png" id="4_kcryn"]
+[ext_resource type="Texture2D" uid="uid://dol67yi7bxfpa" path="res://assets/Card Art/Heavyarmor/5_heavyarmor.png" id="5_06geg"]
+[ext_resource type="Texture2D" uid="uid://dipyukbpa6mg2" path="res://assets/Card Art/Heavyarmor/6_heavyarmor.png" id="6_uohuu"]
+[ext_resource type="Texture2D" uid="uid://debp0w6lnua63" path="res://assets/Card Art/Heavyarmor/7_heavyarmor.png" id="7_qle1j"]
+[ext_resource type="Texture2D" uid="uid://dquphxt7d40xy" path="res://assets/Card Art/Heavyarmor/8_heavyarmor.png" id="8_js4jl"]
+[ext_resource type="Texture2D" uid="uid://ddjix8ib8vgc6" path="res://assets/Card Art/Heavyarmor/9_heavyarmor.png" id="9_q65cl"]
+[ext_resource type="Texture2D" uid="uid://ckkysomr3xt1l" path="res://assets/Card Art/Heavyarmor/10_heavyarmor.png" id="10_c6rue"]
+[ext_resource type="Texture2D" uid="uid://u7y12ue45rbn" path="res://assets/Card Art/Heavyarmor/ace_heavyarmor.png" id="11_j1fos"]
+[ext_resource type="Texture2D" uid="uid://cov1s3wk76y2j" path="res://assets/Card Art/Heavyarmor/jack_heavyarmor.png" id="12_7o852"]
+[ext_resource type="Texture2D" uid="uid://b4n8rqqd4ghua" path="res://assets/Card Art/Heavyarmor/king_heavyarmor.png" id="13_l8gnt"]
+[ext_resource type="Texture2D" uid="uid://605l17l5px8a" path="res://assets/Card Art/Heavyarmor/queen_heavyarmor.png" id="14_wgliv"]
+[ext_resource type="Texture2D" uid="uid://cmhg7qq7rw7ck" path="res://assets/Card Art/longblade/2_longblade.png" id="15_ehtxc"]
+[ext_resource type="Texture2D" uid="uid://bbop7wiax0ify" path="res://assets/Card Art/longblade/3_longblade.png" id="16_pdw84"]
+[ext_resource type="Texture2D" uid="uid://ba5a7pq2bhudq" path="res://assets/Card Art/longblade/4__longblade.png" id="17_pn8av"]
+[ext_resource type="Texture2D" uid="uid://wmo8jewrnktm" path="res://assets/Card Art/longblade/5_longblade.png" id="18_c3g14"]
+[ext_resource type="Texture2D" uid="uid://c5yw5udpidpb5" path="res://assets/Card Art/longblade/6_longblade.png" id="19_3271m"]
+[ext_resource type="Texture2D" uid="uid://nw8ty8ywa2wa" path="res://assets/Card Art/longblade/7__longblade.png" id="20_cdcpt"]
+[ext_resource type="Texture2D" uid="uid://brqymqwpi7kjg" path="res://assets/Card Art/longblade/8_longblade.png" id="21_v3nqq"]
+[ext_resource type="Texture2D" uid="uid://bag1djyx5bjwr" path="res://assets/Card Art/longblade/9__longblade.png" id="22_neh23"]
+[ext_resource type="Texture2D" uid="uid://hayks4tjh2q5" path="res://assets/Card Art/longblade/10__longblade.png" id="23_7qxyr"]
+[ext_resource type="Texture2D" uid="uid://b6mtymncheum0" path="res://assets/Card Art/longblade/ace_longblade.png" id="24_pj1tu"]
+[ext_resource type="Texture2D" uid="uid://bdjvxkihptygc" path="res://assets/Card Art/longblade/jack_longblade.png" id="25_25nb6"]
+[ext_resource type="Texture2D" uid="uid://dqp7jllyqw54g" path="res://assets/Card Art/longblade/king_longblade.png" id="26_5ilum"]
+[ext_resource type="Texture2D" uid="uid://bs2at8l7wunb3" path="res://assets/Card Art/longblade/queen_longblade.png" id="27_nwa1b"]
+[ext_resource type="Texture2D" uid="uid://dd15njggycwvd" path="res://assets/Card Art/mace/2_mace.png" id="28_c6k6o"]
+[ext_resource type="Texture2D" uid="uid://b77q73r6vy5aa" path="res://assets/Card Art/mace/3_mace.png" id="29_dj3hi"]
+[ext_resource type="Texture2D" uid="uid://dj3w6l3623jrn" path="res://assets/Card Art/mace/4_mace.png" id="30_0wxj2"]
+[ext_resource type="Texture2D" uid="uid://jqi4ofmgr6kx" path="res://assets/Card Art/mace/5_mace.png" id="31_lua0c"]
+[ext_resource type="Texture2D" uid="uid://dulpy3o5pj4cm" path="res://assets/Card Art/mace/6_mace.png" id="32_303de"]
+[ext_resource type="Texture2D" uid="uid://0vgk8q2tl18f" path="res://assets/Card Art/mace/7_mace.png" id="33_nlwao"]
+[ext_resource type="Texture2D" uid="uid://cuwwenm3dqmyj" path="res://assets/Card Art/mace/8_mace.png" id="34_8nq4l"]
+[ext_resource type="Texture2D" uid="uid://bdnasqe5u2cti" path="res://assets/Card Art/mace/9_mace.png" id="35_xwtwl"]
+[ext_resource type="Texture2D" uid="uid://ckrp8f8g864sx" path="res://assets/Card Art/mace/10_mace.png" id="36_molui"]
+[ext_resource type="Texture2D" uid="uid://bpyqaa33txkwj" path="res://assets/Card Art/mace/ace_mace.png" id="37_3clr0"]
+[ext_resource type="Texture2D" uid="uid://2w2rjkni1cbv" path="res://assets/Card Art/mace/jack_mace.png" id="38_gitpd"]
+[ext_resource type="Texture2D" uid="uid://cika7txgm0mti" path="res://assets/Card Art/mace/king_mace.png" id="39_tdk2t"]
+[ext_resource type="Texture2D" uid="uid://csis0doare0wk" path="res://assets/Card Art/mace/queen_mace.png" id="40_hak3q"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l6mfd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3ttd1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_gvjkw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_kcryn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_06geg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_uohuu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_qle1j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_js4jl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_q65cl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_c6rue")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_j1fos")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_7o852")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_l8gnt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_wgliv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_ehtxc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_pdw84")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_pn8av")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_c3g14")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_3271m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_cdcpt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_v3nqq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_neh23")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_7qxyr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_pj1tu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_25nb6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_5ilum")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_nwa1b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_c6k6o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_dj3hi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_0wxj2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_lua0c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_303de")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_nlwao")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_8nq4l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_xwtwl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_molui")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_3clr0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_gitpd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_tdk2t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_hak3q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_r8xv3"]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.1, 1), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("cards:z_index")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [-1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_jlmwn"]
+resource_name = "cardflip"
+length = 0.6
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(0.1, 1), Vector2(1, 1), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("cards:z_index")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [-1, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ur8ir"]
+_data = {
+"RESET": SubResource("Animation_r8xv3"),
+"cardflip": SubResource("Animation_jlmwn")
+}
+
+[node name="cardflip" type="Node2D"]
+
+[node name="cardback" type="Sprite2D" parent="."]
+texture = ExtResource("1_3bc23")
+
+[node name="cards" type="AnimatedSprite2D" parent="cardback"]
+sprite_frames = SubResource("SpriteFrames_l6mfd")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../cardback")
+libraries = {
+"": SubResource("AnimationLibrary_ur8ir")
+}

@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dx0pgylrp2lhr"]
+[gd_scene load_steps=3 format=3 uid="uid://dx0pgylrp2lhr"]
 
+[ext_resource type="Texture2D" uid="uid://605l17l5px8a" path="res://assets/Card Art/Heavyarmor/queen_heavyarmor.png" id="1_fed12"]
 [ext_resource type="Script" path="res://card_face component.gd" id="1_q5tu7"]
 
 [node name="queen_of_heavy_armor" type="Sprite2D"]
+texture = ExtResource("1_fed12")
 
 [node name="CARD_FACE" type="Node" parent="."]
 script = ExtResource("1_q5tu7")

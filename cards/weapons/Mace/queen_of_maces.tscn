@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cqgygukya6t11"]
+[gd_scene load_steps=3 format=3 uid="uid://cqgygukya6t11"]
 
+[ext_resource type="Texture2D" uid="uid://csis0doare0wk" path="res://assets/Card Art/mace/queen_mace.png" id="1_0jho3"]
 [ext_resource type="Script" path="res://card_face component.gd" id="1_1awtv"]
 
 [node name="queen_of_maces" type="Sprite2D"]
+texture = ExtResource("1_0jho3")
 
 [node name="CARD_FACE" type="Node" parent="."]
 script = ExtResource("1_1awtv")

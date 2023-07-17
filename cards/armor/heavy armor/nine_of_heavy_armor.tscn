@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cck6ua5jmontv"]
+[gd_scene load_steps=3 format=3 uid="uid://cck6ua5jmontv"]
 
+[ext_resource type="Texture2D" uid="uid://ddjix8ib8vgc6" path="res://assets/Card Art/Heavyarmor/9_heavyarmor.png" id="1_e85kf"]
 [ext_resource type="Script" path="res://card_stacker component.gd" id="1_w2gky"]
 
 [node name="nine_of_heavy_armor" type="Sprite2D"]
+texture = ExtResource("1_e85kf")
 
 [node name="CARD_STACKER" type="Node" parent="."]
 script = ExtResource("1_w2gky")

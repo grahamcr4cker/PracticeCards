@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://d0e0hi66qx4c4"]
+[gd_scene load_steps=3 format=3 uid="uid://d0e0hi66qx4c4"]
 
+[ext_resource type="Texture2D" uid="uid://2w2rjkni1cbv" path="res://assets/Card Art/mace/jack_mace.png" id="1_33nq3"]
 [ext_resource type="Script" path="res://card_face component.gd" id="1_ak16r"]
 
 [node name="jack_of_maces" type="Sprite2D"]
+texture = ExtResource("1_33nq3")
 
 [node name="CARD_FACE" type="Node" parent="."]
 script = ExtResource("1_ak16r")
