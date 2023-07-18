@@ -35,3 +35,13 @@ func spawn_roll_indicator(roll: int):
 	if roll_indicator:
 		roll_indicator.get_node("Label").text = str(roll)
 		roll_indicator.get_node("AnimationPlayer").play("show_result")
+<<<<<<< Updated upstream
+=======
+
+#func spawn_effect(EFFECT: PackedScene, effect_position: Vector2 = global_position):
+#	if EFFECT:
+#		var effect = EFFECT.instantiate()
+#		get_tree().current_scene.add_child(effect)
+#		effect.global_position = effect_position
+#		return effect
+>>>>>>> Stashed changes

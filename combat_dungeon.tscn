@@ -1,7 +1,12 @@
 [gd_scene load_steps=9 format=3 uid="uid://bqw3vokrvf548"]
 
 [ext_resource type="Texture2D" uid="uid://g3ddrmm8t4rn" path="res://assets/Backgrounds/Background_Dungeon.png" id="1_cb83s"]
+<<<<<<< Updated upstream
 [ext_resource type="PackedScene" path="res://player.tscn" id="2_wg4p0"]
+=======
+[ext_resource type="Script" path="res://Roll Result Spawn Point.gd" id="1_foulw"]
+[ext_resource type="PackedScene" uid="uid://bpd4ggfpexeid" path="res://player.tscn" id="2_wg4p0"]
+>>>>>>> Stashed changes
 [ext_resource type="Texture2D" uid="uid://bhwmi0xufos0m" path="res://assets/Card Art/card_back.png" id="3_futgi"]
 [ext_resource type="Script" path="res://PlayerDeck.gd" id="4_0vce2"]
 [ext_resource type="Script" path="res://hand.gd" id="5_hxuek"]
