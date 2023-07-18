@@ -1,6 +1,8 @@
 extends TextureButton
 
 var deck := []
+@onready var hand = $"../BackgroundDropZone2/Hand"
+@onready var dz = $"../BackgroundDropZone/DropZone"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,8 +23,12 @@ func _ready():
 					pass
 			var card = preload("res://card_example.tscn").instantiate()
 			card.card_texture = load(card_img)
+			card.front_face = true
 			deck.append(card)
 	deck.shuffle()
+	for card in hand.get_children():
+		dz.add_child(card.duplicate())
+		card.queue_free()
 	
 func _on_button_pressed():
 	print("draw card")
