@@ -1,9 +1,8 @@
 extends CharacterBody2D
-
+#Player stuff vvv
 @onready var animation = $AnimationPlayer
 var total_health = "res://Class.gd.Priest.total_health"
 var mastery_bonus = 3
-const roll_indicator = preload("res://roll_result_indicator.tscn")
 
 
 func updateAnimation():
@@ -14,20 +13,25 @@ func _physics_process(_delta):
 	updateAnimation()
 
 
-func _on_attack_button_pressed():
-	var result = randi_range(1,10) + mastery_bonus
-	print(result)
-	spawn_roll_indicator(result) #doesn't work, causes crash
+#func spawn_effect(EFFECT: PackedScene, effect_position: Vector2 = global_position):
+#	if EFFECT:
+#		var effect = EFFECT.instantiate()
+#		get_tree().current_scene.add_child(effect)
+#		effect.global_position = effect_position
+#		return effect
+
+#func spawn_roll_indicator(result: int):
+#	var indicator = roll_indicator.instantiate()
+#	if indicator:
+#		indicator.label = (result) #think crash is caused by this. Invalid get index 'label' (on base:PackedScene') 
 
 
-func spawn_effect(EFFECT: PackedScene, effect_position: Vector2 = global_position):
-	if EFFECT:
-		var effect = EFFECT.instantiate()
-		get_tree().current_scene.add_child(effect)
-		effect.global_position = effect_position
-		return effect
-
-func spawn_roll_indicator(roll: int):
-	var indicator = roll_indicator
-	if indicator:
-		indicator.label.text = str(roll) #think crash is caused by this. Invalid get index 'label' (on base:PackedScene') 
+	#get a result from the pool vvv
+#	if roll_result_pool.size() > 0:
+#		return roll_result_pool.pop_front()
+#
+#	else:
+#		var new_roll_result = roll_result_template.instantiate()
+#		new_roll_result.tree_exiting.connect(
+#			func():roll_result_pool.append(new_roll_result))
+#		return new_roll_result

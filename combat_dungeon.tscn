@@ -1,16 +1,17 @@
-[gd_scene load_steps=9 format=3 uid="uid://42qyq0numudm"]
+[gd_scene load_steps=10 format=3 uid="uid://42qyq0numudm"]
 
 [ext_resource type="Texture2D" uid="uid://g3ddrmm8t4rn" path="res://assets/Backgrounds/Background_Dungeon.png" id="1_cb83s"]
+[ext_resource type="Script" path="res://Roll Result Spawn Point.gd" id="1_foulw"]
 [ext_resource type="PackedScene" uid="uid://bpd4ggfpexeid" path="res://player.tscn" id="2_wg4p0"]
 [ext_resource type="Texture2D" uid="uid://bhwmi0xufos0m" path="res://assets/Card Art/card_back.png" id="3_futgi"]
 [ext_resource type="Script" path="res://PlayerDeck.gd" id="4_0vce2"]
 [ext_resource type="Script" path="res://hand.gd" id="5_hxuek"]
 [ext_resource type="FontFile" uid="uid://diqt2vii6tchx" path="res://assets/Fonts/CloisterBlack.ttf" id="6_krib6"]
-[ext_resource type="PackedScene" uid="uid://bk6oa0oag1iqk" path="res://roll_result_indicator.tscn" id="7_g8lkh"]
+[ext_resource type="Script" path="res://Attack Button.gd" id="7_yu8p6"]
 
 [sub_resource type="Curve" id="Curve_26ffl"]
 min_value = -1.0
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 1, Vector2(1, 0), 0.0, 0.0, 1, 0]
+_data = [Vector2(0.00515464, -1), 0.0, 2.01036, 0, 1, Vector2(1, 1), 2.01036, 0.0, 1, 0]
 point_count = 2
 
 [node name="playspace" type="Node2D"]
@@ -22,6 +23,15 @@ texture = ExtResource("1_cb83s")
 
 [node name="Player" parent="." instance=ExtResource("2_wg4p0")]
 position = Vector2(103, 308)
+
+[node name="Roll Result Spawn Point" type="Control" parent="Player"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 730.0
+offset_top = 109.0
+offset_right = 759.0
+offset_bottom = 125.0
+script = ExtResource("1_foulw")
 
 [node name="player_deck" type="Container" parent="."]
 anchors_preset = -1
@@ -156,8 +166,6 @@ offset_bottom = 502.0
 theme_override_fonts/font = ExtResource("6_krib6")
 theme_override_font_sizes/font_size = 48
 text = "Attack"
+script = ExtResource("7_yu8p6")
 
-[node name="Roll Result Indicator" parent="." instance=ExtResource("7_g8lkh")]
-position = Vector2(790, 276)
-
-[connection signal="pressed" from="Attack Button" to="Player" method="_on_attack_button_pressed"]
+[connection signal="pressed" from="Attack Button" to="Player/Roll Result Spawn Point" method="_on_attack_button_pressed"]

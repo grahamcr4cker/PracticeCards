@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bpd4ggfpexeid"]
+[gd_scene load_steps=7 format=3 uid="uid://bpd4ggfpexeid"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_vqwq0"]
 [ext_resource type="Texture2D" uid="uid://bfig3w6gk0hv" path="res://assets/Character Sprites/Skull/skull_sprite.png" id="1_vtqpd"]
@@ -40,6 +40,9 @@ _data = {
 "idle": SubResource("Animation_dw45q")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0vuwe"]
+size = Vector2(56, 158)
+
 [node name="Player" type="CharacterBody2D"]
 texture_filter = 1
 script = ExtResource("1_vqwq0")
@@ -52,3 +55,7 @@ hframes = 3
 libraries = {
 "": SubResource("AnimationLibrary_30k3l")
 }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-7, 1)
+shape = SubResource("RectangleShape2D_0vuwe")
