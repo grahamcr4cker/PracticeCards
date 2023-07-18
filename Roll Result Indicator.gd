@@ -1,20 +1,17 @@
 extends Node2D
-class_name roll_result_number
 
-@onready var label:Label = $Label
-@onready var label_container:Node2D = $"."
-@onready var ap:AnimationPlayer = $AnimationPlayer
+@export var speed : int = 30
+@export var friction : int = 15
+var shift_direction: Vector2 = Vector2.ZERO
 
-
+@onready var label = $Label
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	shift_direction = Vector2(randi_range(-1, 1), randi_range(-1, 1))
 
-func set_values_and_animate(value:String, start_pos:Vector2) -> void:
-	label.text = value
-	ap.play("show_result")
-	
-	
-func remove() -> void:
-	queue_free()
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	global_position += speed * shift_direction * delta
+	speed = max(speed - friction * delta, 0)
