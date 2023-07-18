@@ -1,13 +1,14 @@
 extends CharacterBody2D
 
 @onready var animation = $AnimationPlayer
+@onready var roll_indicator = $"../Roll Result Indicator" # No need to preload this, it's already a child in the same scene, we can access it directly
+@onready var attack_button = $"../Attack Button"
 var total_health = "res://Class.gd.Priest.total_health"
 var mastery_bonus = 3
-const roll_indicator = preload("res://roll_result_indicator.tscn")
 
 
 func updateAnimation():
-		animation.play("idle")
+	animation.play("idle")
 
 func _physics_process(_delta):
 	move_and_slide()
@@ -16,8 +17,11 @@ func _physics_process(_delta):
 
 func _on_attack_button_pressed():
 	var result = randi_range(1,10) + mastery_bonus
-	print(result)
-	spawn_roll_indicator(result) #doesn't work, causes crash
+	spawn_roll_indicator(result)
+	# This disables the attack button while the animation is playing
+	attack_button.disabled = true
+	await get_tree().create_timer(1.0).timeout
+	attack_button.disabled = false
 
 
 func spawn_effect(EFFECT: PackedScene, effect_position: Vector2 = global_position):
@@ -28,6 +32,6 @@ func spawn_effect(EFFECT: PackedScene, effect_position: Vector2 = global_positio
 		return effect
 
 func spawn_roll_indicator(roll: int):
-	var indicator = roll_indicator
-	if indicator:
-		indicator.label.text = str(roll) #think crash is caused by this. Invalid get index 'label' (on base:PackedScene') 
+	if roll_indicator:
+		roll_indicator.get_node("Label").text = str(roll)
+		roll_indicator.get_node("AnimationPlayer").play("show_result")
