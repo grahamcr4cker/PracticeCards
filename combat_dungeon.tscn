@@ -1,12 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://42qyq0numudm"]
+[gd_scene load_steps=11 format=3 uid="uid://bqw3vokrvf548"]
 
 [ext_resource type="Texture2D" uid="uid://g3ddrmm8t4rn" path="res://assets/Backgrounds/Background_Dungeon.png" id="1_cb83s"]
 [ext_resource type="Script" path="res://Roll Result Spawn Point.gd" id="1_foulw"]
-[ext_resource type="PackedScene" uid="uid://bpd4ggfpexeid" path="res://player.tscn" id="2_wg4p0"]
+[ext_resource type="PackedScene" path="res://player.tscn" id="2_wg4p0"]
 [ext_resource type="Texture2D" uid="uid://bhwmi0xufos0m" path="res://assets/Card Art/card_back.png" id="3_futgi"]
 [ext_resource type="Script" path="res://PlayerDeck.gd" id="4_0vce2"]
 [ext_resource type="Script" path="res://hand.gd" id="5_hxuek"]
 [ext_resource type="FontFile" uid="uid://diqt2vii6tchx" path="res://assets/Fonts/CloisterBlack.ttf" id="6_krib6"]
+[ext_resource type="PackedScene" uid="uid://v2msqv3t8ntg" path="res://roll_result_indicator.tscn" id="7_g8lkh"]
 [ext_resource type="Script" path="res://Attack Button.gd" id="7_yu8p6"]
 
 [sub_resource type="Curve" id="Curve_26ffl"]
@@ -168,4 +169,7 @@ theme_override_font_sizes/font_size = 48
 text = "Attack"
 script = ExtResource("7_yu8p6")
 
-[connection signal="pressed" from="Attack Button" to="Player/Roll Result Spawn Point" method="_on_attack_button_pressed"]
+[node name="Roll Result Indicator" parent="." instance=ExtResource("7_g8lkh")]
+position = Vector2(752, 170)
+
+[connection signal="pressed" from="Attack Button" to="Player" method="_on_attack_button_pressed"]
