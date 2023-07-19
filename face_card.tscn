@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cafeqq0p0vp8l"]
+[gd_scene load_steps=5 format=3 uid="uid://c2qfawiylebo5"]
 
-[ext_resource type="Script" path="res://card_face component.gd" id="1_if4ll"]
-[ext_resource type="Texture2D" uid="uid://u7y12ue45rbn" path="res://assets/Card Art/Heavyarmor/ace_heavyarmor.png" id="1_o1had"]
+[ext_resource type="Texture2D" uid="uid://bhwmi0xufos0m" path="res://assets/Card Art/card_back.png" id="1_hnpns"]
+[ext_resource type="Script" path="res://FaceCard.gd" id="2_0u2n6"]
 
 [sub_resource type="Animation" id="Animation_xwct2"]
 resource_name = "idle"
@@ -37,21 +37,10 @@ _data = {
 "idle": SubResource("Animation_xwct2")
 }
 
-[node name="ace_of_heavy_armor" type="Sprite2D"]
-position = Vector2(0, -0.909091)
-texture = ExtResource("1_o1had")
-offset = Vector2(0, -0.328768)
-
-[node name="CARD_FACE" type="Node" parent="."]
-script = ExtResource("1_if4ll")
-card_rank = "Ace"
-card_suit = "Armor"
-Description = "Ace: Moving Fortress
-
-As an action, you play this Ace, which remains in play for a number of rounds equal to your level bonus. While this card is in play, you can play numeric Heavy Armor cards directly from your hand as a reaction to taking damage. The damage is reduced by an amount equal to the value of the card you play, to a minimum of 0. "
-phys_damage_types = 0
-pos_status_effects = 0
-neg_status_effects = 0
+[node name="PlayableCard" type="Sprite2D"]
+texture = ExtResource("1_hnpns")
+offset = Vector2(0, -5)
+script = ExtResource("2_0u2n6")
 
 [node name="Animation Player" type="AnimationPlayer" parent="."]
 autoplay = "idle"

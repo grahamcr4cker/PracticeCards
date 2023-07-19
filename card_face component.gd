@@ -2,6 +2,7 @@ extends Node
 
 class_name CARD_FACE
 
+
 @export_category("Card")
 @export_enum("Ace", "Jack", "Queen", "King") var card_rank : String
 @export_enum("Class 1", "Class 2", "Weapon", "Armor") var card_suit : String

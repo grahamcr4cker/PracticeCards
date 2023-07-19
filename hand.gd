@@ -1,6 +1,7 @@
 extends Node2D
 
-@onready var heavy_armor = preload("res://heavy_armor_cards.tscn").instantiate()
+@onready var heavy_armor := preload("res://heavy_armor_cards.tscn").instantiate()
+@export var hand_count := 9
 
 # Space between sprites in pixels
 var space_between = 0
@@ -40,5 +41,8 @@ func _ready():
 
 
 func populate_hand():
-	for card in heavy_armor.get_children():
-		add_child(card.duplicate())
+	var heavy_armor_cards = heavy_armor.get_children()
+	for index in range(hand_count):
+		add_child(heavy_armor_cards[index].duplicate())
+#	for card in heavy_armor.get_children():
+#		add_child(card.duplicate())
