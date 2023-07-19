@@ -1,0 +1,100 @@
+[gd_scene load_steps=14 format=3 uid="uid://c2qfawiylebo5"]
+
+[ext_resource type="Texture2D" uid="uid://bhwmi0xufos0m" path="res://assets/Card Art/card_back.png" id="1_il4xp"]
+[ext_resource type="Script" path="res://PlayableCard.gd" id="2_sp0tm"]
+
+[sub_resource type="Animation" id="Animation_xwct2"]
+resource_name = "idle"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9, 1.8, 2.6, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -5), Vector2(0, -5), Vector2(0, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2jh8b"]
+resource_name = "snap_up"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -20)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y41vu"]
+_data = {
+"idle": SubResource("Animation_xwct2"),
+"snap_up": SubResource("Animation_2jh8b")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dcb6b"]
+size = Vector2(86, 130)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wew4i"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_twr1o"]
+animation = &"snap_up"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hjsq5"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_doclu"]
+advance_mode = 2
+advance_condition = &"is_focused"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a22eq"]
+advance_mode = 2
+advance_condition = &"is_idle"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_aapqk"]
+states/Start/position = Vector2(195, 100)
+states/idle/node = SubResource("AnimationNodeAnimation_wew4i")
+states/idle/position = Vector2(352, 100)
+states/snap_up/node = SubResource("AnimationNodeAnimation_twr1o")
+states/snap_up/position = Vector2(538, 100)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_hjsq5"), "idle", "snap_up", SubResource("AnimationNodeStateMachineTransition_doclu"), "snap_up", "idle", SubResource("AnimationNodeStateMachineTransition_a22eq")]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_0fwdm"]
+
+[node name="PlayableCard" type="Sprite2D"]
+texture = ExtResource("1_il4xp")
+offset = Vector2(0, -2.84449)
+script = ExtResource("2_sp0tm")
+
+[node name="Animation Player" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_y41vu")
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_dcb6b")
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_aapqk")
+anim_player = NodePath("../Animation Player")
+active = true
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_0fwdm")
+parameters/conditions/is_focused = false
+parameters/conditions/is_idle = false
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

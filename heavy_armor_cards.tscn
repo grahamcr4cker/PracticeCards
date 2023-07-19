@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://ng6qir1sncq2"]
-
-[ext_resource type="PackedScene" uid="uid://c2qfawiylebo5" path="res://face_card.tscn" id="1_bkx14"]
-[ext_resource type="Texture2D" uid="uid://u7y12ue45rbn" path="res://assets/Card Art/Heavyarmor/ace_heavyarmor.png" id="2_oym5g"]
-
-[node name="Heavy Armor Cards" type="Node2D"]
-
-[node name="ace_of_heavy_armor" parent="." instance=ExtResource("1_bkx14")]
-card_texture = ExtResource("2_oym5g")

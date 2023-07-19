@@ -1,0 +1,65 @@
+[gd_scene load_steps=14 format=3 uid="uid://ng6qir1sncq2"]
+
+[ext_resource type="PackedScene" uid="uid://c2qfawiylebo5" path="res://PlayableCard.tscn" id="1_vmh6d"]
+[ext_resource type="Texture2D" uid="uid://reb6k0ij3sns" path="res://assets/Card Art/Heavyarmor/2_heavyarmor.png" id="2_j87kr"]
+[ext_resource type="Texture2D" uid="uid://dm5xw4bkep1ob" path="res://assets/Card Art/Heavyarmor/3_heavyarmor.png" id="3_8cixx"]
+[ext_resource type="Texture2D" uid="uid://bmwmc3xgswkhc" path="res://assets/Card Art/Heavyarmor/4_heavyarmor.png" id="4_3kjf6"]
+[ext_resource type="Texture2D" uid="uid://dol67yi7bxfpa" path="res://assets/Card Art/Heavyarmor/5_heavyarmor.png" id="5_bfci1"]
+[ext_resource type="Texture2D" uid="uid://dipyukbpa6mg2" path="res://assets/Card Art/Heavyarmor/6_heavyarmor.png" id="6_gghhy"]
+[ext_resource type="Texture2D" uid="uid://debp0w6lnua63" path="res://assets/Card Art/Heavyarmor/7_heavyarmor.png" id="7_6wpgj"]
+[ext_resource type="Texture2D" uid="uid://dquphxt7d40xy" path="res://assets/Card Art/Heavyarmor/8_heavyarmor.png" id="8_h4i85"]
+[ext_resource type="Texture2D" uid="uid://ddjix8ib8vgc6" path="res://assets/Card Art/Heavyarmor/9_heavyarmor.png" id="9_wl4us"]
+[ext_resource type="Texture2D" uid="uid://ckkysomr3xt1l" path="res://assets/Card Art/Heavyarmor/10_heavyarmor.png" id="10_0aups"]
+[ext_resource type="Texture2D" uid="uid://cov1s3wk76y2j" path="res://assets/Card Art/Heavyarmor/jack_heavyarmor.png" id="11_sow1p"]
+[ext_resource type="Texture2D" uid="uid://605l17l5px8a" path="res://assets/Card Art/Heavyarmor/queen_heavyarmor.png" id="12_8b8dj"]
+[ext_resource type="Texture2D" uid="uid://b4n8rqqd4ghua" path="res://assets/Card Art/Heavyarmor/king_heavyarmor.png" id="13_u5tiy"]
+
+[node name="Heavy Armor Cards" type="Node2D"]
+
+[node name="Two of Heavy Armor" parent="." instance=ExtResource("1_vmh6d")]
+texture = ExtResource("2_j87kr")
+offset = Vector2(0, -0.59311)
+
+[node name="Three of Heavy Armor" parent="." instance=ExtResource("1_vmh6d")]
+texture = ExtResource("3_8cixx")
+offset = Vector2(0, -0.59311)
+
+[node name="Four of Heavy Armor" parent="." instance=ExtResource("1_vmh6d")]
+texture = ExtResource("4_3kjf6")
+offset = Vector2(0, -0.59311)
+
+[node name="Five of Heavy Armor" parent="." instance=ExtResource("1_vmh6d")]
+texture = ExtResource("5_bfci1")
+offset = Vector2(0, -0.59311)
+
+[node name="Six of Heavy Armor" parent="." instance=ExtResource("1_vmh6d")]
+texture = ExtResource("6_gghhy")
+offset = Vector2(0, -0.59311)
+
+[node name="Seven of Heavy Armor" parent="." instance=ExtResource("1_vmh6d")]
+texture = ExtResource("7_6wpgj")
+offset = Vector2(0, -0.59311)
+
+[node name="Eight of Heavy Armor" parent="." instance=ExtResource("1_vmh6d")]
+texture = ExtResource("8_h4i85")
+offset = Vector2(0, -0.59311)
+
+[node name="Nine of Heavy Armor" parent="." instance=ExtResource("1_vmh6d")]
+texture = ExtResource("9_wl4us")
+offset = Vector2(0, -0.59311)
+
+[node name="Ten of Heavy Armor" parent="." instance=ExtResource("1_vmh6d")]
+texture = ExtResource("10_0aups")
+offset = Vector2(0, -0.59311)
+
+[node name="Jack of Heavy Armor" parent="." instance=ExtResource("1_vmh6d")]
+texture = ExtResource("11_sow1p")
+offset = Vector2(0, -0.59311)
+
+[node name="Queen of Heavy Armor" parent="." instance=ExtResource("1_vmh6d")]
+texture = ExtResource("12_8b8dj")
+offset = Vector2(0, -0.59311)
+
+[node name="King of Heavy Armor" parent="." instance=ExtResource("1_vmh6d")]
+texture = ExtResource("13_u5tiy")
+offset = Vector2(0, -0.59311)

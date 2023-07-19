@@ -140,7 +140,7 @@ script = ExtResource("4_0vce2")
 metadata/_edit_use_anchors_ = true
 
 [node name="hand" type="Node2D" parent="."]
-position = Vector2(459, 464)
+position = Vector2(459, 437)
 script = ExtResource("5_hxuek")
 
 [node name="Player_hand" type="HBoxContainer" parent="."]
@@ -171,6 +171,6 @@ text = "Attack"
 script = ExtResource("7_yu8p6")
 
 [node name="Roll Result Indicator" parent="." instance=ExtResource("7_g8lkh")]
-position = Vector2(752, 170)
+position = Vector2(854, 416)
 
 [connection signal="pressed" from="Attack Button" to="Player" method="_on_attack_button_pressed"]
