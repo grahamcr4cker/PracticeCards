@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c2qfawiylebo5"]
+[gd_scene load_steps=13 format=3 uid="uid://c2qfawiylebo5"]
 
 [ext_resource type="Texture2D" uid="uid://bhwmi0xufos0m" path="res://assets/Card Art/card_back.png" id="1_il4xp"]
 [ext_resource type="Script" path="res://PlayableCard.gd" id="2_sp0tm"]
@@ -70,11 +70,12 @@ states/snap_up/node = SubResource("AnimationNodeAnimation_twr1o")
 states/snap_up/position = Vector2(538, 100)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_hjsq5"), "idle", "snap_up", SubResource("AnimationNodeStateMachineTransition_doclu"), "snap_up", "idle", SubResource("AnimationNodeStateMachineTransition_a22eq")]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_0fwdm"]
-
 [node name="PlayableCard" type="Sprite2D"]
 texture = ExtResource("1_il4xp")
-offset = Vector2(0, -2.84449)
+<<<<<<< Updated upstream
+=======
+offset = Vector2(0, -1.82721)
+>>>>>>> Stashed changes
 script = ExtResource("2_sp0tm")
 
 [node name="Animation Player" type="AnimationPlayer" parent="."]
@@ -92,9 +93,9 @@ shape = SubResource("RectangleShape2D_dcb6b")
 tree_root = SubResource("AnimationNodeStateMachine_aapqk")
 anim_player = NodePath("../Animation Player")
 active = true
-parameters/playback = SubResource("AnimationNodeStateMachinePlayback_0fwdm")
 parameters/conditions/is_focused = false
 parameters/conditions/is_idle = false
 
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
