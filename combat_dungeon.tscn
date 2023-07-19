@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://bqw3vokrvf548"]
+[gd_scene load_steps=12 format=3 uid="uid://bqw3vokrvf548"]
 
+[ext_resource type="Script" path="res://combat_dungeon.gd" id="1_b0ku4"]
 [ext_resource type="Texture2D" uid="uid://g3ddrmm8t4rn" path="res://assets/Backgrounds/Background_Dungeon.png" id="1_cb83s"]
 [ext_resource type="Script" path="res://Roll Result Spawn Point.gd" id="1_foulw"]
 [ext_resource type="PackedScene" uid="uid://bpd4ggfpexeid" path="res://player.tscn" id="2_wg4p0"]
@@ -10,7 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://v2msqv3t8ntg" path="res://roll_result_indicator.tscn" id="7_g8lkh"]
 [ext_resource type="Script" path="res://Attack Button.gd" id="7_yu8p6"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gqok3"]
+size = Vector2(84, 129)
+
 [node name="playspace" type="Node2D"]
+script = ExtResource("1_b0ku4")
 
 [node name="BackgroundDungeon" type="Sprite2D" parent="."]
 position = Vector2(480, 270)
@@ -67,19 +72,13 @@ offset_bottom = 393.0
 tooltip_text = "Discard"
 metadata/_edit_use_anchors_ = true
 
-[node name="armor_stack" type="Container" parent="."]
-visible = false
-anchors_preset = -1
-anchor_left = 0.3
-anchor_top = 0.491
-anchor_right = 0.387
-anchor_bottom = 0.728
-offset_left = 288.0
-offset_top = 265.0
-offset_right = 288.48
-offset_bottom = 265.02
-tooltip_text = "Discard"
+[node name="armor_stack" type="Area2D" parent="."]
+position = Vector2(329, 328)
 metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="armor_stack"]
+position = Vector2(1, 0.5)
+shape = SubResource("RectangleShape2D_gqok3")
 
 [node name="class1_stack" type="Container" parent="."]
 visible = false
@@ -139,10 +138,6 @@ texture_hover = ExtResource("3_futgi")
 script = ExtResource("4_0vce2")
 metadata/_edit_use_anchors_ = true
 
-[node name="hand" type="Node2D" parent="."]
-position = Vector2(459, 437)
-script = ExtResource("5_hxuek")
-
 [node name="Player_hand" type="HBoxContainer" parent="."]
 visible = false
 anchors_preset = -1
@@ -159,6 +154,10 @@ grow_vertical = 2
 theme_override_constants/separation = 2
 alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="hand" type="Node2D" parent="."]
+position = Vector2(459, 437)
+script = ExtResource("5_hxuek")
 
 [node name="Attack Button" type="Button" parent="."]
 offset_left = 775.0

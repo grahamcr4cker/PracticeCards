@@ -11,7 +11,9 @@ var max_angle = 10
 var max_height = 5
 
 func _ready():
+	SignalBus.card_clicked.connect(_on_card_clicked)
 	populate_hand()
+	#Card Positioning code
 	var total_width = 0
 	for child in get_children():
 		total_width += child.texture.get_width() + space_between
@@ -46,4 +48,13 @@ func populate_hand():
 		add_child(heavy_armor_cards[index].duplicate())
 #	for card in heavy_armor.get_children():
 #		add_child(card.duplicate())
+
+#func _move_node_to_area():
+#	var area_position = $"../armor_stack".position
+
+func _on_card_clicked():
+	_move_card_to_armor()
+	
+func _move_card_to_armor():
+	var armorposition = $"../armor_stack".position
 
