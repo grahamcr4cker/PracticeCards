@@ -1,0 +1,70 @@
+[gd_scene load_steps=15 format=3 uid="uid://cd6rlsvvw2fxh"]
+
+[ext_resource type="PackedScene" uid="uid://c2qfawiylebo5" path="res://PlayableCard.tscn" id="1_jlecl"]
+[ext_resource type="Texture2D" uid="uid://bpyqaa33txkwj" path="res://assets/Card Art/mace/ace_mace.png" id="2_exg8g"]
+[ext_resource type="Texture2D" uid="uid://dd15njggycwvd" path="res://assets/Card Art/mace/2_mace.png" id="3_d47tp"]
+[ext_resource type="Texture2D" uid="uid://b77q73r6vy5aa" path="res://assets/Card Art/mace/3_mace.png" id="4_kojar"]
+[ext_resource type="Texture2D" uid="uid://dj3w6l3623jrn" path="res://assets/Card Art/mace/4_mace.png" id="5_i00mf"]
+[ext_resource type="Texture2D" uid="uid://jqi4ofmgr6kx" path="res://assets/Card Art/mace/5_mace.png" id="6_mk777"]
+[ext_resource type="Texture2D" uid="uid://dulpy3o5pj4cm" path="res://assets/Card Art/mace/6_mace.png" id="7_6lx3n"]
+[ext_resource type="Texture2D" uid="uid://0vgk8q2tl18f" path="res://assets/Card Art/mace/7_mace.png" id="8_rk3he"]
+[ext_resource type="Texture2D" uid="uid://cuwwenm3dqmyj" path="res://assets/Card Art/mace/8_mace.png" id="9_1cbrq"]
+[ext_resource type="Texture2D" uid="uid://bdnasqe5u2cti" path="res://assets/Card Art/mace/9_mace.png" id="10_c5lhg"]
+[ext_resource type="Texture2D" uid="uid://ckrp8f8g864sx" path="res://assets/Card Art/mace/10_mace.png" id="11_pvhn4"]
+[ext_resource type="Texture2D" uid="uid://2w2rjkni1cbv" path="res://assets/Card Art/mace/jack_mace.png" id="12_1y4oh"]
+[ext_resource type="Texture2D" uid="uid://csis0doare0wk" path="res://assets/Card Art/mace/queen_mace.png" id="13_4jjri"]
+[ext_resource type="Texture2D" uid="uid://cika7txgm0mti" path="res://assets/Card Art/mace/king_mace.png" id="14_an1jq"]
+
+[node name="mace_cards" type="Node2D"]
+
+[node name="Ace of Maces" parent="." instance=ExtResource("1_jlecl")]
+texture = ExtResource("2_exg8g")
+offset = Vector2(0, -3.13609)
+
+[node name="Two of Maces" parent="." instance=ExtResource("1_jlecl")]
+texture = ExtResource("3_d47tp")
+offset = Vector2(0, -3.13609)
+
+[node name="Three of Maces" parent="." instance=ExtResource("1_jlecl")]
+texture = ExtResource("4_kojar")
+offset = Vector2(0, -3.13609)
+
+[node name="Four of Maces" parent="." instance=ExtResource("1_jlecl")]
+texture = ExtResource("5_i00mf")
+offset = Vector2(0, -3.13609)
+
+[node name="Five of Maces" parent="." instance=ExtResource("1_jlecl")]
+texture = ExtResource("6_mk777")
+offset = Vector2(0, -3.13609)
+
+[node name="Six of Maces" parent="." instance=ExtResource("1_jlecl")]
+texture = ExtResource("7_6lx3n")
+offset = Vector2(0, -3.13609)
+
+[node name="Seven of Maces" parent="." instance=ExtResource("1_jlecl")]
+texture = ExtResource("8_rk3he")
+offset = Vector2(0, -3.13609)
+
+[node name="Eight of Maces" parent="." instance=ExtResource("1_jlecl")]
+texture = ExtResource("9_1cbrq")
+offset = Vector2(0, -3.13609)
+
+[node name="Nine of Maces" parent="." instance=ExtResource("1_jlecl")]
+texture = ExtResource("10_c5lhg")
+offset = Vector2(0, -3.13609)
+
+[node name="Ten of Maces" parent="." instance=ExtResource("1_jlecl")]
+texture = ExtResource("11_pvhn4")
+offset = Vector2(0, -3.13609)
+
+[node name="Jack of Maces" parent="." instance=ExtResource("1_jlecl")]
+texture = ExtResource("12_1y4oh")
+offset = Vector2(0, -3.13609)
+
+[node name="Queen of Maces" parent="." instance=ExtResource("1_jlecl")]
+texture = ExtResource("13_4jjri")
+offset = Vector2(0, -3.13609)
+
+[node name="King of Maces" parent="." instance=ExtResource("1_jlecl")]
+texture = ExtResource("14_an1jq")
+offset = Vector2(0, -3.13609)

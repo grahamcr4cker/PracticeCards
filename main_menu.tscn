@@ -1,0 +1,95 @@
+[gd_scene load_steps=3 format=3 uid="uid://iwm7wy12qdu1"]
+
+[ext_resource type="Script" path="res://main_menu.gd" id="1_v5ygo"]
+[ext_resource type="PackedScene" uid="uid://brppovmkem038" path="res://suite_option.tscn" id="2_c5g1y"]
+
+[node name="main_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v5ygo")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -75.5
+offset_top = 100.0
+offset_right = 75.5
+offset_bottom = 126.0
+grow_horizontal = 2
+text = "Choose your suites!"
+
+[node name="Heavy Armor Option" parent="." instance=ExtResource("2_c5g1y")]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 100.0
+offset_top = -15.5
+offset_right = 210.0
+offset_bottom = 15.5
+grow_vertical = 2
+toggle_mode = true
+text = "Heavy Armor"
+
+[node name="Longblade Option" parent="." instance=ExtResource("2_c5g1y")]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -189.0
+offset_top = -15.5
+offset_right = -100.0
+offset_bottom = 15.5
+grow_horizontal = 0
+grow_vertical = 2
+toggle_mode = true
+text = "Longblade
+"
+
+[node name="Mace Option" parent="." instance=ExtResource("2_c5g1y")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -15.5
+offset_right = 25.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+toggle_mode = true
+text = "Mace
+"
+
+[node name="Play Game" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -45.0
+offset_top = -90.0
+offset_right = 45.0
+offset_bottom = -59.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Play Game"
+
+[connection signal="pressed" from="Heavy Armor Option" to="." method="_on_heavy_armor_option_pressed"]
+[connection signal="toggled" from="Heavy Armor Option" to="." method="_on_heavy_armor_option_toggled"]
+[connection signal="pressed" from="Longblade Option" to="." method="_on_longblade_option_pressed"]
+[connection signal="toggled" from="Longblade Option" to="." method="_on_longblade_option_toggled"]
+[connection signal="pressed" from="Mace Option" to="." method="_on_mace_option_pressed"]
+[connection signal="toggled" from="Mace Option" to="." method="_on_mace_option_toggled"]
+[connection signal="pressed" from="Play Game" to="." method="_on_play_game_pressed"]

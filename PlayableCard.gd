@@ -1,5 +1,8 @@
 extends Sprite2D
 
+
+class_name PlayableCard
+
 @onready var animation_tree := $AnimationTree
 
 @export_category("Card")
