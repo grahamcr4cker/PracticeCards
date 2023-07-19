@@ -43,16 +43,14 @@ func _ready():
 
 
 func populate_hand():
-	var heavy_armor_cards = heavy_armor.get_children()
 	for index in range(hand_count):
-		add_child(heavy_armor_cards[index].duplicate())
-#	for card in heavy_armor.get_children():
-#		add_child(card.duplicate())
+		add_child(PlayerDeckChoices.pop_card())
 
 #func _move_node_to_area():
 #	var area_position = $"../armor_stack".position
 
 func _on_card_clicked():
+	print("card clicked")
 	_move_card_to_armor()
 	
 func _move_card_to_armor():
