@@ -19,7 +19,7 @@ func _on_attack_button_pressed():
 	spawn_roll_indicator(result)
 	# This disables the attack button while the animation is playing
 	attack_button.disabled = true
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(2.0).timeout
 	attack_button.disabled = false
 
 func spawn_roll_indicator(result: int):
