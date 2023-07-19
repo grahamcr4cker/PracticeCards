@@ -8,7 +8,7 @@ var mastery_bonus = 3
 
 
 func updateAnimation():
-		animation.play("idle")
+	animation.play("idle")
 
 func _physics_process(_delta):
 	move_and_slide()
@@ -33,13 +33,3 @@ func spawn_roll_indicator(result: int):
 #		get_tree().current_scene.add_child(effect)
 #		effect.global_position = effect_position
 #		return effect
-
-	#get a result from the pool vvv
-#	if roll_result_pool.size() > 0:
-#		return roll_result_pool.pop_front()
-#
-#	else:
-#		var new_roll_result = roll_result_template.instantiate()
-#		new_roll_result.tree_exiting.connect(
-#			func():roll_result_pool.append(new_roll_result))
-#		return new_roll_result
