@@ -1,19 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://bqw3vokrvf548"]
+[gd_scene load_steps=10 format=3 uid="uid://bqw3vokrvf548"]
 
 [ext_resource type="Texture2D" uid="uid://g3ddrmm8t4rn" path="res://assets/Backgrounds/Background_Dungeon.png" id="1_cb83s"]
 [ext_resource type="Script" path="res://Roll Result Spawn Point.gd" id="1_foulw"]
-[ext_resource type="PackedScene" path="res://player.tscn" id="2_wg4p0"]
+[ext_resource type="PackedScene" uid="uid://bpd4ggfpexeid" path="res://player.tscn" id="2_wg4p0"]
 [ext_resource type="Texture2D" uid="uid://bhwmi0xufos0m" path="res://assets/Card Art/card_back.png" id="3_futgi"]
 [ext_resource type="Script" path="res://PlayerDeck.gd" id="4_0vce2"]
 [ext_resource type="Script" path="res://hand.gd" id="5_hxuek"]
 [ext_resource type="FontFile" uid="uid://diqt2vii6tchx" path="res://assets/Fonts/CloisterBlack.ttf" id="6_krib6"]
 [ext_resource type="PackedScene" uid="uid://v2msqv3t8ntg" path="res://roll_result_indicator.tscn" id="7_g8lkh"]
 [ext_resource type="Script" path="res://Attack Button.gd" id="7_yu8p6"]
-
-[sub_resource type="Curve" id="Curve_26ffl"]
-min_value = -1.0
-_data = [Vector2(0.00515464, -1), 0.0, 2.01036, 0, 1, Vector2(1, 1), 2.01036, 0.0, 1, 0]
-point_count = 2
 
 [node name="playspace" type="Node2D"]
 
@@ -35,6 +30,7 @@ offset_bottom = 125.0
 script = ExtResource("1_foulw")
 
 [node name="player_deck" type="Container" parent="."]
+visible = false
 anchors_preset = -1
 anchor_left = 0.706
 anchor_top = 0.741
@@ -49,6 +45,7 @@ mouse_default_cursor_shape = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="discard" type="Container" parent="."]
+visible = false
 anchors_preset = -1
 anchor_left = 0.157
 anchor_top = 0.741
@@ -62,6 +59,7 @@ tooltip_text = "Discard"
 metadata/_edit_use_anchors_ = true
 
 [node name="weapon_stack" type="Container" parent="."]
+visible = false
 offset_left = 201.0
 offset_top = 265.0
 offset_right = 285.0
@@ -70,6 +68,7 @@ tooltip_text = "Discard"
 metadata/_edit_use_anchors_ = true
 
 [node name="armor_stack" type="Container" parent="."]
+visible = false
 anchors_preset = -1
 anchor_left = 0.3
 anchor_top = 0.491
@@ -83,6 +82,7 @@ tooltip_text = "Discard"
 metadata/_edit_use_anchors_ = true
 
 [node name="class1_stack" type="Container" parent="."]
+visible = false
 anchors_preset = -1
 anchor_left = 0.391
 anchor_top = 0.491
@@ -96,6 +96,7 @@ tooltip_text = "Discard"
 metadata/_edit_use_anchors_ = true
 
 [node name="class2_stack" type="Container" parent="."]
+visible = false
 anchors_preset = -1
 anchor_left = 0.481
 anchor_top = 0.491
@@ -109,6 +110,7 @@ tooltip_text = "Discard"
 metadata/_edit_use_anchors_ = true
 
 [node name="player_inplay" type="Container" parent="."]
+visible = false
 anchors_preset = -1
 anchor_left = 0.573
 anchor_top = 0.491
@@ -138,9 +140,8 @@ script = ExtResource("4_0vce2")
 metadata/_edit_use_anchors_ = true
 
 [node name="hand" type="Node2D" parent="."]
-position = Vector2(459, 464)
+position = Vector2(459, 437)
 script = ExtResource("5_hxuek")
-spread_curve = SubResource("Curve_26ffl")
 
 [node name="Player_hand" type="HBoxContainer" parent="."]
 visible = false
@@ -170,6 +171,6 @@ text = "Attack"
 script = ExtResource("7_yu8p6")
 
 [node name="Roll Result Indicator" parent="." instance=ExtResource("7_g8lkh")]
-position = Vector2(752, 170)
+position = Vector2(854, 416)
 
 [connection signal="pressed" from="Attack Button" to="Player" method="_on_attack_button_pressed"]

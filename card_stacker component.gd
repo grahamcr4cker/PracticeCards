@@ -4,7 +4,7 @@ class_name CARD_STACKER
 
 @export_category("Card")
 @export_enum("Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten") var card_rank : String
-@export_range(2, 10, 1) var card_value : int
+@export_range(2, 10) var card_value : int
 @export_enum("Class 1", "Class 2", "Weapon", "Armor") var card_suit : String
 @export_placeholder("Placeholder") var Hover_text: String = "Placeholder"
 @export_multiline var stack_effect : String = ""
