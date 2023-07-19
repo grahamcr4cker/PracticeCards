@@ -1,14 +1,29 @@
-[gd_scene load_steps=11 format=3 uid="uid://bqw3vokrvf548"]
+[gd_scene load_steps=23 format=3 uid="uid://bqw3vokrvf548"]
 
 [ext_resource type="Texture2D" uid="uid://g3ddrmm8t4rn" path="res://assets/Backgrounds/Background_Dungeon.png" id="1_cb83s"]
 [ext_resource type="Script" path="res://Roll Result Spawn Point.gd" id="1_foulw"]
-[ext_resource type="PackedScene" path="res://player.tscn" id="2_wg4p0"]
+[ext_resource type="Script" path="res://Node2D.gd" id="1_o2yeu"]
+[ext_resource type="PackedScene" uid="uid://ba1kpaban1x5h" path="res://cards/armor/unarmored/eight_of_heavy_armor.tscn" id="2_8aq74"]
+[ext_resource type="PackedScene" uid="uid://bpd4ggfpexeid" path="res://player.tscn" id="2_wg4p0"]
 [ext_resource type="Texture2D" uid="uid://bhwmi0xufos0m" path="res://assets/Card Art/card_back.png" id="3_futgi"]
+[ext_resource type="PackedScene" uid="uid://cafeqq0p0vp8l" path="res://cards/armor/unarmored/ace_of_heavy_armor.tscn" id="3_utjin"]
 [ext_resource type="Script" path="res://PlayerDeck.gd" id="4_0vce2"]
 [ext_resource type="Script" path="res://hand.gd" id="5_hxuek"]
+[ext_resource type="PackedScene" uid="uid://cfa3d0xuejjeb" path="res://cards/armor/heavy armor/four_of_heavy_armor.tscn" id="5_xg4tt"]
 [ext_resource type="FontFile" uid="uid://diqt2vii6tchx" path="res://assets/Fonts/CloisterBlack.ttf" id="6_krib6"]
+[ext_resource type="PackedScene" uid="uid://bduacimyy8x3c" path="res://cards/armor/heavy armor/five_of_heavy_armor.tscn" id="6_qw32u"]
+[ext_resource type="PackedScene" uid="uid://c35l54j5yeph1" path="res://cards/armor/heavy armor/jack_of_heavy_armor.tscn" id="7_6w6lo"]
 [ext_resource type="PackedScene" uid="uid://v2msqv3t8ntg" path="res://roll_result_indicator.tscn" id="7_g8lkh"]
 [ext_resource type="Script" path="res://Attack Button.gd" id="7_yu8p6"]
+[ext_resource type="PackedScene" uid="uid://db8xpw73hlya2" path="res://cards/armor/heavy armor/king_of_heavy_armor.tscn" id="8_37baa"]
+[ext_resource type="PackedScene" uid="uid://cck6ua5jmontv" path="res://cards/armor/heavy armor/nine_of_heavy_armor.tscn" id="8_mxiul"]
+[ext_resource type="PackedScene" uid="uid://dx0pgylrp2lhr" path="res://cards/armor/heavy armor/queen_of_heavy_armor.tscn" id="9_1se2j"]
+[ext_resource type="PackedScene" uid="uid://bca13qt5j0fxh" path="res://cards/armor/heavy armor/seven_of_heavy_armor.tscn" id="10_wt15k"]
+
+[sub_resource type="Gradient" id="Gradient_6fchq"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_e3cm6"]
+gradient = SubResource("Gradient_6fchq")
 
 [sub_resource type="Curve" id="Curve_26ffl"]
 min_value = -1.0
@@ -16,6 +31,29 @@ _data = [Vector2(0.00515464, -1), 0.0, 2.01036, 0, 1, Vector2(1, 1), 2.01036, 0.
 point_count = 2
 
 [node name="playspace" type="Node2D"]
+
+[node name="Node2D" type="Node2D" parent="."]
+z_index = 1
+position = Vector2(460, 464)
+script = ExtResource("1_o2yeu")
+
+[node name="eight_of_heavy_armor" parent="Node2D" instance=ExtResource("2_8aq74")]
+
+[node name="ace_of_heavy_armor" parent="Node2D" instance=ExtResource("3_utjin")]
+
+[node name="five_of_heavy_armor" parent="Node2D" instance=ExtResource("6_qw32u")]
+
+[node name="four_of_heavy_armor" parent="Node2D" instance=ExtResource("5_xg4tt")]
+
+[node name="jack_of_heavy_armor" parent="Node2D" instance=ExtResource("7_6w6lo")]
+
+[node name="king_of_heavy_armor" parent="Node2D" instance=ExtResource("8_37baa")]
+
+[node name="nine_of_heavy_armor" parent="Node2D" instance=ExtResource("8_mxiul")]
+
+[node name="queen_of_heavy_armor" parent="Node2D" instance=ExtResource("9_1se2j")]
+
+[node name="seven_of_heavy_armor" parent="Node2D" instance=ExtResource("10_wt15k")]
 
 [node name="BackgroundDungeon" type="Sprite2D" parent="."]
 position = Vector2(480, 270)
@@ -33,6 +71,12 @@ offset_top = 109.0
 offset_right = 759.0
 offset_bottom = 125.0
 script = ExtResource("1_foulw")
+
+[node name="PointLight2D" type="PointLight2D" parent="Player"]
+position = Vector2(-103, -308)
+shadow_enabled = true
+shadow_color = Color(0.208404, 0.0789507, 0.0986574, 1)
+texture = SubResource("GradientTexture2D_e3cm6")
 
 [node name="player_deck" type="Container" parent="."]
 anchors_preset = -1
@@ -171,5 +215,8 @@ script = ExtResource("7_yu8p6")
 
 [node name="Roll Result Indicator" parent="." instance=ExtResource("7_g8lkh")]
 position = Vector2(752, 170)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(480, 270)
 
 [connection signal="pressed" from="Attack Button" to="Player" method="_on_attack_button_pressed"]

@@ -1,0 +1,77 @@
+[gd_scene load_steps=10 format=3 uid="uid://2ogvclxw7q8o"]
+
+[ext_resource type="Script" path="res://2.5D POC.gd" id="1_jaejr"]
+[ext_resource type="PackedScene" uid="uid://ik55mdjyvel4" path="res://player_characater.tscn" id="2_5xsbv"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fvkpf"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_11olf"]
+sky_material = SubResource("ProceduralSkyMaterial_fvkpf")
+
+[sub_resource type="Environment" id="Environment_u023w"]
+background_mode = 2
+sky = SubResource("Sky_11olf")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2kmjl"]
+albedo_color = Color(0.352941, 0.0823529, 0.490196, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_bjuai"]
+material = SubResource("StandardMaterial3D_2kmjl")
+size = Vector2(12, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r7x4h"]
+albedo_color = Color(0.329412, 0.168627, 0.623529, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_jt76n"]
+material = SubResource("StandardMaterial3D_r7x4h")
+size = Vector2(12, 20)
+
+[node name="2_5D POC" type="Node3D"]
+script = ExtResource("1_jaejr")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_u023w")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.430211, -0.640371, 0.636273, 0.858008, -0.509155, 0.0677024, 0.280607, 0.575054, 0.768487, 0, 0, 15)
+light_indirect_energy = 0.0
+shadow_enabled = true
+shadow_opacity = 0.61
+directional_shadow_split_1 = 0.282
+sky_mode = 1
+
+[node name="Background" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -8.98747, 1.33333, 0.666667)
+mesh = SubResource("PlaneMesh_bjuai")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Background"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 9.00913, 1.33333, 0.666667)
+mesh = SubResource("PlaneMesh_bjuai")
+skeleton = NodePath("../..")
+
+[node name="Midground" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Midground"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.33333, -1.33333)
+mesh = SubResource("PlaneMesh_jt76n")
+skeleton = NodePath("../..")
+
+[node name="SpringArmPivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10.3326)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="SpringArmPivot"]
+spring_length = 0.0
+
+[node name="Camera3D" type="Camera3D" parent="SpringArmPivot/SpringArm3D"]
+
+[node name="player_characater" parent="." instance=ExtResource("2_5xsbv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.97932, 0, 7.15396)
