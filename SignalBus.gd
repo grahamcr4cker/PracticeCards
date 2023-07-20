@@ -1,3 +1,3 @@
 extends Node
 
-signal card_clicked
+signal card_clicked(card)

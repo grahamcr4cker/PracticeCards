@@ -86,10 +86,7 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "Play Game"
 
-[connection signal="pressed" from="Heavy Armor Option" to="." method="_on_heavy_armor_option_pressed"]
 [connection signal="toggled" from="Heavy Armor Option" to="." method="_on_heavy_armor_option_toggled"]
-[connection signal="pressed" from="Longblade Option" to="." method="_on_longblade_option_pressed"]
 [connection signal="toggled" from="Longblade Option" to="." method="_on_longblade_option_toggled"]
-[connection signal="pressed" from="Mace Option" to="." method="_on_mace_option_pressed"]
 [connection signal="toggled" from="Mace Option" to="." method="_on_mace_option_toggled"]
 [connection signal="pressed" from="Play Game" to="." method="_on_play_game_pressed"]

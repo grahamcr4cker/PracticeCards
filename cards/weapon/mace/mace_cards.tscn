@@ -19,52 +19,72 @@
 
 [node name="Ace of Maces" parent="." instance=ExtResource("1_jlecl")]
 texture = ExtResource("2_exg8g")
-offset = Vector2(0, -3.13609)
+offset = Vector2(0, 0)
+suit_type = 2
 
 [node name="Two of Maces" parent="." instance=ExtResource("1_jlecl")]
 texture = ExtResource("3_d47tp")
-offset = Vector2(0, -3.13609)
+offset = Vector2(0, 0)
+face_value = 4
 
 [node name="Three of Maces" parent="." instance=ExtResource("1_jlecl")]
 texture = ExtResource("4_kojar")
-offset = Vector2(0, -3.13609)
+offset = Vector2(0, 0)
+suit_type = 2
+face_value = 4
 
 [node name="Four of Maces" parent="." instance=ExtResource("1_jlecl")]
 texture = ExtResource("5_i00mf")
-offset = Vector2(0, -3.13609)
+offset = Vector2(0, 0)
+face_value = 4
 
 [node name="Five of Maces" parent="." instance=ExtResource("1_jlecl")]
 texture = ExtResource("6_mk777")
-offset = Vector2(0, -3.13609)
+offset = Vector2(0, 0)
+suit_type = 2
+face_value = 4
 
 [node name="Six of Maces" parent="." instance=ExtResource("1_jlecl")]
 texture = ExtResource("7_6lx3n")
-offset = Vector2(0, -3.13609)
+offset = Vector2(0, 0)
+face_value = 4
 
 [node name="Seven of Maces" parent="." instance=ExtResource("1_jlecl")]
 texture = ExtResource("8_rk3he")
-offset = Vector2(0, -3.13609)
+offset = Vector2(0, 0)
+suit_type = 2
+face_value = 4
 
 [node name="Eight of Maces" parent="." instance=ExtResource("1_jlecl")]
 texture = ExtResource("9_1cbrq")
-offset = Vector2(0, -3.13609)
+offset = Vector2(0, 0)
+face_value = 4
 
 [node name="Nine of Maces" parent="." instance=ExtResource("1_jlecl")]
 texture = ExtResource("10_c5lhg")
-offset = Vector2(0, -3.13609)
+offset = Vector2(0, 0)
+suit_type = 2
+face_value = 4
 
 [node name="Ten of Maces" parent="." instance=ExtResource("1_jlecl")]
 texture = ExtResource("11_pvhn4")
-offset = Vector2(0, -3.13609)
+offset = Vector2(0, 0)
+face_value = 4
 
 [node name="Jack of Maces" parent="." instance=ExtResource("1_jlecl")]
 texture = ExtResource("12_1y4oh")
-offset = Vector2(0, -3.13609)
+offset = Vector2(0, 0)
+suit_type = 2
+face_value = 3
 
 [node name="Queen of Maces" parent="." instance=ExtResource("1_jlecl")]
 texture = ExtResource("13_4jjri")
-offset = Vector2(0, -3.13609)
+offset = Vector2(0, 0)
+suit_type = 2
+face_value = 2
 
 [node name="King of Maces" parent="." instance=ExtResource("1_jlecl")]
 texture = ExtResource("14_an1jq")
-offset = Vector2(0, -3.13609)
+offset = Vector2(0, 0)
+suit_type = 2
+face_value = 1

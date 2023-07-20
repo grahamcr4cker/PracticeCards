@@ -6,11 +6,18 @@ class_name PlayableCard
 @onready var was_clicked_on := false
 @onready var animation_tree := $AnimationTree
 
+enum SuitType { CLASS_2, ARMOR, WEAPON, CLASS_1 }
+enum CardFace { FACE, STACKER }
+enum FaceValue { ACE, KING, QUEEN, JACK, None }
+
 @export_category("Card")
 #@export_enum("Ace", "Jack", "Queen", "King") var card_rank : String
-@export_enum("Class 1", "Class 2", "Weapon", "Armor") var suit_type
+@export var suit_type : SuitType
 #@export var card_name : String = card_rank + " of " + card_suit #'Rank' of 'Suit'
-@export_enum("Face", "Stacker") var card_type
+@export var card_type : CardFace
+#if card_type is "Face":
+@export var face_value : FaceValue
+@export_range(2, 20, 1) var numeric_value : int
 @export_multiline var Description : String = ""
 
 @export_category("Damage/Healing")
@@ -40,8 +47,15 @@ func _on_area_2d_mouse_exited():
 func _on_area_2d_input_event(_viewport, _event, _shape_idx):
 	if Input.is_action_just_released("leftclick"):
 		was_clicked_on = true
-		SignalBus.card_clicked.emit()
+		_on_card_clicked()
 
 
 func _on_card_clicked():
-	pass
+	var card = duplicate()
+	card.numeric_value = numeric_value
+	queue_free()
+	print("card freed!")
+	print(suit_type)
+	PlayerDeckChoices.add_card_to_weapon_pile(card)
+#	SignalBus.card_clicked.emit(card)
+

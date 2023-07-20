@@ -13,6 +13,10 @@ var max_height = 5
 func _ready():
 	SignalBus.card_clicked.connect(_on_card_clicked)
 	populate_hand()
+	position_cards()
+
+
+func position_cards():
 	#Card Positioning code
 	var total_width = 0
 	for child in get_children():
@@ -41,7 +45,6 @@ func _ready():
 		
 		index += 1
 
-
 func populate_hand():
 	for index in range(hand_count):
 		add_child(PlayerDeckChoices.pop_card())
@@ -49,10 +52,14 @@ func populate_hand():
 #func _move_node_to_area():
 #	var area_position = $"../armor_stack".position
 
-func _on_card_clicked():
-	print("card clicked")
-	_move_card_to_armor()
+func _on_card_clicked(card):
+#	print("card clicked")
+#	print(card)
+#	position_cards()
+	_move_card_to_armor(card)
 	
-func _move_card_to_armor():
+func _move_card_to_armor(card):
 	var armorposition = $"../armor_stack".position
+#	$"../armor_stack".add_child(card)
+	
 
