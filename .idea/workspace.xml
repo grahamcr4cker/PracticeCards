@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e044f5ce-270c-43ec-97ee-1ce7744027d0" name="Changes" comment="merged in main">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/PracticeCards.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PlayableCard.gd" beforeDir="false" afterPath="$PROJECT_DIR$/PlayableCard.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/card_example.gd" beforeDir="false" afterPath="$PROJECT_DIR$/card_example.gd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/card_example.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/card_example.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cards/armor/heavy armor/heavy_armor_cards.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/cards/armor/heavy armor/heavy_armor_cards.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cards/weapon/mace/mace_cards.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/cards/weapon/mace/mace_cards.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/combat_dungeon.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/combat_dungeon.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example-board.tscn" beforeDir="false" afterPath="$PROJECT_DIR$/example-board.tscn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hand.gd" beforeDir="false" afterPath="$PROJECT_DIR$/hand.gd" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="2SjMwXruD3ophcZIVJLevzlnxbG" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "idea-config",
+    "jdk.selected.JAVA_MODULE": "18",
+    "last_opened_file_path": "/home/fireninja/GodotProjects/PracticeCards",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "gdscript.settings.GdSettingsConfigurable"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="main_menu.gd" type="GodotRunConfiguration" factoryName="GodotRunConfiguration" temporary="true" nameIsGenerated="true">
+      <option name="godotExe" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Godot.main_menu.gd" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e044f5ce-270c-43ec-97ee-1ce7744027d0" name="Changes" comment="" />
+      <created>1689655775698</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1689655775698</updated>
+    </task>
+    <task id="LOCAL-00001" summary="merged in main">
+      <option name="closed" value="true" />
+      <created>1689799980670</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1689799980670</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="merged in main" />
+    <option name="LAST_COMMIT_MESSAGE" value="merged in main" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

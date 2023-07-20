@@ -1,5 +1,35 @@
-[gd_scene format=3 uid="uid://djtmvqeys8ndx"]
+[gd_scene load_steps=5 format=3 uid="uid://djtmvqeys8ndx"]
 
-[node name="card example" type="Sprite2D"]
+[ext_resource type="Texture2D" uid="uid://cfowf8rewgvln" path="res://assets/card_back.png" id="1_mfho1"]
+[ext_resource type="Script" path="res://card_example.gd" id="1_onosp"]
+
+[sub_resource type="Animation" id="Animation_tguy2"]
+resource_name = "idel"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5emfs"]
+_data = {
+"idel": SubResource("Animation_tguy2")
+}
+
+[node name="card example" type="Control"]
+layout_mode = 3
+anchor_right = 0.133
+offset_right = 0.16
+offset_bottom = 64.0
+script = ExtResource("1_onosp")
 
 [node name="CARD" type="Node" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 64.0
+grow_horizontal = 2
+texture = ExtResource("1_mfho1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idel"
+libraries = {
+"": SubResource("AnimationLibrary_5emfs")
+}

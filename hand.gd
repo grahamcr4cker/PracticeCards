@@ -3,7 +3,6 @@ extends Node2D
 @onready var heavy_armor := preload("res://cards/armor/heavy armor/heavy_armor_cards.tscn").instantiate()
 @export var hand_count := 9
 
-# Space between sprites in pixels
 var space_between = 0
 # Maximum rotation angle in degrees
 var max_angle = 10
@@ -55,4 +54,3 @@ func _on_card_clicked():
 	
 func _move_card_to_armor():
 	var armorposition = $"../armor_stack".position
-

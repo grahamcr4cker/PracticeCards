@@ -19,52 +19,52 @@
 
 [node name="Ace of Heavy Armor" parent="." instance=ExtResource("1_vmh6d")]
 texture = ExtResource("2_0h3ew")
-offset = Vector2(0, -5)
+offset = Vector2(0, -4.41953)
 
 [node name="Two of Heavy Armor" parent="." instance=ExtResource("1_vmh6d")]
 texture = ExtResource("2_j87kr")
-offset = Vector2(0, -1.15446)
+offset = Vector2(0, -4.41953)
 
 [node name="Three of Heavy Armor" parent="." instance=ExtResource("1_vmh6d")]
 texture = ExtResource("3_8cixx")
-offset = Vector2(0, -1.15446)
+offset = Vector2(0, -4.41953)
 
 [node name="Four of Heavy Armor" parent="." instance=ExtResource("1_vmh6d")]
 texture = ExtResource("4_3kjf6")
-offset = Vector2(0, -1.15446)
+offset = Vector2(0, -4.41953)
 
 [node name="Five of Heavy Armor" parent="." instance=ExtResource("1_vmh6d")]
 texture = ExtResource("5_bfci1")
-offset = Vector2(0, -1.15446)
+offset = Vector2(0, -4.41953)
 
 [node name="Six of Heavy Armor" parent="." instance=ExtResource("1_vmh6d")]
 texture = ExtResource("6_gghhy")
-offset = Vector2(0, -1.15446)
+offset = Vector2(0, -4.41953)
 
 [node name="Seven of Heavy Armor" parent="." instance=ExtResource("1_vmh6d")]
 texture = ExtResource("7_6wpgj")
-offset = Vector2(0, -1.15446)
+offset = Vector2(0, -4.41953)
 
 [node name="Eight of Heavy Armor" parent="." instance=ExtResource("1_vmh6d")]
 texture = ExtResource("8_h4i85")
-offset = Vector2(0, -1.15446)
+offset = Vector2(0, -4.41953)
 
 [node name="Nine of Heavy Armor" parent="." instance=ExtResource("1_vmh6d")]
 texture = ExtResource("9_wl4us")
-offset = Vector2(0, -1.15446)
+offset = Vector2(0, -4.41953)
 
 [node name="Ten of Heavy Armor" parent="." instance=ExtResource("1_vmh6d")]
 texture = ExtResource("10_0aups")
-offset = Vector2(0, -1.15446)
+offset = Vector2(0, -4.41953)
 
 [node name="Jack of Heavy Armor" parent="." instance=ExtResource("1_vmh6d")]
 texture = ExtResource("11_sow1p")
-offset = Vector2(0, -1.15446)
+offset = Vector2(0, -4.41953)
 
 [node name="Queen of Heavy Armor" parent="." instance=ExtResource("1_vmh6d")]
 texture = ExtResource("12_8b8dj")
-offset = Vector2(0, -1.15446)
+offset = Vector2(0, -4.41953)
 
 [node name="King of Heavy Armor" parent="." instance=ExtResource("1_vmh6d")]
 texture = ExtResource("13_u5tiy")
-offset = Vector2(0, -1.15446)
+offset = Vector2(0, -4.41953)

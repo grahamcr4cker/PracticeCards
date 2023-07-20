@@ -11,7 +11,7 @@ class_name PlayableCard
 @export_enum("Class 1", "Class 2", "Weapon", "Armor") var suit_type
 #@export var card_name : String = card_rank + " of " + card_suit #'Rank' of 'Suit'
 @export_enum("Face", "Stacker") var card_type
-@export_multiline var Description : String = ""
+@export_multiline var Description := ""
 
 @export_category("Damage/Healing")
 @export_range(0, 10, 1) var damage : int
