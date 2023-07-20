@@ -41,6 +41,7 @@ func _on_area_2d_input_event(_viewport, _event, _shape_idx):
 	if Input.is_action_just_released("leftclick"):
 		was_clicked_on = true
 		SignalBus.card_clicked.emit()
+		animation_tree["parameters/conditions/is_clicked"] = true
 
 
 func _on_card_clicked():

@@ -156,7 +156,7 @@ alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="hand" type="Node2D" parent="."]
-position = Vector2(459, 437)
+position = Vector2(459, 500)
 script = ExtResource("5_hxuek")
 
 [node name="Attack Button" type="Button" parent="."]
