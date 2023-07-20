@@ -1,4 +1,8 @@
 extends Sprite2D
+
+
+class_name PlayableCard
+
 @onready var was_clicked_on := false
 @onready var animation_tree := $AnimationTree
 
@@ -37,7 +41,7 @@ func _on_area_2d_input_event(_viewport, _event, _shape_idx):
 	if Input.is_action_just_released("leftclick"):
 		was_clicked_on = true
 		SignalBus.card_clicked.emit()
-		
+
 
 func _on_card_clicked():
 	pass
