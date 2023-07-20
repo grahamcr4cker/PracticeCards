@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bqw3vokrvf548"]
+[gd_scene load_steps=16 format=3 uid="uid://bqw3vokrvf548"]
 
 [ext_resource type="Script" path="res://combat_dungeon.gd" id="1_b0ku4"]
 [ext_resource type="Texture2D" uid="uid://g3ddrmm8t4rn" path="res://assets/Backgrounds/Background_Dungeon.png" id="1_cb83s"]
@@ -6,10 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://bpd4ggfpexeid" path="res://player.tscn" id="2_wg4p0"]
 [ext_resource type="Texture2D" uid="uid://bhwmi0xufos0m" path="res://assets/Card Art/card_back.png" id="3_futgi"]
 [ext_resource type="Script" path="res://PlayerDeck.gd" id="4_0vce2"]
+[ext_resource type="Script" path="res://armor_stack.gd" id="5_dy6tx"]
 [ext_resource type="Script" path="res://hand.gd" id="5_hxuek"]
 [ext_resource type="FontFile" uid="uid://diqt2vii6tchx" path="res://assets/Fonts/CloisterBlack.ttf" id="6_krib6"]
 [ext_resource type="PackedScene" uid="uid://v2msqv3t8ntg" path="res://roll_result_indicator.tscn" id="7_g8lkh"]
 [ext_resource type="Script" path="res://Attack Button.gd" id="7_yu8p6"]
+[ext_resource type="Script" path="res://weapon_stack.gd" id="12_bsh32"]
+[ext_resource type="Script" path="res://class_1_stack.gd" id="13_xb74m"]
+[ext_resource type="Script" path="res://class_2_stack.gd" id="14_u2x70"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gqok3"]
 size = Vector2(84, 129)
@@ -73,11 +77,11 @@ tooltip_text = "Discard"
 metadata/_edit_use_anchors_ = true
 
 [node name="armor_stack" type="Area2D" parent="."]
-position = Vector2(329, 328)
+position = Vector2(330, 329)
+script = ExtResource("5_dy6tx")
 metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="armor_stack"]
-position = Vector2(1, 0.5)
 shape = SubResource("RectangleShape2D_gqok3")
 
 [node name="class1_stack" type="Container" parent="."]
@@ -171,5 +175,26 @@ script = ExtResource("7_yu8p6")
 
 [node name="Roll Result Indicator" parent="." instance=ExtResource("7_g8lkh")]
 position = Vector2(854, 416)
+
+[node name="weapon_stack2" type="Area2D" parent="."]
+position = Vector2(243, 329)
+script = ExtResource("12_bsh32")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="weapon_stack2"]
+shape = SubResource("RectangleShape2D_gqok3")
+
+[node name="class_1_stack" type="Area2D" parent="."]
+position = Vector2(417, 329)
+script = ExtResource("13_xb74m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="class_1_stack"]
+shape = SubResource("RectangleShape2D_gqok3")
+
+[node name="class_2_stack" type="Area2D" parent="."]
+position = Vector2(505, 329)
+script = ExtResource("14_u2x70")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="class_2_stack"]
+shape = SubResource("RectangleShape2D_gqok3")
 
 [connection signal="pressed" from="Attack Button" to="Player" method="_on_attack_button_pressed"]

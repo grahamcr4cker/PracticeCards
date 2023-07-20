@@ -51,8 +51,8 @@ func populate_hand():
 
 func _on_card_clicked():
 	print("card clicked")
-	_move_card_to_armor()
-	
-func _move_card_to_armor():
-	var armorposition = $"../armor_stack".position
+#	_move_card_to_armor()
+#
+#func _move_card_to_armor():
+#	var armorposition = $"../armor_stack".position
 
