@@ -24,51 +24,6 @@ offset_bottom = 126.0
 grow_horizontal = 2
 text = "Choose your weapon!"
 
-[node name="Heavy Armor Option" parent="." instance=ExtResource("2_c5g1y")]
-visible = false
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 100.0
-offset_top = -15.5
-offset_right = 210.0
-offset_bottom = 15.5
-grow_vertical = 2
-toggle_mode = true
-text = "Heavy Armor"
-
-[node name="Longblade Option" parent="." instance=ExtResource("2_c5g1y")]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -189.0
-offset_top = -15.5
-offset_right = -100.0
-offset_bottom = 15.5
-grow_horizontal = 0
-grow_vertical = 2
-toggle_mode = true
-text = "Longblade
-"
-
-[node name="Mace Option" parent="." instance=ExtResource("2_c5g1y")]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 150.0
-offset_top = -15.5
-offset_right = 200.0
-offset_bottom = 15.5
-grow_vertical = 2
-toggle_mode = true
-text = "Mace
-"
-
 [node name="Play Game" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 7
@@ -84,7 +39,79 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "Play Game"
 
-[connection signal="toggled" from="Heavy Armor Option" to="." method="_on_heavy_armor_option_toggled"]
-[connection signal="toggled" from="Longblade Option" to="." method="_on_longblade_option_toggled"]
-[connection signal="toggled" from="Mace Option" to="." method="_on_mace_option_toggled"]
+[node name="Selection Wrapper" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -60.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Class Selection" type="VBoxContainer" parent="Selection Wrapper"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="Thief Option" parent="Selection Wrapper/Class Selection" instance=ExtResource("2_c5g1y")]
+layout_mode = 2
+toggle_mode = true
+text = "Thief"
+
+[node name="HSpacer" type="Control" parent="Selection Wrapper/Class Selection"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Priest Option" parent="Selection Wrapper/Class Selection" instance=ExtResource("2_c5g1y")]
+layout_mode = 2
+toggle_mode = true
+text = "Priest"
+
+[node name="VSpacer" type="Control" parent="Selection Wrapper"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="Weapon Selection" type="VBoxContainer" parent="Selection Wrapper"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="Longblade Option" parent="Selection Wrapper/Weapon Selection" instance=ExtResource("2_c5g1y")]
+layout_mode = 2
+toggle_mode = true
+text = "Longblade
+"
+
+[node name="HSpacer" type="Control" parent="Selection Wrapper/Weapon Selection"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Mace Option" parent="Selection Wrapper/Weapon Selection" instance=ExtResource("2_c5g1y")]
+layout_mode = 2
+toggle_mode = true
+text = "Mace
+"
+
+[node name="VSpacer2" type="Control" parent="Selection Wrapper"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+
+[node name="Armor Selection" type="VBoxContainer" parent="Selection Wrapper"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="Heavy Armor Option" parent="Selection Wrapper/Armor Selection" instance=ExtResource("2_c5g1y")]
+layout_mode = 2
+toggle_mode = true
+text = "Heavy Armor"
+
 [connection signal="pressed" from="Play Game" to="." method="_on_play_game_pressed"]
+[connection signal="toggled" from="Selection Wrapper/Class Selection/Thief Option" to="." method="_on_thief_option_toggled"]
+[connection signal="toggled" from="Selection Wrapper/Class Selection/Priest Option" to="." method="_on_priest_option_toggled"]
+[connection signal="toggled" from="Selection Wrapper/Weapon Selection/Longblade Option" to="." method="_on_longblade_option_toggled"]
+[connection signal="toggled" from="Selection Wrapper/Weapon Selection/Mace Option" to="." method="_on_mace_option_toggled"]
+[connection signal="toggled" from="Selection Wrapper/Armor Selection/Heavy Armor Option" to="." method="_on_heavy_armor_option_toggled"]
