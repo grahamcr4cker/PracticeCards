@@ -6,12 +6,8 @@ var player_suites := []
 @onready var heavy_armor_button := $"Heavy Armor Option"
 @onready var longblad_button := $"Longblade Option"
 @onready var mace_button := $"Mace Option"
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if player_suites.size() == 0:
 		play_game.disabled = true

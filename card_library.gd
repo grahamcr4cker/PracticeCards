@@ -19,12 +19,12 @@ var suits := {
 		"sub_type": null,
 		"cards": []
 	},
-	"cures": {
+	"suns": {
 		"type": "priest",
 		"sub_type": "class_1",
 		"cards": []
 	},
-	"suns": {
+	"cures": {
 		"type": "priest",
 		"sub_type": "class_2",
 		"cards": []
@@ -76,6 +76,3 @@ func _ready():
 					card.numeric_value = number
 			card.texture = load(card_img)
 			suit.cards.append(card)
-#			print("card name: %s, card suit: %s, card value: %d" % [card.name, card.suit_type, card.numeric_value])
-#		print("***suit*** total: %d" % suit.cards.size())
-#		print(suit)

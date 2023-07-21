@@ -30,6 +30,7 @@ texture = ExtResource("1_cb83s")
 position = Vector2(103, 308)
 
 [node name="Roll Result Spawn Point" type="Control" parent="Player"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 730.0
