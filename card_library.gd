@@ -28,6 +28,16 @@ var suits := {
 		"type": "priest",
 		"sub_type": "class_2",
 		"cards": []
+	},
+	"shadows": {
+		"type": "thief",
+		"sub_type": "class_1",
+		"cards": []
+	},
+	"venom": {
+		"type": "thief",
+		"sub_type": "class_2",
+		"cards": []
 	}
 }
 
