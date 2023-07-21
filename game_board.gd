@@ -10,6 +10,7 @@ signal class2Added
 signal class2Popped
 signal discardAdded
 signal discardPopped
+signal handCardPopped
 
 var armor := []
 var weapon := []

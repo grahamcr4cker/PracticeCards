@@ -63,15 +63,7 @@ func _on_area_2d_input_event(_viewport, _event, _shape_idx):
 			_:
 				pass
 		queue_free()
-#		animation_tree["parameters/conditions/is_clicked"] = true
 
 
-#func _duplicate_and_free_card() -> PlayableCard:
-#	var card = duplicate()
-#	card.textue = texture
-#	card.numeric_value = numeric_value
-#	card.suit_type = suit_type
-#	card.is_face_card = is_face_card
-#	card.Description = Description
-#	queue_free()
-#	return card
+func _on_tree_exited():
+	GameBoard.handCardPopped.emit()
