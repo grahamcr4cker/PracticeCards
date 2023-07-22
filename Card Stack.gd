@@ -3,7 +3,7 @@ extends Area2D
 
 @export var cardAddedSignal : String
 @export var cardPoppedSignal : String
-
+# Total value of cards added up in a stack
 var total_value := 0
 
 func _ready():
