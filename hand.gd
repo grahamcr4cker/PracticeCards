@@ -22,10 +22,16 @@ func _turn_start():
 	attack_button.disabled = false
 	_toggle_card_clickable(true)
 	cards_played = 0
+	var hand_size = get_children().size()
+	if hand_size < hand_count:
+		for index in range(hand_count - hand_size):
+			add_child(GameBoard.pop_card_from_deck())
+			await get_tree().create_timer(.25).timeout
 
 func _turn_end():
-	print("ally turn ending")
+	print("enemy turn ending")
 	_toggle_card_clickable(false)
+	print("cards are unclickable")
 	attack_button.disabled = true
 
 
@@ -94,6 +100,5 @@ func _on_child_exiting_tree(node):
 			TurnManager.set_turn(TurnManager.CurrentTurn.ENEMY_TURN)
 
 func _toggle_card_clickable(value: bool):
-	if cards_played >= total_card_plays:
-		for child in get_children():
-			child.get_node("Area2D").visible = value
+	for child in get_children():
+		child.get_node("Area2D").visible = value
