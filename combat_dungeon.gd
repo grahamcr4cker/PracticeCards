@@ -9,7 +9,7 @@ func _play_enemy_turn():
 	new_label.text = "Enemy Turn!!!" 
 
 #	new_label.min_size = Vector2(100, 50)
-	new_label.position = Vector2(250, 50)
+	new_label.position = Vector2(325, 50)
 	
 	var dynamic_font = load("res://assets/Fonts/CloisterBlack.ttf")
 #	dynamic_font.size = 48
