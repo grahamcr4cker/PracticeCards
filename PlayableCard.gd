@@ -50,18 +50,20 @@ func _on_area_2d_mouse_exited():
 func _on_area_2d_input_event(_viewport, _event, _shape_idx):
 	if Input.is_action_just_released("leftclick"):
 		was_clicked_on = true
-		
-		match suit_type:
-			CardLibrary.SuitType.ARMOR:
-				GameBoard.add_armor_to_stack(duplicate())
-			CardLibrary.SuitType.WEAPON:
-				GameBoard.add_weapon_to_stack(duplicate())
-			CardLibrary.SuitType.CLASS_1:
-				GameBoard.add_class_1_to_stack(duplicate())
-			CardLibrary.SuitType.CLASS_2:
-				GameBoard.add_class_2_to_stack(duplicate())
-			_:
-				pass
+		if is_face_card:
+			GameBoard.add_in_play_to_stack(duplicate())
+		else:
+			match suit_type:
+				CardLibrary.SuitType.ARMOR:
+					GameBoard.add_armor_to_stack(duplicate())
+				CardLibrary.SuitType.WEAPON:
+					GameBoard.add_weapon_to_stack(duplicate())
+				CardLibrary.SuitType.CLASS_1:
+					GameBoard.add_class_1_to_stack(duplicate())
+				CardLibrary.SuitType.CLASS_2:
+					GameBoard.add_class_2_to_stack(duplicate())
+				_:
+					pass
 		queue_free()
 
 

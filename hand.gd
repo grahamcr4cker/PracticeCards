@@ -1,17 +1,21 @@
 extends Node2D
 
 
-@export var hand_count := 9
+@export var hand_count := 5
 
 const ANIMATION_SPEED := .15
 
 func _ready():
-	GameBoard.handCardPopped.connect(_position_card)
+	GameBoard.handCardPopped.connect(_position_cards)
+	GameBoard.cardPoppedFromDeck.connect(_add_card_from_deck)
 	populate_hand()
-	_position_card()
+	_position_cards()
 
+func _add_card_from_deck(card):
+	add_child(card)
+	_position_cards()
 
-func _position_card():
+func _position_cards():
 	# Space between sprites in pixels
 	var space_between = 0
 	# Maximum rotation angle in degrees
@@ -60,4 +64,4 @@ func _position_card():
 
 func populate_hand():
 	for index in range(hand_count):
-		add_child(PlayerDeckChoices.pop_card())
+		add_child(GameBoard.pop_card_from_deck())

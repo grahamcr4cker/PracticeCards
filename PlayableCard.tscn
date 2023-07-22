@@ -72,7 +72,7 @@ transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition
 
 [node name="PlayableCard" type="Sprite2D"]
 texture = ExtResource("1_il4xp")
-offset = Vector2(0, -2.85757)
+offset = Vector2(0, -5)
 script = ExtResource("2_sp0tm")
 
 [node name="Animation Player" type="AnimationPlayer" parent="."]

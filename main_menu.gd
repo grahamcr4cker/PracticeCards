@@ -82,10 +82,10 @@ func _on_play_game_pressed():
 				add_cards_to_player_deck(CardLibrary.suits["venom"].cards)
 			_:
 				pass
-	PlayerDeckChoices.shuffle_deck()
+	GameBoard.shuffle_deck()
 	get_tree().change_scene_to_file("res://combat_dungeon.tscn")
 
 func add_cards_to_player_deck(card_list):
 	for card in card_list:
 		print(card)
-		PlayerDeckChoices.add_card(card)
+		GameBoard.add_card_to_deck(card)

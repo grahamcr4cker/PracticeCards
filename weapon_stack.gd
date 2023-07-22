@@ -8,3 +8,8 @@ func _ready():
 func _add_card(old_card):
 	var card = GameBoard.duplicate_card(old_card)
 	add_child(card)
+
+
+func _on_child_entered_tree(node):
+	if node is PlayableCard:
+		node.get_node("Area2D").visible = false
