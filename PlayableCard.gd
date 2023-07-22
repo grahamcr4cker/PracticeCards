@@ -32,8 +32,11 @@ class_name PlayableCard
 #@export_category("Status Effects")
 #@export_flags("Enraged", "Hidden", "Shielded", "Strengthened", "Surged", "Warded") var pos_status_effects
 #@export_flags("bleeding", "blinded", "burned", "chilled", "corrupted", "dazed", "exposed", "intimidated", "numbed", "poisoned", "stunned", "taunted", "weakened") var neg_status_effects
+var id
+
 
 func _ready():
+	id = randi() % 999999
 	animation_tree["parameters/conditions/is_idle"] = true
 	
 
