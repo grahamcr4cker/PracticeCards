@@ -1,7 +1,6 @@
-[gd_scene load_steps=22 format=3 uid="uid://c2qfawiylebo5"]
+[gd_scene load_steps=13 format=3 uid="uid://c2qfawiylebo5"]
 
 [ext_resource type="Texture2D" uid="uid://bhwmi0xufos0m" path="res://assets/Card Art/card_back.png" id="1_il4xp"]
-[ext_resource type="Material" uid="uid://c2aiki26mcnqh" path="res://WhiteColorShader.tres" id="1_iqj45"]
 [ext_resource type="Script" path="res://PlayableCard.gd" id="2_sp0tm"]
 
 [sub_resource type="Animation" id="Animation_s1omt"]
@@ -134,11 +133,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y41vu"]
 _data = {
-"RESET": SubResource("Animation_s1omt"),
 "idle": SubResource("Animation_xwct2"),
-"snap_up": SubResource("Animation_2jh8b"),
-"teleport_in": SubResource("Animation_ovg3d"),
-"teleport_out": SubResource("Animation_pnme6")
+"snap_up": SubResource("Animation_2jh8b")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dcb6b"]
@@ -181,14 +177,7 @@ states/idle/node = SubResource("AnimationNodeAnimation_wew4i")
 states/idle/position = Vector2(352, 100)
 states/snap_up/node = SubResource("AnimationNodeAnimation_twr1o")
 states/snap_up/position = Vector2(538, 100)
-states/teleport_in/node = SubResource("AnimationNodeAnimation_um7dl")
-states/teleport_in/position = Vector2(672, 22.3305)
-states/teleport_out/node = SubResource("AnimationNodeAnimation_d847l")
-states/teleport_out/position = Vector2(690, 100)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_hjsq5"), "idle", "snap_up", SubResource("AnimationNodeStateMachineTransition_doclu"), "snap_up", "idle", SubResource("AnimationNodeStateMachineTransition_a22eq"), "snap_up", "teleport_out", SubResource("AnimationNodeStateMachineTransition_j586r"), "teleport_out", "teleport_in", SubResource("AnimationNodeStateMachineTransition_8gull")]
-graph_offset = Vector2(0, -68.6695)
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_66n5e"]
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_hjsq5"), "idle", "snap_up", SubResource("AnimationNodeStateMachineTransition_doclu"), "snap_up", "idle", SubResource("AnimationNodeStateMachineTransition_a22eq")]
 
 [node name="PlayableCard" type="Sprite2D"]
 modulate = Color(0, 0, 0, 1)
