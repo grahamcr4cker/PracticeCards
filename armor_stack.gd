@@ -3,8 +3,9 @@ extends Area2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	GameBoard.armorAdded.connect(_add_card)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _add_card(old_card):
+	print("adding card")
+	var card = GameBoard.duplicate_card(old_card)
+	add_child(card)

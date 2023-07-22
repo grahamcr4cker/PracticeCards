@@ -1,7 +1,6 @@
-[gd_scene load_steps=19 format=3 uid="uid://c2qfawiylebo5"]
+[gd_scene load_steps=13 format=3 uid="uid://c2qfawiylebo5"]
 
 [ext_resource type="Texture2D" uid="uid://bhwmi0xufos0m" path="res://assets/Card Art/card_back.png" id="1_il4xp"]
-[ext_resource type="Material" uid="uid://c2aiki26mcnqh" path="res://WhiteColorShader.tres" id="1_u1em6"]
 [ext_resource type="Script" path="res://PlayableCard.gd" id="2_sp0tm"]
 
 [sub_resource type="Animation" id="Animation_03ywn"]
@@ -93,17 +92,12 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y41vu"]
 _data = {
-"RESET": SubResource("Animation_03ywn"),
-"Teleport": SubResource("Animation_vwdfr"),
 "idle": SubResource("Animation_xwct2"),
 "snap_up": SubResource("Animation_2jh8b")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dcb6b"]
 size = Vector2(86, 130)
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pdrdj"]
-animation = &"Teleport"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wew4i"]
 animation = &"idle"
@@ -122,22 +116,13 @@ advance_condition = &"is_focused"
 advance_mode = 2
 advance_condition = &"is_idle"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xtaqv"]
-advance_mode = 2
-advance_condition = &"is_clicked"
-
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_aapqk"]
 states/Start/position = Vector2(195, 100)
-states/Teleport/node = SubResource("AnimationNodeAnimation_pdrdj")
-states/Teleport/position = Vector2(682, 100)
 states/idle/node = SubResource("AnimationNodeAnimation_wew4i")
 states/idle/position = Vector2(352, 100)
 states/snap_up/node = SubResource("AnimationNodeAnimation_twr1o")
 states/snap_up/position = Vector2(538, 100)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_hjsq5"), "idle", "snap_up", SubResource("AnimationNodeStateMachineTransition_doclu"), "snap_up", "idle", SubResource("AnimationNodeStateMachineTransition_a22eq"), "snap_up", "Teleport", SubResource("AnimationNodeStateMachineTransition_xtaqv")]
-graph_offset = Vector2(133, 0)
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_p66cw"]
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_hjsq5"), "idle", "snap_up", SubResource("AnimationNodeStateMachineTransition_doclu"), "snap_up", "idle", SubResource("AnimationNodeStateMachineTransition_a22eq")]
 
 [node name="PlayableCard" type="Sprite2D"]
 modulate = Color(0, 0, 0, 1)
@@ -161,11 +146,10 @@ shape = SubResource("RectangleShape2D_dcb6b")
 tree_root = SubResource("AnimationNodeStateMachine_aapqk")
 anim_player = NodePath("../Animation Player")
 active = true
-parameters/playback = SubResource("AnimationNodeStateMachinePlayback_p66cw")
-parameters/conditions/is_clicked = false
 parameters/conditions/is_focused = false
 parameters/conditions/is_idle = false
 
+[connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
