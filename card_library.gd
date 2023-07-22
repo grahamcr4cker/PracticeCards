@@ -68,7 +68,7 @@ func _ready():
 			match number:
 				1:
 					card_img = card_img.replace("1", "ace")
-					card.numeric_value = 20
+					card.numeric_value = 23
 					card.is_face_card = true
 				11:
 					card_img = card_img.replace("11", "jack")
@@ -76,11 +76,11 @@ func _ready():
 					card.is_face_card = true
 				12:
 					card_img = card_img.replace("12", "queen")
-					card.numeric_value = 20
+					card.numeric_value = 21
 					card.is_face_card = true
 				13:
 					card_img = card_img.replace("13", "king")
-					card.numeric_value = 20
+					card.numeric_value = 22
 					card.is_face_card = true
 				_:
 					card.numeric_value = number
