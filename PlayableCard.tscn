@@ -1,7 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://c2qfawiylebo5"]
 [gd_scene load_steps=19 format=3 uid="uid://c2qfawiylebo5"]
 
-[ext_resource type="Material" uid="uid://c2aiki26mcnqh" path="res://WhiteColorShader.tres" id="1_1bw0v"]
+[ext_resource type="Material" uid="uid://c2aiki26mcnqh" path="res://WhiteColorShader.tres" id="1_58mw1"]
 [ext_resource type="Texture2D" uid="uid://bhwmi0xufos0m" path="res://assets/Card Art/card_back.png" id="1_il4xp"]
 [ext_resource type="Script" path="res://PlayableCard.gd" id="2_sp0tm"]
 
@@ -38,9 +37,9 @@ tracks/0/keys = {
 "values": [Vector2(0, 0), Vector2(0, -20)]
 }
 
-[sub_resource type="Animation" id="Animation_12ir5"]
-resource_name = "teleport_out"
-length = 0.6
+[sub_resource type="Animation" id="Animation_ic252"]
+resource_name = "teleport_in"
+length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -66,7 +65,7 @@ tracks/1/keys = {
 "values": [false, true, true]
 }
 
-[sub_resource type="Animation" id="Animation_khx1q"]
+[sub_resource type="Animation" id="Animation_310de"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -95,11 +94,10 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y41vu"]
 _data = {
-"RESET": SubResource("Animation_khx1q"),
+"RESET": SubResource("Animation_310de"),
 "idle": SubResource("Animation_xwct2"),
-"snap_up": SubResource("Animation_2jh8b")
 "snap_up": SubResource("Animation_2jh8b"),
-"teleport_out": SubResource("Animation_12ir5")
+"teleport_in": SubResource("Animation_ic252")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dcb6b"]
@@ -111,8 +109,8 @@ animation = &"idle"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_twr1o"]
 animation = &"snap_up"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_24ien"]
-animation = &"teleport_out"
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_m6gmf"]
+animation = &"teleport_in"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hjsq5"]
 advance_mode = 2
@@ -125,7 +123,7 @@ advance_condition = &"is_focused"
 advance_mode = 2
 advance_condition = &"is_idle"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kekhs"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4khoa"]
 advance_mode = 2
 advance_condition = &"is_clicked"
 
@@ -135,17 +133,16 @@ states/idle/node = SubResource("AnimationNodeAnimation_wew4i")
 states/idle/position = Vector2(352, 100)
 states/snap_up/node = SubResource("AnimationNodeAnimation_twr1o")
 states/snap_up/position = Vector2(538, 100)
-states/teleport_out/node = SubResource("AnimationNodeAnimation_24ien")
-states/teleport_out/position = Vector2(678, 100)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_hjsq5"), "idle", "snap_up", SubResource("AnimationNodeStateMachineTransition_doclu"), "snap_up", "idle", SubResource("AnimationNodeStateMachineTransition_a22eq"), "snap_up", "teleport_out", SubResource("AnimationNodeStateMachineTransition_kekhs")]
+states/teleport_in/node = SubResource("AnimationNodeAnimation_m6gmf")
+states/teleport_in/position = Vector2(669, 100)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_hjsq5"), "idle", "snap_up", SubResource("AnimationNodeStateMachineTransition_doclu"), "snap_up", "idle", SubResource("AnimationNodeStateMachineTransition_a22eq"), "snap_up", "teleport_in", SubResource("AnimationNodeStateMachineTransition_4khoa")]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_7215h"]
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_mlw7h"]
 
 [node name="PlayableCard" type="Sprite2D"]
-material = ExtResource("1_1bw0v")
+material = ExtResource("1_58mw1")
 texture = ExtResource("1_il4xp")
-offset = Vector2(0, -3.98989)
-offset = Vector2(0, -5)
+offset = Vector2(0, -0.449464)
 script = ExtResource("2_sp0tm")
 
 [node name="Animation Player" type="AnimationPlayer" parent="."]
@@ -163,7 +160,7 @@ shape = SubResource("RectangleShape2D_dcb6b")
 tree_root = SubResource("AnimationNodeStateMachine_aapqk")
 anim_player = NodePath("../Animation Player")
 active = true
-parameters/playback = SubResource("AnimationNodeStateMachinePlayback_7215h")
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_mlw7h")
 parameters/conditions/is_clicked = false
 parameters/conditions/is_focused = false
 parameters/conditions/is_idle = false

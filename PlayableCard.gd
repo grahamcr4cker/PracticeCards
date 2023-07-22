@@ -53,7 +53,6 @@ func _on_area_2d_mouse_exited():
 func _on_area_2d_input_event(_viewport, _event, _shape_idx):
 	if Input.is_action_just_released("leftclick"):
 		animation_tree["parameters/conditions/is_clicked"] = true
-		await get_tree().create_timer(.3).timeout
 		await get_tree().create_timer(.6).timeout
 		if is_face_card:
 			GameBoard.add_in_play_to_stack(duplicate())
