@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://v2msqv3t8ntg" path="res://roll_result_indicator.tscn" id="7_g8lkh"]
 [ext_resource type="Script" path="res://Attack Button.gd" id="7_yu8p6"]
 [ext_resource type="Script" path="res://In Play.gd" id="14_3ktfv"]
-[ext_resource type="PackedScene" path="res://Card Stack.tscn" id="15_d30cg"]
+[ext_resource type="PackedScene" uid="uid://b58qxmgmh2jxn" path="res://Card Stack.tscn" id="15_d30cg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_is5qn"]
 size = Vector2(84, 129)
