@@ -10,58 +10,69 @@ signal class2Added
 signal class2Popped
 signal discardAdded
 signal discardPopped
+signal handCardAdded
 signal handCardPopped
+signal cardPoppedFromDeck
+signal inPlayAdded
+signal inPlayPopped
 
-var armor := []
-var weapon := []
-var class_1 := []
-var class_2 := []
-var discard := []
+var _player_deck := []
 
-func add_armor_to_stack(card):
-	armor.append(card)
+func add_card_to_deck(card: PlayableCard):
+	_player_deck.append(card)
+
+func pop_card_from_deck() -> PlayableCard:
+	var popped_card = _player_deck.pop_back()
+	cardPoppedFromDeck.emit(popped_card)
+	return popped_card
+
+func get_deck() -> Array:
+	return _player_deck
+
+func shuffle_deck():
+	_player_deck.shuffle()
+
+func add_armor_to_stack(card: PlayableCard):
 	armorAdded.emit(card)
 
-func add_weapon_to_stack(card):
-	weapon.append(card)
+func add_weapon_to_stack(card: PlayableCard):
 	weaponAdded.emit(card)
 
-func add_class_1_to_stack(card):
-	class_1.append(card)
+func add_class_1_to_stack(card: PlayableCard):
 	class1Added.emit(card)
 
-func add_class_2_to_stack(card):
-	class_2.append(card)
+func add_class_2_to_stack(card: PlayableCard):
 	class2Added.emit(card)
 
-func add_discard_to_stack(card):
-	discard.append(card)
+func add_discard_to_stack(card: PlayableCard):
 	discardAdded.emit(card)
 
-func pop_armor_from_stack() -> PlayableCard:
-	var card = armor.pop_back()
-	armorPopped.emit(card)
-	return card
+func add_card_to_hand(card: PlayableCard):
+	handCardAdded.emit(card)
 
-func pop_weapon_from_stack() -> PlayableCard:
-	var card = weapon.pop_back()
-	weaponPopped.emit(card)
-	return card
+func add_in_play_to_stack(card: PlayableCard):
+	inPlayAdded.emit(card)
 
-func pop_class_1_from_stack() -> PlayableCard:
-	var card = class_1.pop_back()
-	class1Popped.emit(card)
-	return card
+func pop_armor_from_stack():
+	armorPopped.emit()
 
-func pop_class_2_from_stack() -> PlayableCard:
-	var card = class_2.pop_back()
-	class2Popped.emit(card)
-	return card
+func pop_weapon_from_stack():
+	weaponPopped.emit()
 
-func pop_discard_from_stack() -> PlayableCard:
-	var card = discard.pop_back()
-	discardPopped.emit(card)
-	return card
+func pop_class_1_from_stack():
+	class1Popped.emit()
+
+func pop_class_2_from_stack():
+	class2Popped.emit()
+
+func pop_discard_from_stack():
+	discardPopped.emit()
+
+func pop_card_from_hand():
+	handCardPopped.emit()
+
+func pop_in_play_from_stack():
+	inPlayPopped.emit()
 
 func duplicate_card(old_card) -> PlayableCard:
 	var card = preload("res://PlayableCard.tscn").instantiate()

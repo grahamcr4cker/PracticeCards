@@ -1,8 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://bqw3vokrvf548"]
+[gd_scene load_steps=18 format=3 uid="uid://bqw3vokrvf548"]
 
 [ext_resource type="Script" path="res://combat_dungeon.gd" id="1_b0ku4"]
 [ext_resource type="Texture2D" uid="uid://g3ddrmm8t4rn" path="res://assets/Backgrounds/Background_Dungeon.png" id="1_cb83s"]
-[ext_resource type="Script" path="res://Roll Result Spawn Point.gd" id="1_foulw"]
 [ext_resource type="PackedScene" uid="uid://bpd4ggfpexeid" path="res://player.tscn" id="2_wg4p0"]
 [ext_resource type="Texture2D" uid="uid://bhwmi0xufos0m" path="res://assets/Card Art/card_back.png" id="3_futgi"]
 [ext_resource type="Script" path="res://PlayerDeck.gd" id="4_0vce2"]
@@ -13,9 +12,16 @@
 [ext_resource type="Script" path="res://Attack Button.gd" id="7_yu8p6"]
 [ext_resource type="Script" path="res://weapon_stack.gd" id="12_bsh32"]
 [ext_resource type="Script" path="res://class_1_stack.gd" id="13_xb74m"]
+[ext_resource type="Script" path="res://In Play.gd" id="14_3ktfv"]
 [ext_resource type="Script" path="res://class_2_stack.gd" id="14_u2x70"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gqok3"]
+size = Vector2(84, 129)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_is5qn"]
+size = Vector2(84, 129)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lja5a"]
 size = Vector2(84, 129)
 
 [node name="playspace" type="Node2D"]
@@ -29,54 +35,6 @@ texture = ExtResource("1_cb83s")
 [node name="Player" parent="." instance=ExtResource("2_wg4p0")]
 position = Vector2(103, 308)
 
-[node name="Roll Result Spawn Point" type="Control" parent="Player"]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_left = 730.0
-offset_top = 109.0
-offset_right = 759.0
-offset_bottom = 125.0
-script = ExtResource("1_foulw")
-
-[node name="player_deck" type="Container" parent="."]
-visible = false
-anchors_preset = -1
-anchor_left = 0.706
-anchor_top = 0.741
-anchor_right = 0.794
-anchor_bottom = 0.978
-offset_left = 678.0
-offset_top = 400.0
-offset_right = 678.0
-offset_bottom = 400.02
-tooltip_text = "Deck"
-mouse_default_cursor_shape = 2
-metadata/_edit_use_anchors_ = true
-
-[node name="discard" type="Container" parent="."]
-visible = false
-anchors_preset = -1
-anchor_left = 0.157
-anchor_top = 0.741
-anchor_right = 0.245
-anchor_bottom = 0.978
-offset_left = 151.0
-offset_top = 400.0
-offset_right = 151.0
-offset_bottom = 400.02
-tooltip_text = "Discard"
-metadata/_edit_use_anchors_ = true
-
-[node name="weapon_stack" type="Container" parent="."]
-visible = false
-offset_left = 201.0
-offset_top = 265.0
-offset_right = 285.0
-offset_bottom = 393.0
-tooltip_text = "Discard"
-metadata/_edit_use_anchors_ = true
-
 [node name="armor_stack" type="Area2D" parent="."]
 position = Vector2(330, 329)
 script = ExtResource("5_dy6tx")
@@ -85,80 +43,16 @@ metadata/_edit_use_anchors_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="armor_stack"]
 shape = SubResource("RectangleShape2D_gqok3")
 
-[node name="class1_stack" type="Container" parent="."]
-visible = false
-anchors_preset = -1
-anchor_left = 0.391
-anchor_top = 0.491
-anchor_right = 0.478
-anchor_bottom = 0.728
-offset_left = 375.0
-offset_top = 265.0
-offset_right = 375.48
-offset_bottom = 265.02
-tooltip_text = "Discard"
-metadata/_edit_use_anchors_ = true
-
-[node name="class2_stack" type="Container" parent="."]
-visible = false
-anchors_preset = -1
-anchor_left = 0.481
-anchor_top = 0.491
-anchor_right = 0.569
-anchor_bottom = 0.728
-offset_left = 462.0
-offset_top = 265.0
-offset_right = 462.0
-offset_bottom = 265.02
-tooltip_text = "Discard"
-metadata/_edit_use_anchors_ = true
-
-[node name="player_inplay" type="Container" parent="."]
-visible = false
-anchors_preset = -1
-anchor_left = 0.573
-anchor_top = 0.491
-anchor_right = 0.759
-anchor_bottom = 0.728
-offset_left = 550.0
-offset_top = 265.0
-offset_right = 550.44
-offset_bottom = 265.02
-tooltip_text = "Discard"
-metadata/_edit_use_anchors_ = true
-
-[node name="Player Deck" type="TextureButton" parent="."]
-anchors_preset = -1
-anchor_left = 0.706
-anchor_top = 0.737
-anchor_right = 0.794
-anchor_bottom = 0.974
-offset_left = 678.0
-offset_top = 398.0
-offset_right = 762.0
-offset_bottom = 526.0
-texture_normal = ExtResource("3_futgi")
-texture_pressed = ExtResource("3_futgi")
-texture_hover = ExtResource("3_futgi")
+[node name="Player Deck" type="Sprite2D" parent="."]
+position = Vector2(721, 465)
+texture = ExtResource("3_futgi")
 script = ExtResource("4_0vce2")
 metadata/_edit_use_anchors_ = true
 
-[node name="Player_hand" type="HBoxContainer" parent="."]
-visible = false
-anchors_preset = -1
-anchor_left = 0.253
-anchor_top = 0.744
-anchor_right = 0.7
-anchor_bottom = 0.972
-offset_left = 239.0
-offset_top = 402.0
-offset_right = 242.88
-offset_bottom = 402.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 2
-alignment = 1
-metadata/_edit_use_anchors_ = true
+[node name="Area2D" type="Area2D" parent="Player Deck"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player Deck/Area2D"]
+shape = SubResource("RectangleShape2D_is5qn")
 
 [node name="hand" type="Node2D" parent="."]
 position = Vector2(459, 500)
@@ -198,4 +92,19 @@ script = ExtResource("14_u2x70")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="class_2_stack"]
 shape = SubResource("RectangleShape2D_gqok3")
 
+[node name="In Play" type="Node2D" parent="."]
+position = Vector2(590, 329)
+script = ExtResource("14_3ktfv")
+
+[node name="Discard" type="Area2D" parent="."]
+position = Vector2(192, 464)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Discard"]
+shape = SubResource("RectangleShape2D_lja5a")
+
+[connection signal="child_entered_tree" from="armor_stack" to="armor_stack" method="_on_child_entered_tree"]
+[connection signal="input_event" from="Player Deck/Area2D" to="Player Deck" method="_on_area_2d_input_event"]
 [connection signal="pressed" from="Attack Button" to="Player" method="_on_attack_button_pressed"]
+[connection signal="child_entered_tree" from="weapon_stack2" to="weapon_stack2" method="_on_child_entered_tree"]
+[connection signal="child_entered_tree" from="class_1_stack" to="class_1_stack" method="_on_child_entered_tree"]
+[connection signal="child_entered_tree" from="class_2_stack" to="class_2_stack" method="_on_child_entered_tree"]
