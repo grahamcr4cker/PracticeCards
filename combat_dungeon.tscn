@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bqw3vokrvf548"]
+[gd_scene load_steps=15 format=3 uid="uid://bqw3vokrvf548"]
 
 [ext_resource type="Script" path="res://combat_dungeon.gd" id="1_b0ku4"]
 [ext_resource type="Texture2D" uid="uid://g3ddrmm8t4rn" path="res://assets/Backgrounds/Background_Dungeon.png" id="1_cb83s"]
@@ -9,8 +9,9 @@
 [ext_resource type="FontFile" uid="uid://diqt2vii6tchx" path="res://assets/Fonts/CloisterBlack.ttf" id="6_krib6"]
 [ext_resource type="PackedScene" uid="uid://v2msqv3t8ntg" path="res://roll_result_indicator.tscn" id="7_g8lkh"]
 [ext_resource type="Script" path="res://Attack Button.gd" id="7_yu8p6"]
+[ext_resource type="Script" path="res://Discard.gd" id="11_rlgwj"]
 [ext_resource type="Script" path="res://In Play.gd" id="14_3ktfv"]
-[ext_resource type="PackedScene" path="res://Card Stack.tscn" id="15_d30cg"]
+[ext_resource type="PackedScene" uid="uid://b58qxmgmh2jxn" path="res://Card Stack.tscn" id="15_d30cg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_is5qn"]
 size = Vector2(84, 129)
@@ -63,6 +64,7 @@ script = ExtResource("14_3ktfv")
 
 [node name="Discard" type="Area2D" parent="."]
 position = Vector2(192, 464)
+script = ExtResource("11_rlgwj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Discard"]
 shape = SubResource("RectangleShape2D_lja5a")
@@ -70,18 +72,22 @@ shape = SubResource("RectangleShape2D_lja5a")
 [node name="Armor Stack" parent="." instance=ExtResource("15_d30cg")]
 position = Vector2(330, 330)
 cardAddedSignal = "armorAdded"
+cardPoppedSignal = "armorPopped"
 
 [node name="Weapon Stack" parent="." instance=ExtResource("15_d30cg")]
 position = Vector2(243, 330)
 cardAddedSignal = "weaponAdded"
+cardPoppedSignal = "weaponPopped"
 
 [node name="Class 1 Stack" parent="." instance=ExtResource("15_d30cg")]
 position = Vector2(417, 330)
 cardAddedSignal = "class1Added"
+cardPoppedSignal = "class1Popped"
 
 [node name="Class 2 Stack" parent="." instance=ExtResource("15_d30cg")]
 position = Vector2(505, 330)
 cardAddedSignal = "class2Added"
+cardPoppedSignal = "class2Popped"
 
 [connection signal="input_event" from="Player Deck/Area2D" to="Player Deck" method="_on_area_2d_input_event"]
 [connection signal="pressed" from="Attack Button" to="Player" method="_on_attack_button_pressed"]
