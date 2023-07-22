@@ -1,6 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://c2qfawiylebo5"]
 
 [ext_resource type="Texture2D" uid="uid://bhwmi0xufos0m" path="res://assets/Card Art/card_back.png" id="1_il4xp"]
+[ext_resource type="Material" uid="uid://c2aiki26mcnqh" path="res://WhiteColorShader.tres" id="1_iqj45"]
 [ext_resource type="Script" path="res://PlayableCard.gd" id="2_sp0tm"]
 
 [sub_resource type="Animation" id="Animation_s1omt"]
@@ -131,10 +132,40 @@ tracks/2/keys = {
 "values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(0, 2.5)]
 }
 
+[sub_resource type="Animation" id="Animation_ovg3d"]
+resource_name = "teleport_in"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 2.5), Vector2(1, 1), Vector2(1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y41vu"]
 _data = {
 "idle": SubResource("Animation_xwct2"),
-"snap_up": SubResource("Animation_2jh8b")
+"snap_up": SubResource("Animation_2jh8b"),
+"teleport_in": SubResource("Animation_ovg3d"),
+"teleport_out": SubResource("Animation_pnme6")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dcb6b"]
@@ -177,7 +208,14 @@ states/idle/node = SubResource("AnimationNodeAnimation_wew4i")
 states/idle/position = Vector2(352, 100)
 states/snap_up/node = SubResource("AnimationNodeAnimation_twr1o")
 states/snap_up/position = Vector2(538, 100)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_hjsq5"), "idle", "snap_up", SubResource("AnimationNodeStateMachineTransition_doclu"), "snap_up", "idle", SubResource("AnimationNodeStateMachineTransition_a22eq")]
+states/teleport_in/node = SubResource("AnimationNodeAnimation_um7dl")
+states/teleport_in/position = Vector2(672, 22.3305)
+states/teleport_out/node = SubResource("AnimationNodeAnimation_d847l")
+states/teleport_out/position = Vector2(690, 100)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_hjsq5"), "idle", "snap_up", SubResource("AnimationNodeStateMachineTransition_doclu"), "snap_up", "idle", SubResource("AnimationNodeStateMachineTransition_a22eq"), "snap_up", "teleport_out", SubResource("AnimationNodeStateMachineTransition_j586r"), "teleport_out", "teleport_in", SubResource("AnimationNodeStateMachineTransition_8gull")]
+graph_offset = Vector2(0, -68.6695)
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_66n5e"]
 
 [node name="PlayableCard" type="Sprite2D"]
 modulate = Color(0, 0, 0, 1)
