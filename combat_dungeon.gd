@@ -3,7 +3,6 @@ extends Node2D
 
 func _ready():
 	TurnManager.enemyTurnStarted.connect(_play_enemy_turn)
-	$AudioStreamPlayer.play()
 
 func _play_enemy_turn():
 	var new_label = Label.new()
