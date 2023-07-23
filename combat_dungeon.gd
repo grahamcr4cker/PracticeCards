@@ -3,16 +3,15 @@ extends Node2D
 
 func _ready():
 	TurnManager.enemyTurnStarted.connect(_play_enemy_turn)
+	$AudioStreamPlayer.play()
 
 func _play_enemy_turn():
 	var new_label = Label.new()
 	new_label.text = "Enemy Turn!!!" 
 
-#	new_label.min_size = Vector2(100, 50)
 	new_label.position = Vector2(325, 50)
 	
 	var dynamic_font = load("res://assets/Fonts/CloisterBlack.ttf")
-#	dynamic_font.size = 48
 
 	new_label.add_theme_font_override("font", dynamic_font)
 	new_label.add_theme_font_size_override("font_size", 48)
