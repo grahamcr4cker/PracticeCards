@@ -61,6 +61,14 @@ var suits := { "heavyarmor": {
     "type": "warrior",
     "sub_type": "class_2",
     "cards": []
+}, "wicks": {
+    "type": "flametongue",
+    "sub_type": "class_1",
+    "cards": []
+}, "wax": {
+    "type": "flametongue",
+    "sub_type": "class_2",
+    "cards": []
 }}
 
 

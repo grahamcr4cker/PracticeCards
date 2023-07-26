@@ -11,6 +11,7 @@ var player_suites := []
 @onready var thief_button := $"Selection Wrapper/Class Selection/Thief Option"
 @onready var warrior_button := $"Selection Wrapper/Class Selection/Warrior Option"
 @onready var chronomancer_button := $"Selection Wrapper/Class Selection/Chronomancer Option"
+@onready var flametongue_button := $"Selection Wrapper/Class Selection/Flametongue Option"
 
 
 func _process(delta):
@@ -66,10 +67,14 @@ func _on_thief_option_toggled(button_pressed):
 		player_suites.erase("venom")
 		player_suites.erase("oracles")
 		player_suites.erase("paths")
+		player_suites.erase("wicks")
+		player_suites.erase("wax")
+		flametongue_button.disabled = false
 		thief_button.disabled = true
 		priest_button.disabled = false
 		warrior_button.disabled = false
 		chronomancer_button.disabled = false
+		flametongue_button.disabled = false
 		print(player_suites)
 
 
@@ -83,10 +88,14 @@ func _on_priest_option_toggled(button_pressed):
 		player_suites.erase("venom")
 		player_suites.erase("oracles")
 		player_suites.erase("paths")
+		player_suites.erase("wicks")
+		player_suites.erase("wax")
+		flametongue_button.disabled = false
 		priest_button.disabled = true
 		thief_button.disabled = false
 		warrior_button.disabled = false
 		chronomancer_button.disabled = false
+		flametongue_button.disabled = false
 		print(player_suites)
 
 
@@ -100,10 +109,14 @@ func _on_warrior_option_toggled(button_pressed):
 		player_suites.erase("paths")
 		player_suites.erase("suns")
 		player_suites.erase("cures")
+		player_suites.erase("wicks")
+		player_suites.erase("wax")
+		flametongue_button.disabled = false
 		warrior_button.disabled = true
 		thief_button.disabled = false
 		chronomancer_button.disabled = false
 		priest_button.disabled = false
+		flametongue_button.disabled = false
 		print(player_suites)
 
 
@@ -117,10 +130,33 @@ func _on_chronomancer_option_toggled(button_pressed):
 		player_suites.erase("cures")
 		player_suites.erase("lions")
 		player_suites.erase("standards")
+		player_suites.erase("wicks")
+		player_suites.erase("wax")
+		flametongue_button.disabled = false
 		chronomancer_button.disabled = true
 		thief_button.disabled = false
 		priest_button.disabled = false
-		warrior_button.disabled = true
+		warrior_button.disabled = false
+		print(player_suites)
+
+
+func _on_flametongue_option_toggled(button_pressed):
+	if button_pressed:
+		player_suites.append("wicks")
+		player_suites.append("wax")
+		player_suites.erase("shadows")
+		player_suites.erase("venom")
+		player_suites.erase("suns")
+		player_suites.erase("cures")
+		player_suites.erase("lions")
+		player_suites.erase("standards")
+		player_suites.erase("oracles")
+		player_suites.erase("paths")
+		flametongue_button.disabled = true
+		chronomancer_button.disabled = false
+		thief_button.disabled = false
+		priest_button.disabled = false
+		warrior_button.disabled = false
 		print(player_suites)
 
 
@@ -151,6 +187,10 @@ func _on_play_game_pressed():
 				add_cards_to_player_deck(CardLibrary.suits["lions"].cards)
 			"standards":
 				add_cards_to_player_deck(CardLibrary.suits["standards"].cards)
+			"wicks":
+				add_cards_to_player_deck(CardLibrary.suits["wicks"].cards)
+			"wax":
+				add_cards_to_player_deck(CardLibrary.suits["wax"].cards)
 			_:
 				pass
 	GameBoard.shuffle_deck()

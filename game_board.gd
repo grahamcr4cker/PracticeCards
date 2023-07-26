@@ -85,16 +85,18 @@ func duplicate_card(old_card) -> PlayableCard:
 
 func position_cards(tree, children, holder_node):
 	const ANIMATION_SPEED := .15
+	const MAX_SCREEN_WIDTH = 900
 	# Space between sprites in pixels
 	var space_between = 0
 	# Maximum rotation angle in degrees
 	var max_angle = 10
-	
+
 	if tree != null:
 		var child_list := []
 		for child in children:
 			if child is PlayableCard:
 				child_list.append(child)
+				var card_width = child.texture.get_width()
 		var tween = tree.create_tween().set_parallel(true)
 		if child_list.size() <= 1:
 			for child in child_list:
@@ -102,24 +104,37 @@ func position_cards(tree, children, holder_node):
 				tween.tween_property(child, "position:x", 0, ANIMATION_SPEED)
 				tween.tween_property(child, "position:y", 5, ANIMATION_SPEED)
 		else:
+			var sprite_count  = child_list.size()
+
 			# Maximum height for the arch in pixels
 			var max_height = 5
 			
 			var total_width = 0
+
 			for card in child_list:
 				total_width += card.texture.get_width() + space_between
+
+			if total_width > MAX_SCREEN_WIDTH:
+				var overlap = total_width - MAX_SCREEN_WIDTH
+				space_between = (overlap / (sprite_count - 1)) * -1
+				print("overlap: %d, sprite count: %d, space between: %d" % [overlap, sprite_count, space_between])
+				total_width = MAX_SCREEN_WIDTH - (space_between / 2)
+
+#				for card in child_list:
+#					total_width += card.texture.get_width() + space_between
+
 			
 			# Subtract the last space, which is not needed
-			total_width -= space_between
+#			total_width += space_between
 			
 			var x_position = -total_width / 2
-			var sprite_count  = child_list.size()
 			var sprite_count_step = round((float(sprite_count) / 3.))
 			max_height += sprite_count_step * (5 + sprite_count_step)
 			var angle_step = 2.0 * max_angle / (sprite_count - 1 if sprite_count > 1 else 1) 
 			var current_angle = -max_angle
 			var index = 0
 			for card in child_list:
+				print("x position: %d" % x_position)
 				tween.tween_property(card, "rotation_degrees", current_angle, ANIMATION_SPEED)
 
 				# Using Arch to calculate the arch ;)
@@ -128,7 +143,7 @@ func position_cards(tree, children, holder_node):
 				
 				tween.tween_property(card, "global_position:x", holder_node.global_position.x + x_position + card.texture.get_width() / 2, ANIMATION_SPEED)
 				tween.tween_property(card, "global_position:y", holder_node.global_position.y - arch, ANIMATION_SPEED)
-				
+
 				x_position += card.texture.get_width() + space_between
 				current_angle += angle_step
 				
