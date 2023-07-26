@@ -119,13 +119,6 @@ func position_cards(tree, children, holder_node):
 				space_between = (overlap / (sprite_count - 1)) * -1
 				print("overlap: %d, sprite count: %d, space between: %d" % [overlap, sprite_count, space_between])
 				total_width = MAX_SCREEN_WIDTH - (space_between / 2)
-
-#				for card in child_list:
-#					total_width += card.texture.get_width() + space_between
-
-			
-			# Subtract the last space, which is not needed
-#			total_width += space_between
 			
 			var x_position = -total_width / 2
 			var sprite_count_step = round((float(sprite_count) / 3.))
