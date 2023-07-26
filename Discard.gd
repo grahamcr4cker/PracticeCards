@@ -18,7 +18,6 @@ func leftMouseClick():
 	var display_cards = preload("res://display_cards.tscn").instantiate()
 	display_cards.node = self
 	get_tree().get_root().get_node("playspace").add_child(display_cards)
-#	preload("res://display_cards.tscn").instantiate()
 
 
 func _on_mouse_entered():

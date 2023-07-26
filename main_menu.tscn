@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://iwm7wy12qdu1"]
+[gd_scene load_steps=6 format=3 uid="uid://iwm7wy12qdu1"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_v5ygo"]
 [ext_resource type="PackedScene" uid="uid://brppovmkem038" path="res://suite_option.tscn" id="2_c5g1y"]
 [ext_resource type="Texture2D" uid="uid://bdm1njhkxoco7" path="res://assets/Backgrounds/Selectscreen.png" id="2_pjfhq"]
-[ext_resource type="AudioStream" uid="uid://6xiv3uxes1pn" path="res://assets/Music/Title_Screen_Alt.mp3" id="4_fvefe"]
+[ext_resource type="FontFile" uid="uid://diqt2vii6tchx" path="res://assets/Fonts/CloisterBlack.ttf" id="3_dbggg"]
+[ext_resource type="AudioStream" uid="uid://1nrqxsc300s1" path="res://assets/Music/Title Theme/9L Title Screen 072523.mp3" id="5_7kyl2"]
 
 [node name="main_menu" type="Control"]
 layout_mode = 3
@@ -26,10 +27,12 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -75.5
-offset_top = 100.0
+offset_top = 50.0
 offset_right = 75.5
-offset_bottom = 126.0
+offset_bottom = 76.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_dbggg")
+theme_override_font_sizes/font_size = 48
 text = "Choose your setup!"
 
 [node name="Play Game" type="Button" parent="."]
@@ -39,12 +42,14 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -45.0
-offset_top = -90.0
-offset_right = 45.0
-offset_bottom = -59.0
+offset_left = -74.5
+offset_top = -85.0
+offset_right = 74.5
+offset_bottom = -39.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_dbggg")
+theme_override_font_sizes/font_size = 32
 text = "Play Game"
 
 [node name="Selection Wrapper" type="HBoxContainer" parent="."]
@@ -53,8 +58,8 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = -60.0
-offset_bottom = 60.0
+offset_top = -211.0
+offset_bottom = 171.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
@@ -66,6 +71,8 @@ alignment = 1
 
 [node name="Thief Option" parent="Selection Wrapper/Class Selection" instance=ExtResource("2_c5g1y")]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_dbggg")
+theme_override_font_sizes/font_size = 18
 toggle_mode = true
 text = "Thief"
 
@@ -75,8 +82,43 @@ layout_mode = 2
 
 [node name="Priest Option" parent="Selection Wrapper/Class Selection" instance=ExtResource("2_c5g1y")]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_dbggg")
+theme_override_font_sizes/font_size = 18
 toggle_mode = true
 text = "Priest"
+
+[node name="HSpacer2" type="Control" parent="Selection Wrapper/Class Selection"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Warrior Option" parent="Selection Wrapper/Class Selection" instance=ExtResource("2_c5g1y")]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_dbggg")
+theme_override_font_sizes/font_size = 18
+toggle_mode = true
+text = "Warrior"
+
+[node name="HSpacer3" type="Control" parent="Selection Wrapper/Class Selection"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Chronomancer Option" parent="Selection Wrapper/Class Selection" instance=ExtResource("2_c5g1y")]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_dbggg")
+theme_override_font_sizes/font_size = 18
+toggle_mode = true
+text = "Chronomancer"
+
+[node name="HSpacer4" type="Control" parent="Selection Wrapper/Class Selection"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Flametongue Option" parent="Selection Wrapper/Class Selection" instance=ExtResource("2_c5g1y")]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_dbggg")
+theme_override_font_sizes/font_size = 18
+toggle_mode = true
+text = "Flametongue"
 
 [node name="VSpacer" type="Control" parent="Selection Wrapper"]
 custom_minimum_size = Vector2(150, 0)
@@ -89,6 +131,8 @@ alignment = 1
 
 [node name="Longblade Option" parent="Selection Wrapper/Weapon Selection" instance=ExtResource("2_c5g1y")]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_dbggg")
+theme_override_font_sizes/font_size = 18
 toggle_mode = true
 text = "Longblade
 "
@@ -99,6 +143,8 @@ layout_mode = 2
 
 [node name="Mace Option" parent="Selection Wrapper/Weapon Selection" instance=ExtResource("2_c5g1y")]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_dbggg")
+theme_override_font_sizes/font_size = 18
 toggle_mode = true
 text = "Mace
 "
@@ -114,16 +160,34 @@ alignment = 1
 
 [node name="Heavy Armor Option" parent="Selection Wrapper/Armor Selection" instance=ExtResource("2_c5g1y")]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_dbggg")
+theme_override_font_sizes/font_size = 18
 toggle_mode = true
 text = "Heavy Armor"
 
+[node name="HSpacer" type="Control" parent="Selection Wrapper/Armor Selection"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Light Armor Option" parent="Selection Wrapper/Armor Selection" instance=ExtResource("2_c5g1y")]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_dbggg")
+theme_override_font_sizes/font_size = 18
+toggle_mode = true
+text = "Light Armor"
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_fvefe")
+stream = ExtResource("5_7kyl2")
+volume_db = -15.0
 autoplay = true
 
 [connection signal="pressed" from="Play Game" to="." method="_on_play_game_pressed"]
 [connection signal="toggled" from="Selection Wrapper/Class Selection/Thief Option" to="." method="_on_thief_option_toggled"]
 [connection signal="toggled" from="Selection Wrapper/Class Selection/Priest Option" to="." method="_on_priest_option_toggled"]
+[connection signal="toggled" from="Selection Wrapper/Class Selection/Warrior Option" to="." method="_on_warrior_option_toggled"]
+[connection signal="toggled" from="Selection Wrapper/Class Selection/Chronomancer Option" to="." method="_on_chronomancer_option_toggled"]
+[connection signal="toggled" from="Selection Wrapper/Class Selection/Flametongue Option" to="." method="_on_flametongue_option_toggled"]
 [connection signal="toggled" from="Selection Wrapper/Weapon Selection/Longblade Option" to="." method="_on_longblade_option_toggled"]
 [connection signal="toggled" from="Selection Wrapper/Weapon Selection/Mace Option" to="." method="_on_mace_option_toggled"]
 [connection signal="toggled" from="Selection Wrapper/Armor Selection/Heavy Armor Option" to="." method="_on_heavy_armor_option_toggled"]
+[connection signal="toggled" from="Selection Wrapper/Armor Selection/Light Armor Option" to="." method="_on_light_armor_option_toggled"]

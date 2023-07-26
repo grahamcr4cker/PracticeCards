@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bqw3vokrvf548"]
+[gd_scene load_steps=15 format=3 uid="uid://bqw3vokrvf548"]
 
 [ext_resource type="Script" path="res://combat_dungeon.gd" id="1_b0ku4"]
 [ext_resource type="Texture2D" uid="uid://g3ddrmm8t4rn" path="res://assets/Backgrounds/Background_Dungeon.png" id="1_cb83s"]
@@ -9,9 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://v2msqv3t8ntg" path="res://roll_result_indicator.tscn" id="7_g8lkh"]
 [ext_resource type="Script" path="res://Attack Button.gd" id="7_yu8p6"]
 [ext_resource type="Script" path="res://Discard.gd" id="11_rlgwj"]
-[ext_resource type="AudioStream" uid="uid://30jqbtlhi5jg" path="res://assets/Music/9L_Battle_Theme.mp3" id="12_komdd"]
+[ext_resource type="AudioStream" uid="uid://mosf4pewpnbw" path="res://assets/Music/Battle Themes/9L Battle Theme 072523.mp3" id="12_yjyti"]
 [ext_resource type="Script" path="res://In Play.gd" id="14_3ktfv"]
 [ext_resource type="PackedScene" uid="uid://b58qxmgmh2jxn" path="res://Card Stack.tscn" id="15_d30cg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r7esl"]
+size = Vector2(181, 129)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lja5a"]
 size = Vector2(84, 129)
@@ -60,9 +63,13 @@ script = ExtResource("7_yu8p6")
 [node name="Roll Result Indicator" parent="." instance=ExtResource("7_g8lkh")]
 position = Vector2(854, 416)
 
-[node name="In Play" type="Node2D" parent="."]
+[node name="In Play" type="Area2D" parent="." groups=["clickableObject"]]
 position = Vector2(590, 329)
 script = ExtResource("14_3ktfv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="In Play"]
+position = Vector2(48.5, 0)
+shape = SubResource("RectangleShape2D_r7esl")
 
 [node name="Discard" type="Area2D" parent="." groups=["clickableObject"]]
 position = Vector2(192, 464)
@@ -92,11 +99,14 @@ cardAddedSignal = "class2Added"
 cardPoppedSignal = "class2Popped"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("12_komdd")
+stream = ExtResource("12_yjyti")
+volume_db = -15.0
 autoplay = true
 
 [connection signal="child_exiting_tree" from="hand" to="hand" method="_on_child_exiting_tree"]
 [connection signal="pressed" from="Attack Button" to="Player" method="_on_attack_button_pressed"]
 [connection signal="pressed" from="Pass Turn" to="Pass Turn" method="_on_pressed"]
+[connection signal="mouse_entered" from="In Play" to="In Play" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="In Play" to="In Play" method="_on_mouse_exited"]
 [connection signal="mouse_entered" from="Discard" to="Discard" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Discard" to="Discard" method="_on_mouse_exited"]
