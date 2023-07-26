@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://iwm7wy12qdu1"]
+[gd_scene load_steps=5 format=3 uid="uid://iwm7wy12qdu1"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_v5ygo"]
 [ext_resource type="PackedScene" uid="uid://brppovmkem038" path="res://suite_option.tscn" id="2_c5g1y"]
+[ext_resource type="Texture2D" uid="uid://bdm1njhkxoco7" path="res://assets/Backgrounds/Selectscreen.png" id="2_pjfhq"]
+[ext_resource type="AudioStream" uid="uid://6xiv3uxes1pn" path="res://assets/Music/Title_Screen_Alt.mp3" id="4_fvefe"]
 
 [node name="main_menu" type="Control"]
 layout_mode = 3
@@ -11,6 +13,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_v5ygo")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_pjfhq")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -22,7 +30,7 @@ offset_top = 100.0
 offset_right = 75.5
 offset_bottom = 126.0
 grow_horizontal = 2
-text = "Choose your weapon!"
+text = "Choose your setup!"
 
 [node name="Play Game" type="Button" parent="."]
 layout_mode = 1
@@ -108,6 +116,10 @@ alignment = 1
 layout_mode = 2
 toggle_mode = true
 text = "Heavy Armor"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_fvefe")
+autoplay = true
 
 [connection signal="pressed" from="Play Game" to="." method="_on_play_game_pressed"]
 [connection signal="toggled" from="Selection Wrapper/Class Selection/Thief Option" to="." method="_on_thief_option_toggled"]
