@@ -142,6 +142,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dcb6b"]
+resource_local_to_scene = true
 size = Vector2(86, 130)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wew4i"]
@@ -188,7 +189,7 @@ states/teleport_out/position = Vector2(690, 100)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_hjsq5"), "idle", "snap_up", SubResource("AnimationNodeStateMachineTransition_doclu"), "snap_up", "idle", SubResource("AnimationNodeStateMachineTransition_a22eq"), "snap_up", "teleport_out", SubResource("AnimationNodeStateMachineTransition_j586r"), "teleport_out", "teleport_in", SubResource("AnimationNodeStateMachineTransition_8gull")]
 graph_offset = Vector2(0, -68.6695)
 
-[node name="PlayableCard" type="Sprite2D"]
+[node name="PlayableCard" type="Sprite2D" groups=["clickableObject"]]
 modulate = Color(0, 0, 0, 1)
 material = ExtResource("1_iqj45")
 position = Vector2(1.24529, 1.26606)

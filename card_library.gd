@@ -3,6 +3,16 @@ extends Node
 
 enum SuitType { WEAPON, ARMOR, CLASS_1, CLASS_2 }
 
+var suitTypeNames = {
+	SuitType.WEAPON: "weapon",
+	SuitType.ARMOR: "armor",
+	SuitType.CLASS_1: "class_1",
+	SuitType.CLASS_2: "class_2",
+}
+
+func getSuitTypeName(suitType: SuitType) -> String:
+	return suitTypeNames[suitType]
+
 var suits := {
 	"heavyarmor": {
 		"type": "armor",
