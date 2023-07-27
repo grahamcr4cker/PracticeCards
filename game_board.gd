@@ -118,7 +118,7 @@ func position_cards(tree, children, holder_node):
 				var overlap = total_width - MAX_SCREEN_WIDTH
 				space_between = (overlap / (sprite_count - 1)) * -1
 				print("overlap: %d, sprite count: %d, space between: %d" % [overlap, sprite_count, space_between])
-				total_width = MAX_SCREEN_WIDTH - (space_between / 2)
+				total_width = MAX_SCREEN_WIDTH
 			
 			var x_position = -total_width / 2
 			var sprite_count_step = round((float(sprite_count) / 3.))
