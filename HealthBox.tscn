@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmb2krujmgpfe"]
+
+[ext_resource type="Script" path="res://HealthBox.gd" id="1_1nis1"]
+
+[node name="HealthBox" type="Node2D"]
+script = ExtResource("1_1nis1")

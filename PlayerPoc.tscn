@@ -1,0 +1,69 @@
+[gd_scene load_steps=9 format=3 uid="uid://da13x6qwv0k53"]
+
+[ext_resource type="Script" path="res://PlayerPoc.gd" id="1_kmkvd"]
+[ext_resource type="Texture2D" uid="uid://bhwmi0xufos0m" path="res://assets/Card Art/card_back.png" id="2_7osa4"]
+[ext_resource type="Script" path="res://HealthBox.gd" id="2_swnxp"]
+[ext_resource type="Script" path="res://TurnStatus.gd" id="3_1qelg"]
+[ext_resource type="Script" path="res://ActionStatus.gd" id="4_iimma"]
+[ext_resource type="Script" path="res://PlayerStatsPoc.gd" id="6_2pgs4"]
+[ext_resource type="PackedScene" uid="uid://cdhxcnfgmx4nc" path="res://CombatBox.tscn" id="6_ngwt1"]
+[ext_resource type="FontFile" uid="uid://diqt2vii6tchx" path="res://assets/Fonts/CloisterBlack.ttf" id="8_he2jl"]
+
+[node name="PlayerPoc" type="Sprite2D" groups=["CombatEntities"]]
+texture = ExtResource("2_7osa4")
+script = ExtResource("1_kmkvd")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -45.0
+offset_top = -67.5
+offset_right = 45.0
+offset_bottom = 67.5
+
+[node name="HealthBox" type="Node2D" parent="."]
+script = ExtResource("2_swnxp")
+
+[node name="TurnStatus" type="Node2D" parent="."]
+script = ExtResource("3_1qelg")
+
+[node name="ActionStatus" type="Node2D" parent="."]
+script = ExtResource("4_iimma")
+
+[node name="PlayerStatsPoc" type="Node2D" parent="." node_paths=PackedStringArray("action_status")]
+script = ExtResource("6_2pgs4")
+action_status = NodePath("../ActionStatus")
+
+[node name="CombatBox" parent="." node_paths=PackedStringArray("action_status", "player_stats") instance=ExtResource("6_ngwt1")]
+position = Vector2(0, 67.5)
+action_status = NodePath("../ActionStatus")
+player_stats = NodePath("../PlayerStatsPoc")
+
+[node name="CombatRect" type="ColorRect" parent="."]
+visible = false
+offset_left = -45.0
+offset_top = -67.5
+offset_right = 45.0
+offset_bottom = 67.5
+color = Color(1, 0, 1, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_7osa4")
+
+[node name="HealthValue" type="Label" parent="."]
+offset_left = -4.0
+offset_top = 36.0
+offset_right = 36.0
+offset_bottom = 65.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_he2jl")
+theme_override_font_sizes/font_size = 22
+text = "50"
+horizontal_alignment = 2
+
+[node name="CombatButton" type="TextureButton" parent="."]
+visible = false
+offset_left = -45.0
+offset_top = -67.5
+offset_right = 45.0
+offset_bottom = 67.5
+
+[connection signal="button_up" from="CombatButton" to="." method="_on_combat_button_button_up"]

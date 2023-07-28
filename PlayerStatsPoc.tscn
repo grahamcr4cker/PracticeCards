@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bb387pwf7xspm"]
+
+[ext_resource type="Script" path="res://PlayerStatsPoc.gd" id="1_bemup"]
+
+[node name="PlayerStatsPoc" type="Node2D"]
+script = ExtResource("1_bemup")
