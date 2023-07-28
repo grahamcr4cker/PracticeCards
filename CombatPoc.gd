@@ -16,7 +16,7 @@ const POS_3 := X_CHUNK * 3
 
 const combat_entity := preload("res://PlayerPoc.tscn")
 
-@onready var turn_manager_poc = $TurnManagerPoc
+@onready var turn_manager_poc := $TurnManagerPoc
 
 
 func _unhandled_input(event):

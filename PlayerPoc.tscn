@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://da13x6qwv0k53"]
+[gd_scene load_steps=9 format=3 uid="uid://beujl0oa2ai48"]
 
 [ext_resource type="Script" path="res://PlayerPoc.gd" id="1_kmkvd"]
 [ext_resource type="Texture2D" uid="uid://bhwmi0xufos0m" path="res://assets/Card Art/card_back.png" id="2_7osa4"]
@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://TurnStatus.gd" id="3_1qelg"]
 [ext_resource type="Script" path="res://ActionStatus.gd" id="4_iimma"]
 [ext_resource type="Script" path="res://PlayerStatsPoc.gd" id="6_2pgs4"]
-[ext_resource type="PackedScene" uid="uid://cdhxcnfgmx4nc" path="res://CombatBox.tscn" id="6_ngwt1"]
+[ext_resource type="PackedScene" uid="uid://dfbrijk8t2e21" path="res://CombatBox.tscn" id="6_ngwt1"]
 [ext_resource type="FontFile" uid="uid://diqt2vii6tchx" path="res://assets/Fonts/CloisterBlack.ttf" id="8_he2jl"]
 
 [node name="PlayerPoc" type="Sprite2D" groups=["CombatEntities"]]

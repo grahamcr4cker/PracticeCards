@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://btvlsmqrwll7c"]
+[gd_scene load_steps=4 format=3 uid="uid://didhxica6io1e"]
 
 [ext_resource type="Script" path="res://CombatPoc.gd" id="1_4g8wd"]
 [ext_resource type="Texture2D" uid="uid://bdm1njhkxoco7" path="res://assets/Backgrounds/Selectscreen.png" id="2_wgajq"]

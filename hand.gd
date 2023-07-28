@@ -3,7 +3,7 @@ extends Node2D
 
 @onready var attack_button = $"../Attack Button"
 
-@export var hand_count := 5
+@export var hand_count := 25
 
 const ANIMATION_SPEED := .15
 var total_card_plays := 2
