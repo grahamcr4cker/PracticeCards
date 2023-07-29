@@ -12,5 +12,5 @@ func _add_card(old_card):
 
 
 func _on_child_entered_tree(node):
-	if node is PlayableCard:
-		node.get_node("Area2D").visible = false
+	if node is PlayableCardPoc:
+		node.get_node("Button").visible = false

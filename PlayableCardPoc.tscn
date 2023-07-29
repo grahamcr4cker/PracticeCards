@@ -1,8 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://c2qfawiylebo5"]
+[gd_scene load_steps=20 format=3 uid="uid://c4ogiqf1ebiu7"]
 
-[ext_resource type="Texture2D" uid="uid://bhwmi0xufos0m" path="res://assets/Card Art/card_back.png" id="1_il4xp"]
-[ext_resource type="Material" uid="uid://c2aiki26mcnqh" path="res://WhiteColorShader.tres" id="1_iqj45"]
-[ext_resource type="Script" path="res://PlayableCard.gd" id="2_sp0tm"]
+[ext_resource type="Material" uid="uid://c2aiki26mcnqh" path="res://WhiteColorShader.tres" id="1_ffyca"]
+[ext_resource type="Texture2D" uid="uid://bhwmi0xufos0m" path="res://assets/Card Art/card_back.png" id="2_g6o08"]
+[ext_resource type="Script" path="res://PlayableCardPoc.gd" id="3_fgloq"]
 
 [sub_resource type="Animation" id="Animation_s1omt"]
 length = 0.001
@@ -47,6 +47,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, -5), Vector2(0, -5), Vector2(0, 0), Vector2(0, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Button:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.9, 1.8, 2.6, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-42, -64), Vector2(-42, -69), Vector2(-42, -69), Vector2(-42, -64), Vector2(-42, -64)]
+}
 
 [sub_resource type="Animation" id="Animation_2jh8b"]
 resource_name = "snap_up"
@@ -62,6 +74,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, -20)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Button:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-42, -68.5935), Vector2(-42, -84)]
 }
 
 [sub_resource type="Animation" id="Animation_ovg3d"]
@@ -141,10 +165,6 @@ _data = {
 "teleport_out": SubResource("Animation_pnme6")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dcb6b"]
-resource_local_to_scene = true
-size = Vector2(86, 130)
-
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wew4i"]
 animation = &"idle"
 
@@ -189,24 +209,18 @@ states/teleport_out/position = Vector2(690, 100)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_hjsq5"), "idle", "snap_up", SubResource("AnimationNodeStateMachineTransition_doclu"), "snap_up", "idle", SubResource("AnimationNodeStateMachineTransition_a22eq"), "snap_up", "teleport_out", SubResource("AnimationNodeStateMachineTransition_j586r"), "teleport_out", "teleport_in", SubResource("AnimationNodeStateMachineTransition_8gull")]
 graph_offset = Vector2(0, -68.6695)
 
-[node name="PlayableCard" type="Sprite2D" groups=["clickableObject"]]
+[node name="PlayableCardPoc" type="Sprite2D"]
 modulate = Color(0, 0, 0, 1)
-material = ExtResource("1_iqj45")
+material = ExtResource("1_ffyca")
 position = Vector2(1.24529, 1.26606)
-texture = ExtResource("1_il4xp")
-offset = Vector2(0, -4.66135)
-script = ExtResource("2_sp0tm")
+texture = ExtResource("2_g6o08")
+offset = Vector2(0, -5)
+script = ExtResource("3_fgloq")
 
 [node name="Animation Player" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_y41vu")
 }
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -1)
-shape = SubResource("RectangleShape2D_dcb6b")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_aapqk")
@@ -217,7 +231,15 @@ parameters/conditions/is_focused = false
 parameters/conditions/is_idle = false
 parameters/conditions/is_teleported = false
 
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = -42.0
+offset_top = -69.0
+offset_right = 42.0
+offset_bottom = 59.0
+pivot_offset = Vector2(0, -4.819)
+
 [connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
-[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
-[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="button_up" from="Button" to="." method="_on_texture_button_button_up"]
+[connection signal="mouse_entered" from="Button" to="." method="_on_texture_button_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="_on_texture_button_mouse_exited"]

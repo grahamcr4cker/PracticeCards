@@ -11,7 +11,7 @@ func _ready():
 
 func _add_card(card):
 	print("adding card")
-	card.get_node("Area2D").visible = false
+	card.get_node("Button").visible = false
 	add_child(card)
 
 func leftMouseClick():

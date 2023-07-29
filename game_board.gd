@@ -18,10 +18,10 @@ signal inPlayPopped
 
 var _player_deck := []
 
-func add_card_to_deck(card: PlayableCard):
+func add_card_to_deck(card: PlayableCardPoc):
 	_player_deck.append(card)
 
-func pop_card_from_deck() -> PlayableCard:
+func pop_card_from_deck() -> PlayableCardPoc:
 	var popped_card = _player_deck.pop_back()
 	cardPoppedFromDeck.emit(popped_card)
 	return popped_card
@@ -32,25 +32,25 @@ func get_deck() -> Array:
 func shuffle_deck():
 	_player_deck.shuffle()
 
-func add_armor_to_stack(card: PlayableCard):
+func add_armor_to_stack(card: PlayableCardPoc):
 	armorAdded.emit(card)
 
-func add_weapon_to_stack(card: PlayableCard):
+func add_weapon_to_stack(card: PlayableCardPoc):
 	weaponAdded.emit(card)
 
-func add_class_1_to_stack(card: PlayableCard):
+func add_class_1_to_stack(card: PlayableCardPoc):
 	class1Added.emit(card)
 
-func add_class_2_to_stack(card: PlayableCard):
+func add_class_2_to_stack(card: PlayableCardPoc):
 	class2Added.emit(card)
 
-func add_discard_to_stack(card: PlayableCard):
+func add_discard_to_stack(card: PlayableCardPoc):
 	discardAdded.emit(card)
 
-func add_card_to_hand(card: PlayableCard):
+func add_card_to_hand(card: PlayableCardPoc):
 	handCardAdded.emit(card)
 
-func add_in_play_to_stack(card: PlayableCard):
+func add_in_play_to_stack(card: PlayableCardPoc):
 	inPlayAdded.emit(card)
 
 func pop_armor_from_stack():
@@ -74,13 +74,14 @@ func pop_card_from_hand():
 func pop_in_play_from_stack():
 	inPlayPopped.emit()
 
-func duplicate_card(old_card) -> PlayableCard:
-	var card = preload("res://PlayableCard.tscn").instantiate()
+func duplicate_card(old_card) -> PlayableCardPoc:
+	var card = preload("res://PlayableCardPoc.tscn").instantiate()
 	card.id = old_card.id
 	card.texture = old_card.texture
 	card.numeric_value = old_card.numeric_value
 	card.suit_type = old_card.suit_type
 	card.is_face_card = old_card.is_face_card
+	card.get_node("Button").visible = old_card.get_node("Button").visible
 	return card
 
 func position_cards(tree, children, holder_node):
@@ -94,7 +95,7 @@ func position_cards(tree, children, holder_node):
 	if tree != null:
 		var child_list := []
 		for child in children:
-			if child is PlayableCard:
+			if child is PlayableCardPoc:
 				child_list.append(child)
 				var card_width = child.texture.get_width()
 		var tween = tree.create_tween().set_parallel(true)
@@ -117,7 +118,6 @@ func position_cards(tree, children, holder_node):
 			if total_width > MAX_SCREEN_WIDTH:
 				var overlap = total_width - MAX_SCREEN_WIDTH
 				space_between = (overlap / (sprite_count - 1)) * -1
-				print("overlap: %d, sprite count: %d, space between: %d" % [overlap, sprite_count, space_between])
 				total_width = MAX_SCREEN_WIDTH
 			
 			var x_position = -total_width / 2
@@ -127,7 +127,6 @@ func position_cards(tree, children, holder_node):
 			var current_angle = -max_angle
 			var index = 0
 			for card in child_list:
-				print("x position: %d" % x_position)
 				tween.tween_property(card, "rotation_degrees", current_angle, ANIMATION_SPEED)
 
 				# Using Arch to calculate the arch ;)

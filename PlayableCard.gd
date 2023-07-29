@@ -40,7 +40,7 @@ func leftMouseClick():
 	var root = get_tree().get_root().get_node("playspace")
 	root.selectedElement = self
 	animation_tree["parameters/conditions/is_clicked"] = true
-	get_node("Area2D").visible = false
+	get_node("Button").visible = false
 	await get_tree().create_timer(.3).timeout
 	if is_face_card:
 		GameBoard.add_in_play_to_stack(duplicate())

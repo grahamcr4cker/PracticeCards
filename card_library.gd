@@ -77,7 +77,7 @@ func _ready():
 		var suit = suits[key]
 		for number in range(1, 14):
 			var card_img = "res://assets/Card Art/%s/%s/%d_%s.png" % [suit.type, key, number, key]
-			var card = preload("res://PlayableCard.tscn").instantiate()
+			var card = preload("res://PlayableCardPoc.tscn").instantiate()
 			card.name = key
 			if suit.sub_type != null:
 				match suit.sub_type:

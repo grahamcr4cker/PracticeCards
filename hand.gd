@@ -3,7 +3,7 @@ extends Node2D
 
 @onready var attack_button = $"../Attack Button"
 
-@export var hand_count := 25
+@export var hand_count := 5
 
 const ANIMATION_SPEED := .15
 var total_card_plays := 2
@@ -37,8 +37,10 @@ func _turn_start():
 func _turn_end():
 	print("enemy turn ending")
 	_toggle_card_clickable(false)
-	print("cards are unclickable")
 	attack_button.disabled = true
+	for card in get_children():
+		card.get_node("AnimationTree")["parameters/conditions/is_focused"] = false
+		card.get_node("AnimationTree")["parameters/conditions/is_idle"] = true
 
 
 func _add_card_from_deck(card):
@@ -62,4 +64,6 @@ func _on_child_exiting_tree(node):
 
 func _toggle_card_clickable(value: bool):
 	for child in get_children():
-		child.get_node("Area2D").visible = value
+		child.get_node("Button").visible = false
+		child.get_node("Button").visible = true
+		child.get_node("Button").visible = value

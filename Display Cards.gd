@@ -5,7 +5,8 @@ extends Control
 
 func _ready():
 	for child in node.get_children():
-		if child is PlayableCard:
+		if child is PlayableCardPoc:
+			child.get_node("Button").visible = false
 			card_holder.add_child(GameBoard.duplicate_card(child))
 	GameBoard.position_cards(card_holder.get_tree(), card_holder.get_children(), card_holder)
 
