@@ -45,10 +45,10 @@ func _add_card_from_deck(card):
 
 func populate_hand():
 	for index in range(hand_count):
-		add_child(GameBoard.pop_card_from_deck())
+		GameBoard.pop_card_from_deck()
 
 
-func _on_child_exiting_tree(node):
+func _on_child_exiting_tree(_node):
 	cards_played += 1
 	if cards_played >= total_card_plays:
 		_toggle_card_clickable(false)

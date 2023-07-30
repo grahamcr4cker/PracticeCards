@@ -14,7 +14,7 @@ var player_suites := []
 @onready var flametongue_button := $"Selection Wrapper/Class Selection/Flametongue Option"
 
 
-func _process(delta):
+func _process(_delta):
 	if player_suites.size() == 4:
 		play_game.disabled = false
 	else:

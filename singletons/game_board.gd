@@ -96,7 +96,6 @@ func position_cards(tree, children, holder_node):
 		for child in children:
 			if child is PlayableCard:
 				child_list.append(child)
-				var card_width = child.texture.get_width()
 		var tween = tree.create_tween().set_parallel(true)
 		if child_list.size() <= 1:
 			for child in child_list:

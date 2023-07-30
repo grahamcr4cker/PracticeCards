@@ -10,6 +10,6 @@ func _ready():
 	GameBoard.position_cards(card_holder.get_tree(), card_holder.get_children(), card_holder)
 
 
-func _on_panel_gui_input(event):
+func _on_panel_gui_input(_event):
 	if Input.is_action_just_released("leftclick"):
 		queue_free()
