@@ -1,0 +1,61 @@
+[gd_scene load_steps=7 format=3 uid="uid://bpd4ggfpexeid"]
+
+[ext_resource type="Script" path="res://entities/combat_scenes/allies/player.gd" id="1_ngikg"]
+[ext_resource type="Texture2D" uid="uid://bfig3w6gk0hv" path="res://assets/Character Sprites/Skull/skull_sprite.png" id="2_3niii"]
+
+[sub_resource type="Animation" id="Animation_ixfnp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_dw45q"]
+resource_name = "idle"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_30k3l"]
+_data = {
+"RESET": SubResource("Animation_ixfnp"),
+"idle": SubResource("Animation_dw45q")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0vuwe"]
+size = Vector2(56, 158)
+
+[node name="Player" type="CharacterBody2D"]
+texture_filter = 1
+script = ExtResource("1_ngikg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_3niii")
+hframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_30k3l")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-7, 1)
+shape = SubResource("RectangleShape2D_0vuwe")
