@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://c2qfawiylebo5"]
 
-[ext_resource type="Material" uid="uid://c2aiki26mcnqh" path="res://WhiteColorShader.tres" id="1_4fkn5"]
+[ext_resource type="Material" uid="uid://c2aiki26mcnqh" path="res://materials/WhiteColorShader.tres" id="1_4fkn5"]
 [ext_resource type="Texture2D" uid="uid://bhwmi0xufos0m" path="res://assets/Card Art/card_back.png" id="2_ehclh"]
 [ext_resource type="Script" path="res://entities/card_scenes/PlayableCard.gd" id="3_y2mtf"]
 
@@ -194,7 +194,7 @@ modulate = Color(0, 0, 0, 1)
 material = ExtResource("1_4fkn5")
 position = Vector2(1.24529, 1.26606)
 texture = ExtResource("2_ehclh")
-offset = Vector2(0, -4.75586)
+offset = Vector2(0, -5)
 script = ExtResource("3_y2mtf")
 suit_type = null
 is_face_card = null
