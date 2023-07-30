@@ -27,8 +27,6 @@ func _add_card(old_card):
 				if child is PlayableCard:
 					child.queue_free()
 					GameBoard.emit_signal(cardPoppedSignal, GameBoard.duplicate_card(child.duplicate()))
-	else:
-		print("DOUBLE ALERT!!!!!")
 
 
 func _on_child_entered_tree(node):

@@ -117,7 +117,6 @@ func position_cards(tree, children, holder_node):
 			if total_width > MAX_SCREEN_WIDTH:
 				var overlap = total_width - MAX_SCREEN_WIDTH
 				space_between = (overlap / (sprite_count - 1)) * -1
-				print("overlap: %d, sprite count: %d, space between: %d" % [overlap, sprite_count, space_between])
 				total_width = MAX_SCREEN_WIDTH
 			
 			var x_position = -total_width / 2
@@ -127,7 +126,6 @@ func position_cards(tree, children, holder_node):
 			var current_angle = -max_angle
 			var index = 0
 			for card in child_list:
-				print("x position: %d" % x_position)
 				tween.tween_property(card, "rotation_degrees", current_angle, ANIMATION_SPEED)
 
 				# Using Arch to calculate the arch ;)

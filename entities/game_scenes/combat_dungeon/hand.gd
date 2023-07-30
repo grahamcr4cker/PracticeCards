@@ -23,7 +23,6 @@ func _position_cards():
 
 
 func _turn_start():
-	print("ally turn starting")
 	attack_button.disabled = false
 	_toggle_card_clickable(true)
 	cards_played = 0
@@ -35,9 +34,7 @@ func _turn_start():
 
 
 func _turn_end():
-	print("enemy turn ending")
 	_toggle_card_clickable(false)
-	print("cards are unclickable")
 	attack_button.disabled = true
 
 
@@ -53,7 +50,6 @@ func populate_hand():
 
 func _on_child_exiting_tree(node):
 	cards_played += 1
-	print("cards played: %d" % cards_played)
 	if cards_played >= total_card_plays:
 		_toggle_card_clickable(false)
 		if attack_button.disabled:

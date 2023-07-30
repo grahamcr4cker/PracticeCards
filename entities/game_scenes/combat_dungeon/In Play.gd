@@ -23,8 +23,6 @@ func _card_added_to_stack(card):
 				child.position.x = x_position
 				x_position += child.texture.get_width() + space_between
 				child.get_node("Area2D").visible = false
-	else:
-		print("DOUBLE ALERT!!!!!")
 
 
 func leftMouseClick():
@@ -35,13 +33,11 @@ func leftMouseClick():
 
 func _on_mouse_entered():
 	var root = get_tree().get_root().get_node("playspace")
-	print(root)
 	if root is Node2D:
 		root.setHoveredNode(self)
 
 
 func _on_mouse_exited():
 	var root = get_tree().get_root().get_node("playspace")
-	print(root)
 	if root is Node2D:
 		root.unsetHoveredNode(self)

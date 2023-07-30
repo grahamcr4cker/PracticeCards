@@ -27,7 +27,6 @@ func _on_heavy_armor_option_toggled(button_pressed):
 		player_suites.erase("lightarmor")
 		heavy_armor_button.disabled = true
 		light_armor_button.disabled = false
-		print(player_suites)
 
 
 func _on_light_armor_option_toggled(button_pressed):
@@ -36,7 +35,6 @@ func _on_light_armor_option_toggled(button_pressed):
 		player_suites.erase("heavyarmor")
 		light_armor_button.disabled = true
 		heavy_armor_button.disabled = false
-		print(player_suites)
 
 
 func _on_longblade_option_toggled(button_pressed):
@@ -45,7 +43,6 @@ func _on_longblade_option_toggled(button_pressed):
 		player_suites.erase("mace")
 		longblade_button.disabled = true
 		mace_button.disabled = false
-		print(player_suites)
 
 
 func _on_mace_option_toggled(button_pressed):
@@ -54,7 +51,6 @@ func _on_mace_option_toggled(button_pressed):
 		player_suites.erase("longblade")
 		mace_button.disabled = true
 		longblade_button.disabled = false
-		print(player_suites)
 
 
 func _on_thief_option_toggled(button_pressed):
@@ -75,7 +71,6 @@ func _on_thief_option_toggled(button_pressed):
 		warrior_button.disabled = false
 		chronomancer_button.disabled = false
 		flametongue_button.disabled = false
-		print(player_suites)
 
 
 func _on_priest_option_toggled(button_pressed):
@@ -96,7 +91,6 @@ func _on_priest_option_toggled(button_pressed):
 		warrior_button.disabled = false
 		chronomancer_button.disabled = false
 		flametongue_button.disabled = false
-		print(player_suites)
 
 
 func _on_warrior_option_toggled(button_pressed):
@@ -117,7 +111,6 @@ func _on_warrior_option_toggled(button_pressed):
 		chronomancer_button.disabled = false
 		priest_button.disabled = false
 		flametongue_button.disabled = false
-		print(player_suites)
 
 
 func _on_chronomancer_option_toggled(button_pressed):
@@ -137,7 +130,6 @@ func _on_chronomancer_option_toggled(button_pressed):
 		thief_button.disabled = false
 		priest_button.disabled = false
 		warrior_button.disabled = false
-		print(player_suites)
 
 
 func _on_flametongue_option_toggled(button_pressed):
@@ -157,7 +149,6 @@ func _on_flametongue_option_toggled(button_pressed):
 		thief_button.disabled = false
 		priest_button.disabled = false
 		warrior_button.disabled = false
-		print(player_suites)
 
 
 func _on_play_game_pressed():
@@ -199,5 +190,4 @@ func _on_play_game_pressed():
 
 func add_cards_to_player_deck(card_list):
 	for card in card_list:
-		print(card)
 		GameBoard.add_card_to_deck(card)

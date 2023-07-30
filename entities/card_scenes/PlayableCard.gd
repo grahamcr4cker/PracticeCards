@@ -20,9 +20,7 @@ func _ready():
 
 func _on_area_2d_mouse_entered():
 	var root = get_tree().get_root().get_node("playspace")
-	print(root)
 	if root is Node2D:
-		print("hell yeah!")
 		root.setHoveredNode(self)
 	animation_tree["parameters/conditions/is_idle"] = false
 	animation_tree["parameters/conditions/is_focused"] = true

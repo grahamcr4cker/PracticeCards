@@ -8,7 +8,6 @@ func _ready():
 
 func unsetHoveredNode(node):
 	if hoveredElement == node:
-		print("hover node unset")
 		hoveredElement = null
 
 # Returns boolean if it is the new top hovered object
@@ -36,10 +35,8 @@ func setHoveredNode(node1) -> bool:
 
 	if node1Position >= hoveredPosition:
 		hoveredElement = node1
-		print(hoveredElement)
 		return true
 	else:
-		print(hoveredElement)
 		return false
 
 
@@ -68,9 +65,7 @@ func _unhandled_input(event):
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if hoveredElement == null:
 				# No object is being clicked, so deselect selected node
-				print("don't fire left click!")
 				selectedElement = null
 			else:
 				# Call left click for only the top object that is being clicked
-				print("fire left click!")
 				hoveredElement.leftMouseClick()
