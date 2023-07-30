@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxkctwfr1750u"]
+[gd_scene load_steps=2 format=3 uid="uid://cxkctwfr1750u"]
 
 [ext_resource type="Script" path="res://Display Cards.gd" id="1_qh08i"]
-[ext_resource type="Script" path="res://Card Holder.gd" id="2_din31"]
 
 [node name="Display Cards" type="Control"]
 process_mode = 3
@@ -19,6 +18,5 @@ offset_bottom = 541.0
 
 [node name="Card Holder" type="Node2D" parent="."]
 position = Vector2(477, 195)
-script = ExtResource("2_din31")
 
 [connection signal="gui_input" from="Panel" to="." method="_on_panel_gui_input"]
