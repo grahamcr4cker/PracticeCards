@@ -11,14 +11,13 @@ config_version=5
 [application]
 
 config/name="9 Th Life Game"
-run/main_scene="res://main_menu.tscn"
+run/main_scene="res://entities/game_scenes/main_menu/main_menu.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
 
 PlayerDeckChoices="*res://player_deck_choices.gd"
-SignalBus="*res://SignalBus.gd"
 CardLibrary="*res://card_library.gd"
 GameBoard="*res://game_board.gd"
 TurnManager="*res://turn_manager.gd"

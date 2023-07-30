@@ -75,7 +75,7 @@ func pop_in_play_from_stack():
 	inPlayPopped.emit()
 
 func duplicate_card(old_card) -> PlayableCard:
-	var card = preload("res://PlayableCard.tscn").instantiate()
+	var card = preload("res://entities/card_scenes/PlayableCard.tscn").instantiate()
 	card.id = old_card.id
 	card.texture = old_card.texture
 	card.numeric_value = old_card.numeric_value
