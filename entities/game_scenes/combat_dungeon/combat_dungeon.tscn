@@ -1,0 +1,112 @@
+[gd_scene load_steps=15 format=3 uid="uid://bqw3vokrvf548"]
+
+[ext_resource type="Script" path="res://entities/game_scenes/combat_dungeon/combat_dungeon.gd" id="1_uuosl"]
+[ext_resource type="Texture2D" uid="uid://g3ddrmm8t4rn" path="res://assets/Backgrounds/Background_Dungeon.png" id="2_4xb3j"]
+[ext_resource type="PackedScene" uid="uid://bpd4ggfpexeid" path="res://player.tscn" id="3_6crpv"]
+[ext_resource type="Texture2D" uid="uid://bhwmi0xufos0m" path="res://assets/Card Art/card_back.png" id="4_ldmsq"]
+[ext_resource type="Script" path="res://entities/game_scenes/combat_dungeon/hand.gd" id="5_ec84o"]
+[ext_resource type="FontFile" uid="uid://diqt2vii6tchx" path="res://assets/Fonts/CloisterBlack.ttf" id="6_ulldf"]
+[ext_resource type="Script" path="res://entities/game_scenes/combat_dungeon/Attack Button.gd" id="7_313ku"]
+[ext_resource type="PackedScene" uid="uid://v2msqv3t8ntg" path="res://roll_result_indicator.tscn" id="8_0begv"]
+[ext_resource type="Script" path="res://entities/game_scenes/combat_dungeon/In Play.gd" id="9_5fgon"]
+[ext_resource type="Script" path="res://entities/game_scenes/combat_dungeon/Discard.gd" id="10_xu77c"]
+[ext_resource type="PackedScene" uid="uid://b58qxmgmh2jxn" path="res://entities/card_scenes/Card Stack.tscn" id="11_d47du"]
+[ext_resource type="AudioStream" uid="uid://mosf4pewpnbw" path="res://assets/Music/Battle Themes/9L Battle Theme 072523.mp3" id="12_tyjyg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r7esl"]
+size = Vector2(181, 129)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lja5a"]
+size = Vector2(84, 129)
+
+[node name="playspace" type="Node2D"]
+process_mode = 1
+script = ExtResource("1_uuosl")
+
+[node name="BackgroundDungeon" type="Sprite2D" parent="."]
+position = Vector2(480, 270)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_4xb3j")
+
+[node name="Player" parent="." instance=ExtResource("3_6crpv")]
+position = Vector2(103, 308)
+
+[node name="Player Deck" type="Sprite2D" parent="."]
+position = Vector2(721, 465)
+texture = ExtResource("4_ldmsq")
+metadata/_edit_use_anchors_ = true
+
+[node name="hand" type="Node2D" parent="."]
+position = Vector2(459, 500)
+script = ExtResource("5_ec84o")
+
+[node name="Attack Button" type="Button" parent="."]
+offset_left = 777.0
+offset_top = 413.0
+offset_right = 946.0
+offset_bottom = 480.0
+theme_override_fonts/font = ExtResource("6_ulldf")
+theme_override_font_sizes/font_size = 48
+text = "Attack"
+script = ExtResource("7_313ku")
+
+[node name="Pass Turn" type="Button" parent="."]
+offset_left = 803.0
+offset_top = 488.0
+offset_right = 926.0
+offset_bottom = 532.0
+theme_override_fonts/font = ExtResource("6_ulldf")
+theme_override_font_sizes/font_size = 24
+text = "Pass Turn"
+script = ExtResource("7_313ku")
+
+[node name="Roll Result Indicator" parent="." instance=ExtResource("8_0begv")]
+position = Vector2(854, 416)
+
+[node name="In Play" type="Area2D" parent="." groups=["clickableObject"]]
+position = Vector2(590, 329)
+script = ExtResource("9_5fgon")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="In Play"]
+position = Vector2(48.5, 0)
+shape = SubResource("RectangleShape2D_r7esl")
+
+[node name="Discard" type="Area2D" parent="." groups=["clickableObject"]]
+position = Vector2(192, 464)
+script = ExtResource("10_xu77c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Discard"]
+shape = SubResource("RectangleShape2D_lja5a")
+
+[node name="Armor Stack" parent="." instance=ExtResource("11_d47du")]
+position = Vector2(330, 330)
+cardAddedSignal = "armorAdded"
+cardPoppedSignal = "armorPopped"
+
+[node name="Weapon Stack" parent="." instance=ExtResource("11_d47du")]
+position = Vector2(243, 330)
+cardAddedSignal = "weaponAdded"
+cardPoppedSignal = "weaponPopped"
+
+[node name="Class 1 Stack" parent="." instance=ExtResource("11_d47du")]
+position = Vector2(417, 330)
+cardAddedSignal = "class1Added"
+cardPoppedSignal = "class1Popped"
+
+[node name="Class 2 Stack" parent="." instance=ExtResource("11_d47du")]
+position = Vector2(505, 330)
+cardAddedSignal = "class2Added"
+cardPoppedSignal = "class2Popped"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_tyjyg")
+volume_db = -15.0
+autoplay = true
+
+[connection signal="child_exiting_tree" from="hand" to="hand" method="_on_child_exiting_tree"]
+[connection signal="pressed" from="Attack Button" to="Player" method="_on_attack_button_pressed"]
+[connection signal="pressed" from="Pass Turn" to="Pass Turn" method="_on_pressed"]
+[connection signal="mouse_entered" from="In Play" to="In Play" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="In Play" to="In Play" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Discard" to="Discard" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Discard" to="Discard" method="_on_mouse_exited"]
