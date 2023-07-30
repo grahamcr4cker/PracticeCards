@@ -1,5 +1,0 @@
-[gd_scene format=3 uid="uid://djtmvqeys8ndx"]
-
-[node name="card example" type="Sprite2D"]
-
-[node name="CARD" type="Node" parent="."]
