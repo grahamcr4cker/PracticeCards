@@ -38,13 +38,14 @@ func init_listeners():
 		entity.get_node("TurnStatus").turnStarted.connect(_activate_cards)
 
 func _activate_cards():
-	
 	if combat_manager.curr_turn.get_node("Stats").is_ally:
 		_toggle_card_clickable(true)
-		var hand_size = combat_manager.curr_turn.get_node("Board").hand.size()
-		if hand_size < hand_count:
-			for index in range(hand_count - hand_size):
-				add_child(GameBoard.pop_card_from_deck())
+		var player_board = combat_manager.curr_turn.get_node("Board")
+		if player_board.hand.size() < hand_count:
+			for index in range(hand_count - player_board.hand.size()):
+				var card = player_board.pop_card_from_deck()
+				player_board.add_card_to_hand(card)
+				add_child(card)
 				position_cards()
 				await get_tree().create_timer(.25).timeout
 		
