@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=3 uid="uid://dr2gax47bgukx"]
+
+[ext_resource type="Script" path="res://entities/combat_scenes/combatant/Combatant.gd" id="1_4g2r7"]
+[ext_resource type="Script" path="res://entities/combat_scenes/combatant/Action Status.gd" id="1_lulay"]
+[ext_resource type="Script" path="res://entities/combat_scenes/combatant/Stats.gd" id="2_8jh8y"]
+[ext_resource type="Script" path="res://entities/combat_scenes/combatant/Turn Status.gd" id="3_xlxck"]
+[ext_resource type="Script" path="res://entities/combat_scenes/combatant/Board.gd" id="4_ii6f2"]
+[ext_resource type="Script" path="res://entities/combat_scenes/combatant/Health Box.gd" id="6_1qail"]
+
+[node name="Combatant" type="Node2D" groups=["CombatEntities"]]
+script = ExtResource("1_4g2r7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="ActionStatus" type="Node2D" parent="."]
+script = ExtResource("1_lulay")
+
+[node name="Stats" type="Node2D" parent="."]
+script = ExtResource("2_8jh8y")
+
+[node name="TurnStatus" type="Node2D" parent="."]
+script = ExtResource("3_xlxck")
+
+[node name="Board" type="Node2D" parent="."]
+script = ExtResource("4_ii6f2")
+
+[node name="HealthBox" type="Node2D" parent="."]
+script = ExtResource("6_1qail")

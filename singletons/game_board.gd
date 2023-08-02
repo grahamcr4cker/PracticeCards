@@ -18,10 +18,10 @@ signal inPlayPopped
 
 var _player_deck := []
 
-func add_card_to_deck(card: PlayableCard):
+func add_card_to_deck(card: Card):
 	_player_deck.append(card)
 
-func pop_card_from_deck() -> PlayableCard:
+func pop_card_from_deck() -> Card:
 	var popped_card = _player_deck.pop_back()
 	cardPoppedFromDeck.emit(popped_card)
 	return popped_card
@@ -32,25 +32,25 @@ func get_deck() -> Array:
 func shuffle_deck():
 	_player_deck.shuffle()
 
-func add_armor_to_stack(card: PlayableCard):
+func add_armor_to_stack(card: Card):
 	armorAdded.emit(card)
 
-func add_weapon_to_stack(card: PlayableCard):
+func add_weapon_to_stack(card: Card):
 	weaponAdded.emit(card)
 
-func add_class_1_to_stack(card: PlayableCard):
+func add_class_1_to_stack(card: Card):
 	class1Added.emit(card)
 
-func add_class_2_to_stack(card: PlayableCard):
+func add_class_2_to_stack(card: Card):
 	class2Added.emit(card)
 
-func add_discard_to_stack(card: PlayableCard):
+func add_discard_to_stack(card: Card):
 	discardAdded.emit(card)
 
-func add_card_to_hand(card: PlayableCard):
+func add_card_to_hand(card: Card):
 	handCardAdded.emit(card)
 
-func add_in_play_to_stack(card: PlayableCard):
+func add_in_play_to_stack(card: Card):
 	inPlayAdded.emit(card)
 
 func pop_armor_from_stack():
@@ -74,8 +74,8 @@ func pop_card_from_hand():
 func pop_in_play_from_stack():
 	inPlayPopped.emit()
 
-func duplicate_card(old_card) -> PlayableCard:
-	var card = preload("res://entities/card_scenes/PlayableCard.tscn").instantiate()
+func duplicate_card(old_card) -> Card:
+	var card = preload("res://entities/card_scenes/Card.tscn").instantiate()
 	card.id = old_card.id
 	card.texture = old_card.texture
 	card.numeric_value = old_card.numeric_value
@@ -94,7 +94,7 @@ func position_cards(tree, children, holder_node):
 	if tree != null:
 		var child_list := []
 		for child in children:
-			if child is PlayableCard:
+			if child is Card:
 				child_list.append(child)
 		var tween = tree.create_tween().set_parallel(true)
 		if child_list.size() <= 1:

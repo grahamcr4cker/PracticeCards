@@ -1,0 +1,105 @@
+[gd_scene load_steps=13 format=3 uid="uid://cbsfp7opryekh"]
+
+[ext_resource type="Texture2D" uid="uid://ia53v7kydn0a" path="res://assets/Backgrounds/Combat/Background_Dungeon_v2.png" id="1_th21m"]
+[ext_resource type="Texture2D" uid="uid://duj81uhg28odl" path="res://assets/Backgrounds/Combat/discard-box.png" id="2_i1qcl"]
+[ext_resource type="Texture2D" uid="uid://chu0wf3fht5om" path="res://assets/Backgrounds/Combat/Armor-box.png" id="3_y0oec"]
+[ext_resource type="Texture2D" uid="uid://yhd3spmlscdr" path="res://assets/Backgrounds/Combat/weapon-box.png" id="4_nvjt0"]
+[ext_resource type="Texture2D" uid="uid://cc314pdpkdurp" path="res://assets/Backgrounds/Combat/Class-1-box.png" id="5_ogfui"]
+[ext_resource type="Texture2D" uid="uid://c66duv2713bhr" path="res://assets/Backgrounds/Combat/Class-2-box.png" id="6_4weoi"]
+[ext_resource type="Texture2D" uid="uid://be2rpvnrogs0u" path="res://assets/Backgrounds/Combat/In-play-Box.png" id="7_l22kj"]
+[ext_resource type="Texture2D" uid="uid://jk2iywr57p1j" path="res://assets/Backgrounds/Combat/Brick-Floor-Player.png" id="8_0egt1"]
+[ext_resource type="Texture2D" uid="uid://lrq3oke7kl1x" path="res://assets/Backgrounds/Combat/brick-floor-enemy.png" id="9_y53yi"]
+[ext_resource type="Texture2D" uid="uid://bopw30mmkjplc" path="res://assets/Character Sprites/enemy/goblin/goblin_sprite.png" id="10_6f7ug"]
+[ext_resource type="Texture2D" uid="uid://bfig3w6gk0hv" path="res://assets/Character Sprites/Skull/skull_sprite.png" id="11_oboi1"]
+[ext_resource type="Texture2D" uid="uid://bmr7oa0ssj3gk" path="res://assets/Character Sprites/Hope/hope_sprite.png" id="12_07c71"]
+
+[node name="Background Dungeon" type="Sprite2D"]
+position = Vector2(480, 270)
+texture = ExtResource("1_th21m")
+
+[node name="Ally Board" type="Node2D" parent="."]
+visible = false
+position = Vector2(0, -52)
+
+[node name="Ally Discard Stack" type="Sprite2D" parent="Ally Board"]
+position = Vector2(-186, 121)
+texture = ExtResource("2_i1qcl")
+
+[node name="Ally Armor Stack" type="Sprite2D" parent="Ally Board"]
+position = Vector2(-94, 88)
+texture = ExtResource("3_y0oec")
+
+[node name="Ally Weapon Stack" type="Sprite2D" parent="Ally Board"]
+position = Vector2(-94, 167)
+texture = ExtResource("4_nvjt0")
+
+[node name="Ally Class 1 Stack" type="Sprite2D" parent="Ally Board"]
+position = Vector2(-7, 167)
+texture = ExtResource("5_ogfui")
+
+[node name="Ally Class 2 Stack" type="Sprite2D" parent="Ally Board"]
+position = Vector2(-7, 88)
+texture = ExtResource("6_4weoi")
+
+[node name="Ally In Play Stack" type="Sprite2D" parent="Ally Board"]
+position = Vector2(133, 121)
+texture = ExtResource("7_l22kj")
+
+[node name="Enemy Board" type="Node2D" parent="."]
+visible = false
+
+[node name="Enemy Discard Stack" type="Sprite2D" parent="Enemy Board"]
+position = Vector2(181, -96)
+texture = ExtResource("2_i1qcl")
+
+[node name="Enemy Armor Stack" type="Sprite2D" parent="Enemy Board"]
+position = Vector2(89, -63)
+texture = ExtResource("3_y0oec")
+
+[node name="Enemy Weapon Stack" type="Sprite2D" parent="Enemy Board"]
+position = Vector2(89, -142)
+texture = ExtResource("4_nvjt0")
+
+[node name="Enemy Class 1 Stack" type="Sprite2D" parent="Enemy Board"]
+position = Vector2(2, -142)
+texture = ExtResource("5_ogfui")
+
+[node name="Enemy Class 2 Stack" type="Sprite2D" parent="Enemy Board"]
+position = Vector2(2, -63)
+texture = ExtResource("6_4weoi")
+
+[node name="Enemy In Play Stack" type="Sprite2D" parent="Enemy Board"]
+position = Vector2(-138, -96)
+texture = ExtResource("7_l22kj")
+
+[node name="Floor" type="Node2D" parent="."]
+position = Vector2(0, -30)
+
+[node name="Ally Floor" type="Sprite2D" parent="Floor"]
+position = Vector2(-352, 0)
+texture = ExtResource("8_0egt1")
+offset = Vector2(0, 22)
+
+[node name="Enemy Floor" type="Sprite2D" parent="Floor"]
+position = Vector2(385, 0)
+texture = ExtResource("9_y53yi")
+offset = Vector2(0, 22)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-289, -70)
+texture = ExtResource("12_07c71")
+
+[node name="Node2D" type="Node2D" parent="."]
+visible = false
+position = Vector2(-480, -270)
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+position = Vector2(863, 162)
+texture = ExtResource("10_6f7ug")
+hframes = 3
+
+[node name="SkullSprite" type="Sprite2D" parent="Node2D"]
+position = Vector2(121, 160)
+texture = ExtResource("11_oboi1")
+hframes = 3
