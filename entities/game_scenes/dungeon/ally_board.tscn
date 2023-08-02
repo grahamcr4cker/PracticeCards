@@ -1,0 +1,49 @@
+[gd_scene load_steps=10 format=3 uid="uid://bmjkxoj6ekn71"]
+
+[ext_resource type="Texture2D" uid="uid://duj81uhg28odl" path="res://assets/Backgrounds/Combat/discard-box.png" id="1_vdyf4"]
+[ext_resource type="Script" path="res://entities/game_scenes/dungeon/Ally Discard Stack.gd" id="2_kdlfh"]
+[ext_resource type="Texture2D" uid="uid://chu0wf3fht5om" path="res://assets/Backgrounds/Combat/Armor-box.png" id="3_ig224"]
+[ext_resource type="Texture2D" uid="uid://yhd3spmlscdr" path="res://assets/Backgrounds/Combat/weapon-box.png" id="4_rt045"]
+[ext_resource type="Script" path="res://entities/game_scenes/dungeon/Ally Weapon Stack.gd" id="5_kueew"]
+[ext_resource type="Script" path="res://entities/game_scenes/dungeon/ProgressBar.gd" id="6_2f6xr"]
+[ext_resource type="Texture2D" uid="uid://cc314pdpkdurp" path="res://assets/Backgrounds/Combat/Class-1-box.png" id="7_rtx1t"]
+[ext_resource type="Texture2D" uid="uid://c66duv2713bhr" path="res://assets/Backgrounds/Combat/Class-2-box.png" id="8_cmuy0"]
+[ext_resource type="Texture2D" uid="uid://be2rpvnrogs0u" path="res://assets/Backgrounds/Combat/In-play-Box.png" id="9_5i2gg"]
+
+[node name="Ally Board" type="Node2D"]
+position = Vector2(477, 218)
+
+[node name="Ally Discard Stack" type="Sprite2D" parent="."]
+position = Vector2(-186, 121)
+texture = ExtResource("1_vdyf4")
+script = ExtResource("2_kdlfh")
+
+[node name="Ally Armor Stack" type="Sprite2D" parent="."]
+position = Vector2(-94, 88)
+texture = ExtResource("3_ig224")
+
+[node name="Ally Weapon Stack" type="Sprite2D" parent="."]
+position = Vector2(-94, 167)
+texture = ExtResource("4_rt045")
+script = ExtResource("5_kueew")
+
+[node name="ProgressBar" type="ProgressBar" parent="Ally Weapon Stack"]
+offset_left = -40.0
+offset_top = -30.0
+offset_right = 40.0
+offset_bottom = 31.0
+max_value = 10.0
+show_percentage = false
+script = ExtResource("6_2f6xr")
+
+[node name="Ally Class 1 Stack" type="Sprite2D" parent="."]
+position = Vector2(-7, 167)
+texture = ExtResource("7_rtx1t")
+
+[node name="Ally Class 2 Stack" type="Sprite2D" parent="."]
+position = Vector2(-7, 88)
+texture = ExtResource("8_cmuy0")
+
+[node name="Ally In Play Stack" type="Sprite2D" parent="."]
+position = Vector2(133, 121)
+texture = ExtResource("9_5i2gg")

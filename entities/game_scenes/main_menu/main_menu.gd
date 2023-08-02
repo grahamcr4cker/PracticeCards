@@ -186,7 +186,9 @@ func _on_play_game_pressed():
 				pass
 	GameBoard.shuffle_deck()
 	GameBoard.shuffle_deck()
-	get_tree().change_scene_to_file("res://entities/game_scenes/combat_dungeon/combat_dungeon.tscn")
+	GameBoard.shuffle_deck()
+	GameBoard.shuffle_deck()
+	get_tree().change_scene_to_file("res://entities/game_scenes/dungeon/Dungeon.tscn")
 
 func add_cards_to_player_deck(card_list):
 	for card in card_list:

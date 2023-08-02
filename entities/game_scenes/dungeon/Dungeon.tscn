@@ -1,0 +1,87 @@
+[gd_scene load_steps=16 format=3 uid="uid://biwqq51sq5s3o"]
+
+[ext_resource type="Script" path="res://entities/game_scenes/dungeon/Dungeon.gd" id="1_opgni"]
+[ext_resource type="PackedScene" uid="uid://cbsfp7opryekh" path="res://entities/game_scenes/dungeon/Dungeon Background.tscn" id="2_jfpeh"]
+[ext_resource type="Script" path="res://entities/combat_scenes/combatant/Combat Manager.gd" id="3_b2lix"]
+[ext_resource type="PackedScene" uid="uid://bmjkxoj6ekn71" path="res://entities/game_scenes/dungeon/ally_board.tscn" id="4_eyjdt"]
+[ext_resource type="Script" path="res://entities/game_scenes/dungeon/Hand.gd" id="4_yidxp"]
+[ext_resource type="FontFile" uid="uid://diqt2vii6tchx" path="res://assets/Fonts/CloisterBlack.ttf" id="5_oskko"]
+[ext_resource type="Script" path="res://entities/game_scenes/dungeon/Attack Button.gd" id="6_d13kw"]
+[ext_resource type="Script" path="res://entities/game_scenes/dungeon/Pass Turn.gd" id="7_fqhkg"]
+[ext_resource type="Texture2D" uid="uid://duxbot55jmfli" path="res://assets/Backgrounds/Combat/Turn-Widget.png" id="8_e2nub"]
+[ext_resource type="Texture2D" uid="uid://duj81uhg28odl" path="res://assets/Backgrounds/Combat/discard-box.png" id="9_6qmh4"]
+[ext_resource type="Texture2D" uid="uid://chu0wf3fht5om" path="res://assets/Backgrounds/Combat/Armor-box.png" id="10_5uids"]
+[ext_resource type="Texture2D" uid="uid://yhd3spmlscdr" path="res://assets/Backgrounds/Combat/weapon-box.png" id="11_em5hv"]
+[ext_resource type="Texture2D" uid="uid://cc314pdpkdurp" path="res://assets/Backgrounds/Combat/Class-1-box.png" id="12_kb0f0"]
+[ext_resource type="Texture2D" uid="uid://c66duv2713bhr" path="res://assets/Backgrounds/Combat/Class-2-box.png" id="13_c1adi"]
+[ext_resource type="Texture2D" uid="uid://be2rpvnrogs0u" path="res://assets/Backgrounds/Combat/In-play-Box.png" id="14_lkfcd"]
+
+[node name="Dungeon" type="Node2D"]
+script = ExtResource("1_opgni")
+
+[node name="Background Dungeon" parent="." instance=ExtResource("2_jfpeh")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(475, 44)
+texture = ExtResource("8_e2nub")
+
+[node name="Ally Board" parent="." instance=ExtResource("4_eyjdt")]
+
+[node name="Enemy Board" type="Node2D" parent="."]
+position = Vector2(477, 270)
+
+[node name="Enemy Discard Stack" type="Sprite2D" parent="Enemy Board"]
+position = Vector2(181, -96)
+texture = ExtResource("9_6qmh4")
+
+[node name="Enemy Armor Stack" type="Sprite2D" parent="Enemy Board"]
+position = Vector2(89, -63)
+texture = ExtResource("10_5uids")
+
+[node name="Enemy Weapon Stack" type="Sprite2D" parent="Enemy Board"]
+position = Vector2(89, -142)
+texture = ExtResource("11_em5hv")
+
+[node name="Enemy Class 1 Stack" type="Sprite2D" parent="Enemy Board"]
+position = Vector2(2, -142)
+texture = ExtResource("12_kb0f0")
+
+[node name="Enemy Class 2 Stack" type="Sprite2D" parent="Enemy Board"]
+position = Vector2(2, -63)
+texture = ExtResource("13_c1adi")
+
+[node name="Enemy In Play Stack" type="Sprite2D" parent="Enemy Board"]
+position = Vector2(-138, -96)
+texture = ExtResource("14_lkfcd")
+
+[node name="CombatManger" type="Node2D" parent="."]
+script = ExtResource("3_b2lix")
+
+[node name="Hand" type="Node2D" parent="."]
+position = Vector2(470, 500)
+script = ExtResource("4_yidxp")
+
+[node name="Attack Button" type="Button" parent="."]
+offset_left = 770.0
+offset_top = 296.0
+offset_right = 939.0
+offset_bottom = 363.0
+theme_override_fonts/font = ExtResource("5_oskko")
+theme_override_font_sizes/font_size = 48
+toggle_mode = true
+text = "Attack"
+script = ExtResource("6_d13kw")
+
+[node name="Pass Turn" type="Button" parent="."]
+offset_left = 796.0
+offset_top = 371.0
+offset_right = 919.0
+offset_bottom = 415.0
+theme_override_fonts/font = ExtResource("5_oskko")
+theme_override_font_sizes/font_size = 24
+text = "Pass Turn"
+script = ExtResource("7_fqhkg")
+
+[connection signal="child_exiting_tree" from="Hand" to="Hand" method="_on_child_exiting_tree"]
+[connection signal="toggled" from="Attack Button" to="Attack Button" method="_on_toggled"]
+[connection signal="pressed" from="Pass Turn" to="." method="_on_pass_turn_pressed"]
